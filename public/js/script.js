@@ -13,7 +13,7 @@ $(document).ready(function() {
 	$('#customemail').on('click',function(){
 		var input=$('#EmailRegister').val();
 		$.ajax({
-			url: 'ajax/contect-email.php',
+			url: 'views/pages/contect-email.php',
 			type: 'POST',
 			dataType: 'json',
 			data: {input: input},

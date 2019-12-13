@@ -1,5 +1,5 @@
 <?php 
-include("../Config.php");
+require_once("../Config.php");
 require_once('../system/Database.php');
 function loadModelAjax($name)
 {

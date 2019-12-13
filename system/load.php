@@ -33,8 +33,6 @@ function loadComponent($page=true)
 			$pathView.='dashboard/index.php';
 		}
 	}*/
-	
-	//require($pathView);
 }
 
 function loadModel($name)
