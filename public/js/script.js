@@ -9,3 +9,25 @@ $(document).ready(function(){
 	$.getScript("public/js/library.js");
 });
 
+$(document).ready(function() {
+	$('#customemail').on('click',function(){
+		var input=$('#EmailRegister').val();
+		$.ajax({
+			url: 'ajax/contect-email.php',
+			type: 'POST',
+			dataType: 'json',
+			data: {input: input},
+		})
+		.done(function() {
+			console.log("success");
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
+	})
+});
+

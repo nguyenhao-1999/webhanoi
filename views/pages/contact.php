@@ -1,4 +1,5 @@
 <?php 
+
 $contact=loadModel('contact');
 $title="Liên hệ";
 if(isset($_POST['THUCHIEN']))

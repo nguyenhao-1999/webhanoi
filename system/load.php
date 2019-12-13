@@ -8,9 +8,6 @@ function loadComponent($page=true)
 		if(!isset($_REQUEST['url']))
 		{
 			require_once('views/pages/home.php');
-		if(!isset($_REQUEST['option']))
-		{
-			$pathView.='home.php';
 		}
 		else
 		{
@@ -36,7 +33,7 @@ function loadComponent($page=true)
 			$pathView.='dashboard/index.php';
 		}
 	}*/
-	}
+	
 	require_once($pathView);
 }
 function loadModel($name)

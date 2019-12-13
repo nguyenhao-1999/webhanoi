@@ -1447,7 +1447,7 @@
                         <form>
                             <div class="form-dk">
                                 <input type="text" id="EmailRegister" name="EmailRegister" placeholder="Nhập địa chỉ email" class="form-control">
-                                <button type="button" class="btn btn-default btn-submit" onclick="getEmail();">ĐĂNG KÝ</button>
+                                <button type="button" class="btn btn-default btn-submit" id="customemail">ĐĂNG KÝ</button>
                             </div>
                         </form>
                     </div>
