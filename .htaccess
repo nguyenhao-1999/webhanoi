@@ -1,6 +1,7 @@
 RewriteEngine On
 RewriteRule "^trang-chu.html$" "index.php"
 RewriteRule "^([a-zA-Z0-9_-]+)$" "index.php?option=$1"
+<<<<<<< HEAD
 RewriteRule "^(.*).html$" "index.php?option=product&id=$1"
 RewriteRule "^(.*)$" "index.php?option=product&cat=$1"
 RewriteRule "^xay-dung/(.*).html$" "index.php?option=xay-dung&id=$1"
@@ -13,3 +14,6 @@ RewriteRule "^khu-vuc/(.*)$" "index.php?option=khu-vuc&cat=$1"
 RewriteRule "^ho-tro/(.*)$" "index.php?option=ho-tro&cat=$1"
 RewriteRule "^du-an/(.*).html$" "index.php?option=du-an&id=$1"
 RewriteRule "^dang-nhap/(.*)$" "index.php?option=dang-nhap&cat=$1"
+=======
+RewriteRule "^(.*).html$" "index.php?url=$1"
+>>>>>>> 9c5615f4e8cc6876e56d5636bc15b531cd84123c
