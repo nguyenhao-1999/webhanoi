@@ -34,8 +34,9 @@ function loadComponent($page=true)
 		}
 	}*/
 	
-	require_once($pathView);
+	//require($pathView);
 }
+
 function loadModel($name)
 {
 	$name=ucfirst(strtolower($name));

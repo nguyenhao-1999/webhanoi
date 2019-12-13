@@ -23,7 +23,7 @@ class Contact extends Database
 	}
 	function contact_list($email)
 	{
-		$sql="SELECT * FROM $this->table($strf) WHERE contact_email='$email'";
+		$sql="SELECT * FROM $this->table WHERE contact_email='$email'";
 		return $this->QueryCount($sql);
 	}
 }
