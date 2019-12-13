@@ -21,10 +21,6 @@ class Contact extends Database
 		$sql="INSERT INTO $this->table($strf) VALUES($strv)";
 		$this->QueryNoResult($sql);
 	}
-	function contact_list($email)
-	{
-		$sql="SELECT * FROM $this->table($strf) WHERE contact_email='$email'";
-		return $this->QueryCount($sql);
-	}
+	
 }
 ?>

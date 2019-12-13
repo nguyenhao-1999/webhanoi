@@ -1,8 +1,8 @@
 <?php 
+$contact=loadModel('contact');
 $email=$_POST['input'];
 if(isset($email))
 {
-    include('models/Contact.php');
     if($email=="")
     {
     	$err['msg'] = 'Cần nhập vào thông tin';
@@ -35,5 +35,4 @@ if(isset($email))
     echo json_encode($err,true);
     die();
 }
-require_once('views/footer.php');
  ?>
