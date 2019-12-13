@@ -4,13 +4,7 @@ function loadComponent($page=true)
 	$pathView='views/pages/';
 	if($page==true)
 	{
-		if(isset($_REQUEST['url']))
-		{
-			$pathView.='home.php';
-			echo $_REQUEST['url'];
-		}
-	}
-		/*if(!isset($_REQUEST['option']))
+		if(!isset($_REQUEST['option']))
 		{
 			$pathView.='home.php';
 		}
@@ -66,8 +60,7 @@ function loadComponent($page=true)
 		{
 			$pathView.='dashboard/index.php';
 		}
-	}*/
-
+	}
 	require_once($pathView);
 }
 function loadModel($name)

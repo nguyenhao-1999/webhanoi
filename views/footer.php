@@ -439,7 +439,7 @@
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="quat-tran-canh-go-an-thinh-66ta988.html">
-                                    <img class="owl-lazy" data-src="public/ResizeImage/images/product/bepanthinh/quat-tran-denx500x500x4.jpeg" src="public/ResizeImage/images/product/bepanthinh/quat-tran-denx500x500x4.jpg" alt="Quạt trần cánh gỗ An Thịnh 66TA-988">
+                                    <img class="owl-lazy" data-src="public/ResizeImage/images/product/bepanthinh/bepanthinh/quat-tran-den-060889x500x500x4.jpg" src="public/ResizeImage/images/product/bepanthinh/quat-tran-den-060889x500x500x4.jpg" alt="Quạt trần cánh gỗ An Thịnh 66TA-988">
                                 </a>
                             </div>
                             <div class="text-item-sp">
@@ -456,7 +456,7 @@
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="quat-tran-canh-go-an-thinh-68at330y.html">
-                                    <img class="owl-lazy" data-src="public/ResizeImage/images/pageimage/quattranden/001b--Lan-qu-t-1650kx500x500x4.jpg" src="public/ResizeImage/images/pageimage/quattranden/001b--Lan-qu-t-1650kx500x500x4.jpg" alt="Quạt trần cánh gỗ An Thịnh 68AT-330Y">
+                                    <img class="owl-lazy" data-src="public/ResizeImage/images/pageimage/quattranden/bepanthinh/quat-tran-den-060889x500x500x4.jpg" src="public/ResizeImage/images/pageimage/quattranden/bepanthinh/quat-tran-den-060889x500x500x4.jpg" alt="Quạt trần cánh gỗ An Thịnh 68AT-330Y">
                                 </a>
                             </div>
                             <div class="text-item-sp">
@@ -464,22 +464,6 @@
                                 <div class="price">
                                     <span class="s-dell">3.990.000</span>
                                     <span class="s-ins">2.550.000</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="wp-item-sp-page">
-                            <div class="img-item-sp-page">
-                                <a href="quat-tran-trang-tri-an-thinh-at060889.html">
-                                    <img class="owl-lazy" data-src="public/ResizeImage/images/product/bepanthinh/quat-tran-den-060889x500x500x4.jpg" src="public/ResizeImage/images/product/bepanthinh/quat-tran-den-060889x500x500x4.jpg" alt="Quạt trần trang trí An Thịnh AT060889">
-                                </a>
-                            </div>
-                            <div class="text-item-sp">
-                                <h3 class="h3-title"><a href="quat-tran-trang-tri-an-thinh-at060889.html">Quạt trần trang trí An Thịnh AT060889</a></h3>
-                                <div class="price">
-                                    <span class="s-dell">4.900.000</span>
-                                    <span class="s-ins">3.800.000</span>
                                 </div>
                             </div>
                         </div>
@@ -1659,18 +1643,8 @@
     </div>
     
 </footer>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="../connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v4.0&appId=302416130363042&autoLogAppEvents=1"></script>
-<script type="text/javascript" src="public/js/app.pack.js"></script>
-<script type="text/javascript" src="public/js/data.ajax.js"></script>
-<script type="text/javascript" src="public/js/html5lightbox.js"></script>
-<script type="text/javascript" src="public/js/owl.carousel.js"></script>
-<script type="text/javascript" src="public/js/modernizr.custom.js"></script>
-<script type="text/javascript" src="public/js/jquery.glasscase.minf195.js"></script>
-<script type="text/javascript" src="public/js/lazyload.js"></script>
-<script type="text/javascript" src="public/js/library.js"></script>
+    <script src="public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="public/js/owl.carousel.js"></script>
+    <script type="text/javascript" src="public/js/script.js"></script>
 </body>
-
-<!-- Mirrored from bepanthinh.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 12:21:26 GMT -->
-
 </html>

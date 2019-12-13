@@ -467,7 +467,7 @@ $('.wp-icon-filter').on('click', function () {
     $(this).toggleClass('open')
 });
 
-$(function () {
+ $(document).ready(function () {
 
     $('.ext-show a').click(function () {
         if ($(this).text() == 'Xem thêm') {
@@ -535,7 +535,7 @@ $(function () {
 
     $('.postInfo table').addClass('table mb0');
 
-    $('.ctgrLeft,.fix_header,.infoRightDetail').stick_in_parent();
+    //$('.ctgrLeft,.fix_header,.infoRightDetail').stick_in_parent();
 
     $('.slide-home').owlCarousel({
         lazyLoad: true,
@@ -550,7 +550,7 @@ $(function () {
         margin: 0
     });
 
-    var brand = new Swiper('.slide-brand', {
+    /*var brand = new Swiper('.slide-brand', {
         slidesPerView: 5,
         slidesPerColumn: 2,
         spaceBetween: 5,
@@ -562,7 +562,7 @@ $(function () {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-    });
+    });*/
 
     $("#elevatezoom").elevateZoom({
         gallery: 'list_small',
