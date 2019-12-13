@@ -5,21 +5,22 @@ class Category extends Database
 	function __construct()
 	{
 		parent::__construct();
+		$this->table=$this->TableName('category');
 	}
 	function category_parentid($parentid=0)
 	{
-		$sql="SELECT * FROM nvh_category WHERE category_status='1' AND category_parentid='$parentid' ORDER BY category_order ASC";
+		$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_parentid='$parentid' ORDER BY category_order ASC";
 		return $this->QueryAll($sql);
 	}
 	function category_rowslug($slug)
 	{
-		$sql="SELECT * FROM nvh_category WHERE category_status='1' AND category_slug='$slug'";
+		$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_slug='$slug'";
 		return $this->QueryOne($sql);
 	}
 	function category_listid($id)
 	{
 		$arr=array();
-		$arr[]=$id;
+		//$arr[]=$id;
 		$list1=$this->category_parentid($id);
 		if(count($list1))
 		{

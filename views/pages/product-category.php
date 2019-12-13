@@ -1,3 +1,10 @@
+<?php
+$category=loadModel('category');
+$slug=$_REQUEST['url'];
+$listrow=$category->category_rowslug($slug);
+$listrow['category_id'];
+$listid=$category->category_parentid($listrow['category_id']);
+?>
 <?php require_once('views/header.php'); ?>
 <section class="sec-content-page">
     <div class="wp-bread-page">
@@ -8,7 +15,7 @@
                         <a href="index.html" itemprop="url"><span itemprop="title">bepanthinh.com</span></a>
                     </li>
                     <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                        <a href="thiet-bi-nha-bep.html" itemprop="url"><span itemprop="title">Thiết bị nhà bếp</span></a>
+                        <a href="thiet-bi-nha-bep.html" itemprop="url"><span itemprop="title"><?php echo $listrow['category_name']; ?></span></a>
                     </li>
                 </ul>
             </div>
@@ -22,178 +29,24 @@
                     <div class="col-md-9 col-sm-12 col-xs-12 fl-right">
                         <div class="wp-right-page">
                             <div class="wp-title-ct-sp">
-                                <h1 class="h1-title">Thiết bị nhà bếp</h1>
+                                <h1 class="h1-title"><?php echo $listrow['category_name']; ?></h1>
                             </div>
                             <div class="wp-list-item-danhmuc">
                                 <div class="row">
+                                    <?php foreach($listid as $row): ?>
                                     <div class="col-md-4 col-sm-4 col-xs-6">
                                         <div class="wp-item-danhmuc">
                                             <div class="img-danhmuc img-cover">
-                                                <a href="bep-tu.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/bep%20tu.png" alt="Bếp từ" />
+                                                <a href="<?php echo $row['category_slug']; ?>.html">
+                                                    <img src="public/upload/files/<?php echo $row['category_img']; ?>" alt="Bếp từ" />
                                                 </a>
                                             </div>
                                             <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="bep-tu.html">Bếp từ</a></h2>
+                                                <h2 class="h2-title-dm"><a href="index.php?url=<?php echo $row['category_slug']; ?>"><?php echo $row['category_name']; ?></a></h2>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="bep-dien-tu.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/bep%20hong%20ngoai.png" alt="Bếp điện từ" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="bep-dien-tu.html">Bếp điện từ</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="may-hut-mui.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/may%20hut%20mui.png" alt="Máy Hút Mùi" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="may-hut-mui.html">Máy Hút Mùi</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="lo-nuong.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/lo%20nuong.png" alt="Lò Nướng" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="lo-nuong.html">Lò Nướng</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="may-rua-bat.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/may%20rua%20bat.png" alt="Máy Rửa Bát" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="may-rua-bat.html">Máy Rửa Bát</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="chau-rua-bat.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/chau%20rua%20bat.png" alt="Chậu Rửa Bát" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="chau-rua-bat.html">Chậu Rửa Bát</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="lo-vi-song.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/lo%20vi%20song.png" alt="Lò Vi Sóng" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="lo-vi-song.html">Lò Vi Sóng</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="voi-rua-bat.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/voi%20rua.png" alt="Vòi Rửa Bát" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="voi-rua-bat.html">Vòi Rửa Bát</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="bep-dien.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/bep%20dien%202.png" alt="Bếp điện" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="bep-dien.html">Bếp điện</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="may-loc-nuoc.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/may%20loc%20nuoc.png" alt="Máy Lọc Nước" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="may-loc-nuoc.html">Máy Lọc Nước</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="lo-hap.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/lo%20hap.png" alt="Lò Hấp" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="lo-hap.html">Lò Hấp</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="bep-hong-ngoai.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/bep%20hong%20ngoai2.png" alt="Bếp Hồng Ngoại" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="bep-hong-ngoai.html">Bếp Hồng Ngoại</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="may-say-bat.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/may%20say%20bat.png" alt="Máy Sấy Bát" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="may-say-bat.html">Máy Sấy Bát</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="wp-item-danhmuc">
-                                            <div class="img-danhmuc img-cover">
-                                                <a href="bep-gas.html">
-                                                    <img src="public/upload/files/Anh%20Danh%20m%e1%bb%a5c%20SP/bep%20gas.png" alt="Bếp Gas" />
-                                                </a>
-                                            </div>
-                                            <div class="text-danhmuc">
-                                                <h2 class="h2-title-dm"><a href="bep-gas.html">Bếp Gas</a></h2>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>

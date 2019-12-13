@@ -1,54 +1,20 @@
 <?php
 function loadComponent($page=true)
 {
-	$pathView='views/pages/';
+
+	$link=loadModel('link');
 	if($page==true)
 	{
-		if(isset($_REQUEST['url']))
+		if(!isset($_REQUEST['url']))
 		{
-			$pathView.='home.php';
-			echo $_REQUEST['url'];
-		}
-	}
-		/*if(!isset($_REQUEST['option']))
-		{
-			$pathView.='home.php';
+			require_once('views/pages/home.php');
 		}
 		else
 		{
-			$pathView.=$_REQUEST['option'];
-			if($_REQUEST['option']=='cart')
-			{
-				if(isset($_REQUEST['cat']))
-				{
-					$pathView.='-'.$_REQUEST['cat'].'.php';
-				}
-				else
-				{
-					$pathView.='.php';
-				}
-			}
-			else
-			{
-				if(isset($_REQUEST['id']))
-				{
-					$pathView.='-detail.php';
-				}
-				else
-				{
-					if(isset($_REQUEST['cat']))
-					{
-						$pathView.='-category.php';
-					}
-					else
-					{
-						$pathView.='.php';
-					}
-				}
-			}
+			$link->link_index($_REQUEST['url']);
 		}
 	}
-	else
+	/*else
 	{
 		if(isset($_REQUEST['option']))
 		{
@@ -67,8 +33,7 @@ function loadComponent($page=true)
 			$pathView.='dashboard/index.php';
 		}
 	}*/
-
-	require_once($pathView);
+	
 }
 function loadModel($name)
 {
