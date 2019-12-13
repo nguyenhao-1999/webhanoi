@@ -1,8 +1,8 @@
 RewriteEngine On
 RewriteRule "^trang-chu.html$" "index.php"
 RewriteRule "^([a-zA-Z0-9_-]+)$" "index.php?option=$1"
-RewriteRule "^nha-dat/(.*).html$" "index.php?option=nha-dat&id=$1"
-RewriteRule "^nha-dat/(.*)$" "index.php?option=nha-dat&cat=$1"
+RewriteRule "^(.*).html$" "index.php?option=product&id=$1"
+RewriteRule "^(.*)$" "index.php?option=product&cat=$1"
 RewriteRule "^xay-dung/(.*).html$" "index.php?option=xay-dung&id=$1"
 RewriteRule "^xay-dung/(.*)$" "index.php?option=xay-dung&cat=$1"
 RewriteRule "^tin-tuc/(.*).html$" "index.php?option=tin-tuc&id=$1"
