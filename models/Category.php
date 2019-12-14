@@ -52,5 +52,10 @@ class Category extends Database
 		}
 		return $arr;
 	}
+	function category_of($id)
+	{
+		$sql="SELECT*FROM $this->table WHERE category_id = $id AND category_status = 1 ";
+		return $this->QueryOne($sql);
+	}
 }
 ?>

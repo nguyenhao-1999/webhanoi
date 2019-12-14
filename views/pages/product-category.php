@@ -985,4 +985,5 @@ $list_product=$product->product_category($listid);
         </div>
     </div>
 </section>
+
 <?php require_once('views/footer.php'); ?>

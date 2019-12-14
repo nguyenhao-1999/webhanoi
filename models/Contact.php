@@ -26,5 +26,6 @@ class Contact extends Database
 		$sql="SELECT * FROM $this->table WHERE contact_email='$email'";
 		return $this->QueryCount($sql);
 	}
+	
 }
 ?>

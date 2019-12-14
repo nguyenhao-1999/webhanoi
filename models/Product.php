@@ -96,6 +96,11 @@ class Product extends Database
 		$sql="UPDATE $this->table SET $strset WHERE product_id='$id'";
 		$this->QueryNoResult($sql);
 	}
+	function product_relate($catid, $not, $limit = 6,$status = 1)
+	{
+		$sql = "SELECT * FROM $this->table WHERE  product_id NOT IN ('$not') AND product_status = $status AND product_catid = $catid ORDER BY product_id DESC  LIMIT $limit";
+		return $this->QueryAll($sql);
+	}
 	
 }
- ?>
+?>
