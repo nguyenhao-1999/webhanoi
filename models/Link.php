@@ -25,6 +25,9 @@ class Link extends Database
     		{
                 $type=$item['link_type'];
                 switch ($type) {
+                    case 'product':
+                        require_once('views/pages/product.php');
+                        break;
                     case 'category':
                         require_once('views/pages/product-category.php');
                         break;
@@ -44,7 +47,7 @@ class Link extends Database
                 $product_detail=$product->product_rowslug($slug);
                 if($product_detail!=null)
                 {
-                    $view=$this->product_detail($slug);
+                   require_once('views/pages/product-detail.php');
                 }
                 else
                 {

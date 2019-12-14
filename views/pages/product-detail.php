@@ -1,3 +1,9 @@
+<?php 
+$slug=$_REQUEST['url'];
+$product=loadModel('product');
+$category=loadModel('category');
+$row=$product->product_rowslug($slug);
+?>
 <?php require_once('views/header.php'); ?>
 <section class="sec-content-page">
     <div class="wp-bread-page">
@@ -26,7 +32,7 @@
                 <input type="hidden" id="ParentID" value="0" />
                 <div class="main-content-ctsp">
                     <div class="wp-title-ctsp">
-                        <h1 class="h1-title">Máy hút mùi ABBAKA AB 70 PQ</h1>
+                        <h1 class="h1-title"><?php echo $row['product_name']; ?></h1>
                         <ul class="ul-b list-icon-title">
                             <li>
                                 <a href="https://zalo.me/0913141368">
@@ -53,7 +59,7 @@
                                         <input type="hidden" id="__VIEWxSTATE" />
                                         <ul id='zoom1' class='gc-start'>
                                             <li>
-                                                <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/may-hut-mui-abbaka-ab-70-pq_3971x500x500x4.png" alt='Máy hút mùi ABBAKA AB 70 PQ_0' /></li>
+                                                <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/<?php echo $row['product_img']; ?>" alt='<?php echo $row['product_name']; ?>' /></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -62,13 +68,13 @@
                                 <div class="wp-right-box-img">
                                     <div class="top-box-img">
                                         <div class="wp-gia-km">
-                                            <span>Giá KM:<b>6.752.000 đ</b></span>
+                                            <span>Giá KM:<b><?php echo $row['product_pricesale']; ?> đ</b></span>
                                         </div>
                                         <div class="wp-gia-ny">
-                                            <span>Giá niêm yết: 9.100.000 đ</span>
+                                            <span>Giá niêm yết: <?php echo $row['product_price']; ?> đ</span>
                                         </div>
                                         <div class="wp-tiet-kiem">
-                                            <span>Tiết kiệm: 2.348.000 đ</span>
+                                            <span>Tiết kiệm: <?php echo $row['product_price']-$row['product_pricesale']; ?> đ</span>
                                         </div>
                                     </div>
                                     <div class="main-box-img">
@@ -77,12 +83,7 @@
                                                 <span class="icon-qua">
                                                     <img src="index.html" alt=""></span>
                                                 <ul class="ul-b list-qua">
-                                                    <p>Thông tin chi tiết sản phẩm máy hút mùi ABBAKA AB 70 PQ</p>
-                                                    <p>Loại sản phẩm: Máy hút mùi tum kính</p>
-                                                    <p>Mã sản phẩm: ABBAKA AB 70 PQ</p>
-                                                    <p>Hãng sản xuất: ABBAKA</p>
-                                                    <p>Xuất xứ: Italy</p>
-                                                    <p>Chất ...</p>
+                                                    <?php echo $row['product_detail']; ?>
                                                 </ul>
                                             </div>
                                             <div class="box-btn">

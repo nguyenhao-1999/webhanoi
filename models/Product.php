@@ -39,12 +39,10 @@ class Product extends Database
 		$sql="SELECT * FROM $this->table WHERE product_status='1'";
 		return $this->QueryCount($sql);
 	}
-	function product_category($sort,$acat,$first,$limit)
+	function product_category($acat)
 	{
-		$sort_f=$sort['order'];
-		$sort_by=$sort['orderby'];
 		$strin=implode($acat,',');
-		$sql="SELECT * FROM $this->table WHERE product_status='1' AND product_catid IN($strin) ORDER BY $sort_f $sort_by LIMIT $first,$limit";
+		$sql="SELECT * FROM $this->table WHERE product_status='1' AND product_catid IN($strin)";
 		return $this->QueryAll($sql);
 	}
 	function product_category_home($acat,$limit=4)
