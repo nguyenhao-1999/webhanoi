@@ -25,6 +25,8 @@ class Link extends Database
     		{
                 $type=$item['link_type'];
                 switch ($type) {
+                    case 'trademark':
+                        $view='trademark.php';
                     case 'product':
                         $view='product.php';
                         break;
