@@ -2,11 +2,14 @@
 $slug=$_REQUEST['url'];
 $product=loadModel('product');
 $category=loadModel('category');
+$option=loadModel('option');
 $row=$product->product_rowslug($slug);
 if ($row['product_catid']) {
   $category_of_product = $category->category_of($row['product_catid']);
   $product_relate = $product->product_relate($row['product_catid'], $row['product_id']);
 }
+
+
 ?>
 <?php require_once('views/header.php'); ?>
 <section class="sec-content-page">
