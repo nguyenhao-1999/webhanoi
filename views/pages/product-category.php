@@ -19,10 +19,10 @@ $list_product=$product->product_category($listid);
                         <a href="index.html" itemprop="url"><span itemprop="title">bepanthinh.com</span></a>
                     </li>
                     <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                        <a href="thiet-ke-tu-bep.html" itemprop="url"><span itemprop="title"><?php echo $rowparentid['category_name']; ?></span></a>
+                        <a href="<?php echo $rowparentid['category_slug']; ?>.html" itemprop="url"><span itemprop="title"><?php echo $rowparentid['category_name']; ?></span></a>
                     </li>
                     <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                        <a href="tu-bep-go-tu-nhien.html" itemprop="url"><span itemprop="title"><?php echo $rowcat['category_name']; ?></span></a>
+                        <a href="<?php echo $rowcat['category_slug']; ?>.html" itemprop="url"><span itemprop="title"><?php echo $rowcat['category_name']; ?></span></a>
                     </li>
                 </ul>
             </div>

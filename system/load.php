@@ -8,7 +8,6 @@ function loadComponent($page=true)
 		if(!isset($_REQUEST['url']))
 		{
 			$view.='home.php';
-			echo $_REQUEST['url'];
 		}
 		else
 		{

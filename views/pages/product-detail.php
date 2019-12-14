@@ -68,13 +68,13 @@ $row=$product->product_rowslug($slug);
                                 <div class="wp-right-box-img">
                                     <div class="top-box-img">
                                         <div class="wp-gia-km">
-                                            <span>Giá KM:<b><?php echo $row['product_pricesale']; ?> đ</b></span>
+                                            <span>Giá KM:<b><?php echo number_format($row['product_pricesale']); ?> đ</b></span>
                                         </div>
                                         <div class="wp-gia-ny">
-                                            <span>Giá niêm yết: <?php echo $row['product_price']; ?> đ</span>
+                                            <span>Giá niêm yết: <?php echo number_format($row['product_price']); ?> đ</span>
                                         </div>
                                         <div class="wp-tiet-kiem">
-                                            <span>Tiết kiệm: <?php echo $row['product_price']-$row['product_pricesale']; ?> đ</span>
+                                            <span>Tiết kiệm: <?php echo number_format($row['product_price']-$row['product_pricesale']); ?> đ</span>
                                         </div>
                                     </div>
                                     <div class="main-box-img">
