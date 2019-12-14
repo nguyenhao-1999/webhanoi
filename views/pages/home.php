@@ -1443,7 +1443,7 @@ require_once('views/header.php');
 require_once('views/footer.php'); 
 ?>
 
-<div class="modal banner" id="modal-banner" style="top: 40px">
+<!-- <div class="modal banner" id="modal-banner" style="top: 40px">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1465,4 +1465,4 @@ require_once('views/footer.php');
             var modal = $(".banner");
             modal.hide();
         })
-    </script>
+    </script> -->
