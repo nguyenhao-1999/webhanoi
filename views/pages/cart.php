@@ -43,7 +43,7 @@ require_once('views/header.php');
 							<div class="alert alert-<?php echo $tb['type']; ?>"><?php echo $tb['msg']; ?></div>
 						<?php endif; ?>
 						<?php if($cart_list!=NULL): ?>
-                        <form action="index.php?url=cart&cat=updatecart" method="post">
+                        <form action="index.php?option=cart&cat=updatecart" method="post">
                         <div class="text-right">
                         	<button type="submit" class="button btn-success" name="CAPNHAT" style="padding: 7px 10px;">Cập nhật giỏ hàng</button>
                         </div>
@@ -83,7 +83,7 @@ require_once('views/header.php');
 												?>
 												<td class="product_cart"><b><span id="price_pro_25875"><?php echo number_format($tien);?></td>
 												<td>
-													<a href="index.php?url=cart&cat=delete&id=<?php echo $item['id']; ?>" class="clickDele" ><i class="fa fa-trash"></i></a>
+													<a href="index.php?option=cart&cat=delete&id=<?php echo $item['id']; ?>" class="clickDele" ><i class="fa fa-trash"></i></a>
 												</td>
 											</tr>
 										<?php endforeach;?>

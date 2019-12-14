@@ -1,19 +1,19 @@
 <?php
 function loadComponent($page=true)
 {
-	$link=loadModel('link');
 	$view='views/pages/';
 	if($page==true)
 	{
-		if(!isset($_REQUEST['url']))
+		$link=loadModel('link');
+		if(!isset($_REQUEST['option']))
 		{
 			$view.='home.php';
 		}
 		else
 		{
-			if($_REQUEST['url']=='cart')
+			if($_REQUEST['option']=='cart')
 			{
-				$view.=$_REQUEST['url'];
+				$view.=$_REQUEST['option'];
 				if(isset($_REQUEST['cat']))
 				{
 					$view.='-'.$_REQUEST['cat'].'.php';
@@ -25,29 +25,29 @@ function loadComponent($page=true)
 			}
 			else
 			{
-				$view.=$link->link_index($_REQUEST['url']);
+				$view.=$link->link_index($_REQUEST['option']);
 			}
 		}
 	}
-	/*else
+	else
 	{
 		if(isset($_REQUEST['option']))
 		{
-			$pathView.=$_REQUEST['option'].'/';
+			$view.=$_REQUEST['option'].'/';
 			if(isset($_REQUEST['cat']))
 			{
-				$pathView.=$_REQUEST['cat'].'.php';
+				$view.=$_REQUEST['cat'].'.php';
 			}
 			else
 			{
-				$pathView.='index.php';
+				$view.='index.php';
 			}
 		}
 		else
 		{
-			$pathView.='dashboard/index.php';
+			$view.='dashboard/index.php';
 		}
-	}*/
+	}
 	require_once($view);
 }
 

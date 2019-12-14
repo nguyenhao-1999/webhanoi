@@ -1,10 +1,7 @@
 <?php 
-$slug=$_REQUEST['url'];
+$slug=$_REQUEST['option'];
 $post=loadModel('post');
-$topic =loadModel('topic');
-$listtop=$topic->topic_list();
 $row=$post->post_rowslug($slug,'page');
-$listrow=$post->post_list(4);
 ?>
 <?php require_once('views/header.php'); ?>
 <section class="sec-content-page">
@@ -60,17 +57,51 @@ $listrow=$post->post_list(4);
                             </div>
                             <div class="content-box box-2">
                                 <ul class="ul-b list-item-box">
-                                	<?php 	foreach($listrow as $post): ?>
                                     <li>
                                         <div class="img-exp-sb">
                                             <a href="chuyen-gia-huong-dan-cach-su-dung-may-hut-mui-dung-cach-hieu-qua.html">
-                                                <img src="public/ResizeImage/images/<?php 	echo $post['post_img']; ?>" alt="<?php 	echo $post['post_title']; ?>"></a>
+                                                <img src="public/ResizeImage/images/hut-mui-am-tu-boschx500x500x4.jpg" alt="Chuyên gia hướng dẫn cách sử dụng máy hút mùi đúng cách, hiệu quả"></a>
                                         </div>
                                         <div class="text-exp-sb">
-                                            <h3 class="h3-title"><a href="<?php echo $post['post_slug']; ?>.html"><?php 	echo $post['post_title']; ?></a></h3>
+                                            <h3 class="h3-title"><a href="chuyen-gia-huong-dan-cach-su-dung-may-hut-mui-dung-cach-hieu-qua.html">Chuyên gia hướng dẫn cách sử dụng máy hút mùi đúng cách, hiệu quả</a></h3>
                                         </div>
                                     </li>
-                                <?php 	endforeach; ?>
+                                    <li>
+                                        <div class="img-exp-sb">
+                                            <a href="nhung-luu-y-khi-su-dung-va-huong-dan-bao-quan-lo-nuong-dien-dung-cach.html">
+                                                <img src="public/ResizeImage/images/583_lo_nuong_sunhouse_shd4226__3_x500x500x4.jpg" alt="Những lưu ý khi sử dụng và hướng dẫn bảo quản lò nướng điện đúng cách"></a>
+                                        </div>
+                                        <div class="text-exp-sb">
+                                            <h3 class="h3-title"><a href="nhung-luu-y-khi-su-dung-va-huong-dan-bao-quan-lo-nuong-dien-dung-cach.html">Những lưu ý khi sử dụng và hướng dẫn bảo quản lò nướng điện đúng cách</a></h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="img-exp-sb">
+                                            <a href="gioi-thieu-ve-bep-hong-ngoai-la-gi-bep-cua-thoi-dai-cong-nghe-moi.html">
+                                                <img src="public/ResizeImage/images/Bep-hong-ngoai-Philips-HR-2015-Made-in-Thailand-4x500x500x4.jpg" alt="Giới thiệu về bếp hồng ngoại là gì? - bếp của thời đại công nghệ mới"></a>
+                                        </div>
+                                        <div class="text-exp-sb">
+                                            <h3 class="h3-title"><a href="gioi-thieu-ve-bep-hong-ngoai-la-gi-bep-cua-thoi-dai-cong-nghe-moi.html">Giới thiệu về bếp hồng ngoại là gì? - bếp của thời đại công nghệ mới</a></h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="img-exp-sb">
+                                            <a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh.html">
+                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/anh-3x500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh"></a>
+                                        </div>
+                                        <div class="text-exp-sb">
+                                            <h3 class="h3-title"><a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh.html">Bí quyết chọn đồ phù hợp cho bếp xinh</a></h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="img-exp-sb">
+                                            <a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh-bat-kip-xu-the-hien-dai.html">
+                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/bep-xinhx500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại"></a>
+                                        </div>
+                                        <div class="text-exp-sb">
+                                            <h3 class="h3-title"><a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh-bat-kip-xu-the-hien-dai.html">Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại</a></h3>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

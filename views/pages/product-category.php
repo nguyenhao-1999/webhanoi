@@ -2,7 +2,7 @@
 $product=loadModel('product');
 $topic=loadModel('topic');
 $category=loadModel('category');
-$cat=$_REQUEST['url'];
+$cat=$_REQUEST['option'];
 $rowcat=$category->category_rowslug($cat);
 $rowcat['category_id'];
 $rowparentid=$category->category_rowid($rowcat['category_parentid']);
