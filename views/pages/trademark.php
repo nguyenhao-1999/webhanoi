@@ -1,6 +1,6 @@
 <?php 
 $category=loadModel('category');
-$slug=$_REQUEST['url'];
+$slug=$_REQUEST['option'];
 $listrow=$category->category_rowslug($slug);
 $listrow['category_id'];
 $rowparentid=$category->category_rowid($listrow['category_parentid']);
@@ -43,7 +43,7 @@ $listid=$category->category_parentid($listrow['category_id']);
                         <?php foreach($listid as $item): ?>
                         <div class="col-md-2 col-sm-3 col-xs-4">
                             <div class="wp-item-npp">
-                                <a href="aosmith.html">
+                                <a href="<?php echo $item['category_slug'] ?>.html">
                                     <img src="public/ResizeImage/files/<?php echo $item['category_img']; ?>" alt="<?php echo $item['category_name']; ?>"></a>
                             </div>
                         </div>

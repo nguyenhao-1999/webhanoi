@@ -1,38 +1,53 @@
 <?php
 function loadComponent($page=true)
 {
-	$link=loadModel('link');
 	$view='views/pages/';
 	if($page==true)
 	{
-		if(!isset($_REQUEST['url']))
+		$link=loadModel('link');
+		if(!isset($_REQUEST['option']))
 		{
 			$view.='home.php';
 		}
 		else
 		{
-			$view.=$link->link_index($_REQUEST['url']);
-		}
-	}
-	/*else
-	{
-		if(isset($_REQUEST['option']))
-		{
-			$pathView.=$_REQUEST['option'].'/';
-			if(isset($_REQUEST['cat']))
+			if($_REQUEST['option']=='cart')
 			{
-				$pathView.=$_REQUEST['cat'].'.php';
+				$view.=$_REQUEST['option'];
+				if(isset($_REQUEST['cat']))
+				{
+					$view.='-'.$_REQUEST['cat'].'.php';
+				}
+				else
+				{
+					$view.='.php';
+				}
 			}
 			else
 			{
-				$pathView.='index.php';
+				$view.=$link->link_index($_REQUEST['option']);
+			}
+		}
+	}
+	else
+	{
+		if(isset($_REQUEST['option']))
+		{
+			$view.=$_REQUEST['option'].'/';
+			if(isset($_REQUEST['cat']))
+			{
+				$view.=$_REQUEST['cat'].'.php';
+			}
+			else
+			{
+				$view.='index.php';
 			}
 		}
 		else
 		{
-			$pathView.='dashboard/index.php';
+			$view.='dashboard/index.php';
 		}
-	}*/
+	}
 	require_once($view);
 }
 

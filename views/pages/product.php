@@ -1,6 +1,6 @@
 <?php
 $category=loadModel('category');
-$slug=$_REQUEST['url'];
+$slug=$_REQUEST['option'];
 $listrow=$category->category_rowslug($slug);
 $listrow['category_id'];
 $rowtrademark=$category->category_trademark($listrow['category_id']);

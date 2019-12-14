@@ -102,7 +102,8 @@
                                     <div class="wp-icon">
                                         <a href="gio-hang.html">
                                             <i class="fas fa-shopping-basket"></i>
-                                            <span id="ins-sp">0</span>
+                                            <span id="ins-sp"><?php $count=loadClass('cart');
+                                            echo $count->count_toltal_product();?></span>
                                         </a>
                                     </div>
                                 </div>

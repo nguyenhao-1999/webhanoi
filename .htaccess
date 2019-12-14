@@ -1,6 +1,6 @@
 RewriteEngine On
 RewriteRule "^index.html$" "index.php"
 RewriteRule "^([a-zA-Z0-9_-]+)$" "index.php?option=$1"
-RewriteRule "^(.*).html$" "index.php?url=$1"
+RewriteRule "^(.*).html$" "index.php?option=$1"
 RewriteRule "^(.*).html$" "$1"
 

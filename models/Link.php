@@ -38,10 +38,16 @@ class Link extends Database
                         $view=$this->post_topic($slug);
                         break;
                     case 'page':
-                        $view=$this->post_page($slug);
+                        $view='page-category.php';
                         break;
                     case 'contact':
                         $view='contact.php';
+                    case 'cart':
+                        $view='cart.php';
+                        break;
+                    case 'order':
+                        $view='order-addorder.php';
+                        break;
                     default:
                         $view='error404.php';
                         break;

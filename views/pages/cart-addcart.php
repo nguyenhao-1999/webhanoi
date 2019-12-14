@@ -1,0 +1,20 @@
+<?php 
+$id=$_REQUEST['id'];
+$cart=loadClass('cart');
+$product=loadModel('product');
+$row=$product->product_rowid($id);
+if($row['product_pricesale']>0)
+{
+	$row['product_price']=$row['product_pricesale'];
+}
+$data=array
+(
+	'id'=>$row['product_id'],
+	'name'=>$row['product_name'],
+	'price'=>$row['product_price'],
+	'qty'=>1,
+	'img'=>$row['product_img']
+);
+$cart->insert($data);
+redirect('gio-hang.html');
+?>
