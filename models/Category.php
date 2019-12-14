@@ -7,10 +7,22 @@ class Category extends Database
 		parent::__construct();
 		$this->table=$this->TableName('category');
 	}
-	function category_parentid($parentid=0)
+	function category_parentid($parentid=0,$id=0)
 	{
-		$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_parentid='$parentid' ORDER BY category_order ASC";
+		if($id!=0)
+		{
+			$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_parentid='$parentid'AND category_trademark='$id' ORDER BY category_order ASC";
+		}
+		else
+		{
+			$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_parentid='$parentid' ORDER BY category_order ASC";
+		}
 		return $this->QueryAll($sql);
+	}
+	function category_trademark($id=0)
+	{
+		$sql="SELECT * FROM $this->table WHERE category_trademark='$id'";
+		return $this->QueryOne($sql);
 	}
 	function category_rowslug($slug)
 	{

@@ -27,6 +27,7 @@ class Link extends Database
                 switch ($type) {
                     case 'trademark':
                         $view='trademark.php';
+                        break;
                     case 'product':
                         $view='product.php';
                         break;
@@ -39,6 +40,8 @@ class Link extends Database
                     case 'page':
                         $view=$this->post_page($slug);
                         break;
+                    case 'contact':
+                        $view='contact.php';
                     default:
                         $view='error404.php';
                         break;

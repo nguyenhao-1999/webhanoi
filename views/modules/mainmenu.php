@@ -11,7 +11,7 @@ $listmenu1=$menu->menu_list(0);
                                 <?php $listmenu2=$menu->menu_list($m1['menu_id']); ?>
                                  <?php if(count($listmenu2)): ?>
                                     <li class="dropdown">
-                                        <a href="thiet-bi-nha-bep.html"><span><?php echo $m1['menu_name']; ?></span></a>
+                                        <a href="<?php echo $m1['menu_link']; ?>.html"><span><?php echo $m1['menu_name']; ?></span></a>
                                         <div class="dropdown-menu">
                                             <div class="wp-submenu">
                                                 <div class="row row-edit-0">
@@ -24,8 +24,8 @@ $listmenu1=$menu->menu_list(0);
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="img-submenu">
-                                                            <a href="<?php echo $m2['menu_link']; ?>.html">
-                                                                <img src="public/ResizeImage/files/<?php echo $m1['menu_img']; ?>" alt="<?php echo $m2['menu_name']; ?>">
+                                                            <a href="<?php echo $m1['menu_link']; ?>.html">
+                                                                <img src="public/ResizeImage/files/<?php echo $m1['menu_img']; ?>" alt="<?php echo $m1['menu_name']; ?>">
                                                             </a>
                                                         </div>
                                                     </div>

@@ -3,7 +3,16 @@ $category=loadModel('category');
 $slug=$_REQUEST['url'];
 $listrow=$category->category_rowslug($slug);
 $listrow['category_id'];
-$listid=$category->category_parentid($listrow['category_id']);
+$rowtrademark=$category->category_trademark($listrow['category_id']);
+$rowparentid=$category->category_rowid($listrow['category_parentid']);
+if($rowtrademark['category_trademark']!=0)
+{
+    $listid=$category->category_parentid($rowtrademark['category_parentid'],$listrow['category_id']);
+}
+else
+{
+    $listid=$category->category_parentid($listrow['category_id']);
+}
 ?>
 <?php require_once('views/header.php'); ?>
 <section class="sec-content-page">
@@ -14,8 +23,13 @@ $listid=$category->category_parentid($listrow['category_id']);
                     <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
                         <a href="index.html" itemprop="url"><span itemprop="title">bepanthinh.com</span></a>
                     </li>
+                    <?php if($rowparentid!=null): ?>
                     <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                        <a href="thiet-bi-nha-bep.html" itemprop="url"><span itemprop="title"><?php echo $listrow['category_name']; ?></span></a>
+                        <a href="<?php echo $rowparentid['category_slug']; ?>.html" itemprop="url"><span itemprop="title"><?php echo $rowparentid['category_name']; ?></span></a>
+                    </li>
+                    <?php endif; ?>
+                    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+                        <a href="<?php echo $listrow['category_slug']; ?>.html" itemprop="url"><span itemprop="title"><?php echo $listrow['category_name']; ?></span></a>
                     </li>
                 </ul>
             </div>
