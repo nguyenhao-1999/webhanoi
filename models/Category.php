@@ -17,6 +17,11 @@ class Category extends Database
 		$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_slug='$slug'";
 		return $this->QueryOne($sql);
 	}
+	function category_rowid($parentid=0)
+	{
+		$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_id='$parentid'";
+		return $this->QueryOne($sql);
+	}
 	function category_listid($id)
 	{
 		$arr=array();

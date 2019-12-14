@@ -7,29 +7,29 @@ class Link extends Database
 		parent::__construct();
 		$this->table=$this->TableName('link');
 	}
-	function link_list($parentid=0)
+	function link_list()
 	{
-		$sql="SELECT * FROM $this->table WHERE link_position='mainmenu' AND menu_status='1' AND menu_parentid='$parentid'";
+		$sql="SELECT * FROM $this->table";
 		return $this->QueryAll($sql);
 	}
 	function link_row($slug)
 	{
-		$sql="SELECT * FROM $this->table WHERE link_slug='$slug'";
+		$sql="SELECT * FROM $this->table WHERE link_slug='$slug' AND link_status='1'";
 		return $this->QueryOne($sql);
 	}
-	function link_index($slug)
+	function link_index($url)
 	{
 		  $product=loadModel('product');
-			$item=$this->link_row($slug);
+			$item=$this->link_row($url);
 			if($item!=null)
     		{
                 $type=$item['link_type'];
                 switch ($type) {
                     case 'product':
-                        require_once('views/pages/product.php');
+                        $view='product.php';
                         break;
                     case 'category':
-                        require_once('views/pages/product-category.php');
+                        $view='product-category.php';
                         break;
                     case 'topic':
                         $view=$this->post_topic($slug);
@@ -38,22 +38,23 @@ class Link extends Database
                         $view=$this->post_page($slug);
                         break;
                     default:
-                        require_once('views/pages/error404.php');
+                        $view='error404.php';
                         break;
                 }
     		}
     		else
     		{
-                $product_detail=$product->product_rowslug($slug);
+                $product_detail=$product->product_rowslug($url);
                 if($product_detail!=null)
                 {
-                   require_once('views/pages/product-detail.php');
+                   $view='product-detail.php';
                 }
                 else
                 {
-                    require_once('views/pages/error404.php');
+                    $view='error404.php';
                 }
     		}
+            return $view;
 	}
 }
  ?>

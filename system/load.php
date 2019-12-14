@@ -1,17 +1,17 @@
 <?php
 function loadComponent($page=true)
 {
-
 	$link=loadModel('link');
+	$view='views/pages/';
 	if($page==true)
 	{
 		if(!isset($_REQUEST['url']))
 		{
-			require_once('views/pages/home.php');
+			$view.='home.php';
 		}
 		else
 		{
-			$link->link_index($_REQUEST['url']);
+			$view.=$link->link_index($_REQUEST['url']);
 		}
 	}
 	/*else
@@ -33,6 +33,7 @@ function loadComponent($page=true)
 			$pathView.='dashboard/index.php';
 		}
 	}*/
+	require_once($view);
 }
 
 function loadModel($name)

@@ -18,13 +18,13 @@ $listmenu1=$menu->menu_list(0);
                                                     <div class="col-md-7">
                                                         <ul class="ul-b list-submenu">
                                                             <?php foreach($listmenu2 as $m2): ?>
-                                                                <li><a href="<?php echo $ms2['menu_link']; ?>.html"><?php echo $m2['menu_name']; ?></a></li>
+                                                                <li><a href="<?php echo $m2['menu_link']; ?>.html"><?php echo $m2['menu_name']; ?></a></li>
                                                             <?php endforeach; ?>
                                                         </ul>
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="img-submenu">
-                                                            <a href="<?php echo $ms2['menu_link']; ?>.html">
+                                                            <a href="<?php echo $m2['menu_link']; ?>.html">
                                                                 <img src="public/ResizeImage/files/<?php echo $m1['menu_img']; ?>" alt="<?php echo $m2['menu_name']; ?>">
                                                             </a>
                                                         </div>

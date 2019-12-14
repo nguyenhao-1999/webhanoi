@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 13, 2019 lúc 03:26 PM
+-- Thời gian đã tạo: Th12 14, 2019 lúc 02:33 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.3.3
 
@@ -33,6 +33,8 @@ CREATE TABLE `db_category` (
   `category_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `category_slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `category_parentid` int(11) NOT NULL,
+  `category_img` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `category_trademark` int(11) NOT NULL,
   `category_order` int(11) NOT NULL,
   `category_metakey` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `category_metadesc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -47,8 +49,17 @@ CREATE TABLE `db_category` (
 -- Đang đổ dữ liệu cho bảng `db_category`
 --
 
-INSERT INTO `db_category` (`category_id`, `category_name`, `category_slug`, `category_parentid`, `category_order`, `category_metakey`, `category_metadesc`, `category_createdat`, `category_createdby`, `category_updatedat`, `category_updatedby`, `category_status`) VALUES
-(29, 'THIẾT BỊ NHÀ BẾP', 'thiet-bi-nha-bep', 0, 1, '', '', '2019-12-13 10:25:44', 1, '0000-00-00 00:00:00', 1, 1);
+INSERT INTO `db_category` (`category_id`, `category_name`, `category_slug`, `category_parentid`, `category_img`, `category_trademark`, `category_order`, `category_metakey`, `category_metadesc`, `category_createdat`, `category_createdby`, `category_updatedat`, `category_updatedby`, `category_status`) VALUES
+(1, 'THIẾT BỊ NHÀ BẾP', 'thiet-bi-nha-bep', 0, '', 0, 1, '', '', '2019-12-14 13:27:24', 1, '0000-00-00 00:00:00', 1, 1),
+(2, 'BẾP TỪ', 'bep-tu', 1, 'Anh%20Danh%20m%E1%BB%A5c%20SP/bep%20tu.png', 0, 1, '', '', '2019-12-13 16:47:06', 1, '0000-00-00 00:00:00', 1, 1),
+(3, 'BẾP ĐIỆN TỪ', 'bep-dien-tu', 1, 'Anh%20Danh%20m%E1%BB%A5c%20SP/bep%20hong%20ngoai.png', 0, 1, '', '', '2019-12-13 16:48:28', 1, '0000-00-00 00:00:00', 1, 1),
+(4, 'TỦ BẾP', 'tu-bep', 0, '', 0, 1, '', '', '2019-12-14 13:13:29', 1, '0000-00-00 00:00:00', 1, 1),
+(5, 'TỦ BẾP GỖ TỰ NHIÊN', 'tu-bep-go-tu-nhien', 4, 'Anh%20Danh%20m%E1%BB%A5c%20SP/tu%20go%20tu%20nhien.png', 0, 1, '', '', '2019-12-13 17:31:38', 1, '0000-00-00 00:00:00', 1, 1),
+(6, 'PHỤ KIỆN TỦ BẾP', 'phu-kien-tu-bep', 0, 'phu-kien-tu-bep2x500x500x4.png', 0, 1, '', '', '2019-12-13 17:31:38', 1, '0000-00-00 00:00:00', 1, 1),
+(7, 'BẾP ĐIỆN', 'bep-dien', 1, 'Anh%20Danh%20m%E1%BB%A5c%20SP/bep%20dien%202.png', 0, 1, '', '', '2019-12-14 13:09:04', 1, '0000-00-00 00:00:00', 1, 1),
+(8, 'BẾP TỪ CATA', 'bep-tu-cata', 2, 'anh danh mục sp/bep-dien-2x500x500x4.png', 10, 1, '', '', '2019-12-14 13:29:21', 1, '0000-00-00 00:00:00', 1, 1),
+(9, 'THƯƠNG HIỆU', 'thuong-hieu', 0, '', 0, 1, '', '', '2019-12-13 17:31:38', 1, '0000-00-00 00:00:00', 1, 1),
+(10, 'CATA', 'cata', 9, 'catax200x200x4.png', 0, 1, '', '', '2019-12-14 13:29:06', 1, '0000-00-00 00:00:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -100,7 +111,13 @@ CREATE TABLE `db_link` (
 --
 
 INSERT INTO `db_link` (`link_id`, `link_slug`, `link_type`, `link_tableid`, `link_createdat`, `link_updatedat`, `link_createdby`, `link_updatedby`, `link_status`) VALUES
-(1, 'thiet-bi-nha-bep', 'category', 1, '2019-12-13 17:26:21', '2019-12-13 17:26:21', 1, 1, 1);
+(1, 'thiet-bi-nha-bep', 'product', 1, '2019-12-13 17:26:21', '2019-12-13 17:26:21', 1, 1, 1),
+(2, 'bep-tu', 'category', 1, '2019-12-13 17:26:21', '2019-12-13 17:26:21', 1, 1, 1),
+(3, 'bep-dien-tu', 'category', 1, '2019-12-13 17:26:21', '2019-12-13 17:26:21', 1, 1, 1),
+(4, 'tu-bep', 'product', 1, '2019-12-13 17:26:21', '2019-12-13 17:26:21', 1, 1, 1),
+(5, 'tu-bep-go-tu-nhien', 'category', 1, '2019-12-13 17:26:21', '2019-12-13 17:26:21', 1, 1, 1),
+(6, 'phu-kien-tu-bep', 'product', 1, '2019-12-13 17:26:21', '2019-12-13 17:26:21', 1, 1, 1),
+(7, 'bep-dien', 'category', 1, '2019-12-13 17:26:21', '2019-12-13 17:26:21', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -130,15 +147,19 @@ CREATE TABLE `db_menu` (
 --
 
 INSERT INTO `db_menu` (`menu_id`, `menu_name`, `menu_link`, `menu_type`, `menu_img`, `menu_tableid`, `menu_order`, `menu_position`, `menu_parentid`, `menu_createdat`, `menu_createdby`, `menu_updatedat`, `menu_updatedby`, `menu_status`) VALUES
-(1, 'TRANG CHỦ', 'index.php', 'custom', '', 1, 0, 'mainmenu', 0, '2019-04-01 15:18:25', 0, '0000-00-00 00:00:00', 0, 1),
-(2, 'THIẾT BỊ NHÀ BẾP', 'thiet-bị-nha-bep', 'custom', 'anh%20menu%20top/thiet-bi-nha-bepx500x500x4.png', 1, 0, 'mainmenu', 0, '2019-12-12 21:08:07', 0, '0000-00-00 00:00:00', 0, 1),
-(3, 'BẾP TỪ', 'thiet-bi-nha-bep/bep-tu', 'category', '', 2, 2, 'mainmenu', 2, '2019-12-12 20:30:26', 1, '0000-00-00 00:00:00', 1, 1),
-(4, 'BẾP ĐIỆN TỪ', 'thiet-bi-nha-bep/bep-dien-tu', 'category', '', 2, 3, 'mainmenu', 2, '2019-12-12 20:31:47', 1, '0000-00-00 00:00:00', 1, 1),
-(5, 'TỦ BẾP', 'tu-bep', 'custom', 'nh%20menu%20top/tu-bep-3x500x500x4.png', 1, 0, 'mainmenu', 0, '2019-12-12 21:08:29', 0, '0000-00-00 00:00:00', 0, 1),
+(1, 'TRANG CHỦ', 'index', 'custom', '', 1, 0, 'mainmenu', 0, '2019-12-13 17:37:57', 0, '0000-00-00 00:00:00', 0, 1),
+(2, 'THIẾT BỊ NHÀ BẾP', 'thiet-bi-nha-bep', 'custom', 'anh%20menu%20top/thiet-bi-nha-bepx500x500x4.png', 1, 0, 'mainmenu', 0, '2019-12-14 13:18:43', 0, '0000-00-00 00:00:00', 0, 1),
+(3, 'BẾP TỪ', 'bep-tu', 'category', '', 2, 2, 'mainmenu', 2, '2019-12-13 17:33:54', 1, '0000-00-00 00:00:00', 1, 1),
+(4, 'BẾP ĐIỆN TỪ', 'bep-dien-tu', 'category', '', 2, 3, 'mainmenu', 2, '2019-12-13 17:34:11', 1, '0000-00-00 00:00:00', 1, 1),
+(5, 'TỦ BẾP', 'tu-bep', 'custom', 'anh%20menu%20top/tu-bep-3x500x500x4.png', 1, 0, 'mainmenu', 0, '2019-12-14 13:13:18', 0, '0000-00-00 00:00:00', 0, 1),
 (6, 'PHỤ KIỆN TỦ BẾP', 'phu-kien-tu-bep', 'custom', 'anh%20menu%20top/phu-kien-tu-bep2x500x500x4.png', 1, 0, 'mainmenu', 0, '2019-12-12 21:08:38', 1, '0000-00-00 00:00:00', 1, 1),
 (7, 'QUẠT TRẦN ĐÈN', 'quat-tran-den', 'custom', 'anh%20menu%20top/quat-tran-den-1-x500x500x4.png', 1, 0, 'mainmenu', 0, '2019-12-12 21:08:45', 1, '0000-00-00 00:00:00', 1, 1),
 (8, 'ĐỒ GIA DỤNG', 'do-gia-dung', 'custom', 'anh%20menu%20top/do-gia-dung2-2-x500x500x4.png', 1, 0, 'mainmenu', 0, '2019-12-12 21:08:50', 1, '0000-00-00 00:00:00', 1, 1),
-(9, 'KHUYẾN MÃI', 'khuyen-mai', 'custom', '', 1, 0, 'mainmenu', 0, '2019-12-12 20:36:39', 1, '0000-00-00 00:00:00', 1, 1);
+(9, 'KHUYẾN MÃI', 'khuyen-mai', 'custom', '', 1, 0, 'mainmenu', 0, '2019-12-12 20:36:39', 1, '0000-00-00 00:00:00', 1, 1),
+(10, 'TỦ BẾP GỖ TỰ NHIÊN', 'tu-bep-go-tu-nhien', 'category', '', 2, 3, 'mainmenu', 5, '2019-12-13 17:34:11', 1, '0000-00-00 00:00:00', 1, 1),
+(11, 'THƯƠNG HIỆU', 'thuong-hieu', 'custom', 'anh%20menu%20top/thuong-hieux500x500x4.png', 1, 0, 'mainmenu', 0, '2019-12-14 13:18:43', 0, '0000-00-00 00:00:00', 0, 1),
+(12, 'CATA', 'cata', 'category', '', 2, 2, 'mainmenu', 11, '2019-12-13 17:33:54', 1, '0000-00-00 00:00:00', 1, 1),
+(13, 'BẾP ĐIỆN', 'bep-dien', 'category', '', 2, 3, 'mainmenu', 2, '2019-12-13 17:34:11', 1, '0000-00-00 00:00:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -273,7 +294,7 @@ CREATE TABLE `db_product` (
 --
 
 INSERT INTO `db_product` (`product_id`, `product_catid`, `product_name`, `product_slug`, `product_img`, `product_detail`, `product_number`, `product_price`, `product_pricesale`, `product_metakey`, `product_metadesc`, `product_createdat`, `product_createdby`, `product_updatedat`, `product_updatedby`, `product_status`) VALUES
-(1, 1, 'Giày đá bóng sân cỏ nhân tạo', 'giay-da-bong-san-co-nhan-tao', 'sp1.jpg', '', 1, 1200000, 1500000, '', '', '2019-04-22 14:42:08', 1, '0000-00-00 00:00:00', 0, 0),
+(1, 2, 'Bếp từ Cata IB 772', 'bep-tu-cata-ib-722', 'bep-tu-cata-ib-772_95x500x500x4.png', '', 1, 17000000, 8900000, '', '', '2019-12-13 20:21:18', 1, '0000-00-00 00:00:00', 1, 1),
 (2, 2, 'Giày đá bóng chính hãng', 'giay-da-bong-chinh-hang', 'sp2.jpg', '', 1, 700000, 990000, '', '', '2019-04-22 14:42:02', 1, '0000-00-00 00:00:00', 0, 0),
 (4, 1, 'Giày boot cổ cao dây đan nam', 'giay-boot-co-cao-day-dan-nam', 'sp4.png', '', 10, 480000, 0, '', '', '2019-04-22 15:58:07', 1, '0000-00-00 00:00:00', 0, 0),
 (5, 0, 'Giày Prowin S50 thể thao siêu chất', 'giay-powin-s50-the-thao', 'noibat_sp6.jpg', '', 1, 750000, 790000, '', '', '2019-04-22 15:57:56', 1, '0000-00-00 00:00:00', 0, 0),
@@ -583,25 +604,25 @@ ALTER TABLE `db_user`
 -- AUTO_INCREMENT cho bảng `db_category`
 --
 ALTER TABLE `db_category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `db_contact`
 --
 ALTER TABLE `db_contact`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `db_link`
 --
 ALTER TABLE `db_link`
-  MODIFY `link_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `link_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT cho bảng `db_menu`
 --
 ALTER TABLE `db_menu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `db_order`
