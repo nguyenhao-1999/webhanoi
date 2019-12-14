@@ -1,5 +1,5 @@
 /*
-* Theme Name: ToNinhLand
+* Theme Name: Web5Ngay
 * Version: 1.0
 * Author URI: https://www.facebook.com/phuong97nhp
 * Theme URI: http://chuyenweb.com/
@@ -16,3 +16,13 @@
 @import url("owl.carousel.css");
 /*@import url("font-awesome.min.css");*/
 @import url("layoutsite.css");
+
+
+.box-ft2 {
+    margin-top: 25px;
+    border-top: 1px solid #fff;
+    padding: 20px;
+}
+.main-header {
+    padding: 16px 0 14px 0;
+}

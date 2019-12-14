@@ -6,6 +6,7 @@ require_once('views/header.php');
 <?php
 require_once('views/footer.php'); 
 ?>
+
 <div class="modal banner" id="modal-banner" style="top: 40px">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
