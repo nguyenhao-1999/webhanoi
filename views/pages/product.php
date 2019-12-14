@@ -1,12 +1,10 @@
-<?php 
-$product=loadModel('product');
+<?php
 $category=loadModel('category');
-$cat=$_REQUEST['url'];
-$rowcat=$category->category_rowslug($cat);
-$rowcat['category_id'];
-$listid=$category->category_listid($rowcat['category_id']);
-$list_product=$product->product_category($listid);
- ?>
+$slug=$_REQUEST['url'];
+$listrow=$category->category_rowslug($slug);
+$listrow['category_id'];
+$listid=$category->category_parentid($listrow['category_id']);
+?>
 <?php require_once('views/header.php'); ?>
 <section class="sec-content-page">
     <div class="wp-bread-page">
@@ -17,10 +15,7 @@ $list_product=$product->product_category($listid);
                         <a href="index.html" itemprop="url"><span itemprop="title">bepanthinh.com</span></a>
                     </li>
                     <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                        <a href="thiet-ke-tu-bep.html" itemprop="url"><span itemprop="title">Tủ bếp</span></a>
-                    </li>
-                    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-                        <a href="tu-bep-go-tu-nhien.html" itemprop="url"><span itemprop="title"><?php echo $rowcat['category_name']; ?></span></a>
+                        <a href="thiet-bi-nha-bep.html" itemprop="url"><span itemprop="title"><?php echo $listrow['category_name']; ?></span></a>
                     </li>
                 </ul>
             </div>
@@ -33,64 +28,33 @@ $list_product=$product->product_category($listid);
                 <div class="row">
                     <div class="col-md-9 col-sm-12 col-xs-12 fl-right">
                         <div class="wp-right-page">
-                            <div class="wp-content-sp-page danhmuc-sp-mb">
-                                <div class="wp-box-post-sp">
-                                    <div class="wp-title-ct-sp">
-                                        <h1 class="h1-title">Tủ Bếp Gỗ Tự Nhiên</h1>
-                                    </div>
-                                    <div class="wp-post-title scroll">
-                                    </div>
-                                </div>
-                                <div class="hidden-md hidden-lg">
-                                </div>
-                                <!-- end box text top -->
-                                <div class="wp-list-sp-page">
-                                    <div class="wp-filter1-page-sp hidden-sm hidden-xs">
-                                        <select name="" id="sort" onchange="filter_product('tu-bep-go-tu-nhien.html');">
-                                            <option value="0">- Sắp xếp theo -</option>
-                                            <option value="price_asc">Giá thấp đến cao</option>
-                                            <option value="price_desc">Giá cao đến thấp</option>
-                                            <option value="view">Xem nhiều nhất</option>
-                                        </select>
-                                    </div>
-                                    <!-- end filter 1 -->
-                                    <div class="main-list-sp-page product-fs productListVuSon">
-                                        <div class="row">
-                                        	<?php foreach($list_product as $row): ?>
-                                            <div class="col-md-4 col-sm-4 col-xs-6 ">
-                                                <div class="wp-item-sp-page">
-                                                    <div class="img-item-sp-page">
-                                                        <a href="<?php echo $row['product_slug']; ?>.html">
-                                                            <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/<?php echo $row['product_img'] ?>" alt="<?php echo $row['product_name']; ?>"></a>
-                                                    </div>
-                                                    <div class="text-item-sp-page">
-                                                        <h3 class="h3-title"><a href="<?php echo $row['product_slug']; ?>.html"><?php echo $row['product_name']; ?></a></h3>
-                                                        <div class="price">
-                                                            <span class="s-ins">1</span>
-                                                            <span class="s-dell">1</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            <div class="wp-title-ct-sp">
+                                <h1 class="h1-title"><?php echo $listrow['category_name']; ?></h1>
+                            </div>
+                            <div class="wp-list-item-danhmuc">
+                                <div class="row">
+                                    <?php foreach($listid as $row): ?>
+                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                        <div class="wp-item-danhmuc">
+                                            <div class="img-danhmuc img-cover">
+                                                <a href="<?php echo $row['category_slug']; ?>.html">
+                                                    <img src="public/upload/files/<?php echo $row['category_img']; ?>" alt="Bếp từ" />
+                                                </a>
                                             </div>
-                                        <?php endforeach; ?>
+                                            <div class="text-danhmuc">
+                                                <h2 class="h2-title-dm"><a href="<?php echo $row['category_slug']; ?>.html"><?php echo $row['category_name']; ?></a></h2>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <?php endforeach; ?>
                                 </div>
-                                <!-- end list sp page -->
-                                <div class="phantrang text-center">
-                                    <div class="pagination ajax">
-                                        <a href="javascript:void(0)" data-url="https://bepanthinh.com/tu-bep-go-tu-nhien.html" rel="nofollow">Xem thêm</a>
-                                        <div class="loading"><i class="icon">Loading</i></div>
-                                    </div>
-                                </div>
-                                <!-- end phan trang -->
                             </div>
                         </div>
                     </div>
-                </div>
                     <div class="col-md-3 col-sm-12 col-xs-12 fl-left">
                         <div class="box-sidebar box-exp hidden-xs">
                             <div class="wp-title-sidebar">
-                                <h2 class="h2-title"><a href="kinh-nghiem-hay.html">Kinh nghiệm mua Tủ Bếp Gỗ Tự Nhiên</a></h2>
+                                <h2 class="h2-title"><a href="kinh-nghiem-hay.html">Kinh nghiệm mua Thiết bị nhà bếp</a></h2>
                             </div>
                             <div class="content-box box-2">
                                 <ul class="ul-b list-item-box">
@@ -124,7 +88,7 @@ $list_product=$product->product_category($listid);
                                     <li>
                                         <div class="img-exp-sb">
                                             <a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh.html">
-                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/anh-3x500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh"></a>
+                                                <img src="Data/ResizeImage/files/anh%20tin%20tuc/anh-3x500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh"></a>
                                         </div>
                                         <div class="text-exp-sb">
                                             <h3 class="h3-title"><a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh.html">Bí quyết chọn đồ phù hợp cho bếp xinh</a></h3>
@@ -133,7 +97,7 @@ $list_product=$product->product_category($listid);
                                     <li>
                                         <div class="img-exp-sb">
                                             <a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh-bat-kip-xu-the-hien-dai.html">
-                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/bep-xinhx500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại"></a>
+                                                <img src="Data/ResizeImage/files/anh%20tin%20tuc/bep-xinhx500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại"></a>
                                         </div>
                                         <div class="text-exp-sb">
                                             <h3 class="h3-title"><a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh-bat-kip-xu-the-hien-dai.html">Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại</a></h3>
@@ -181,7 +145,7 @@ $list_product=$product->product_category($listid);
                                     <li>
                                         <div class="img-phongthuy-sb">
                                             <a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh.html">
-                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/anh-3x500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh"></a>
+                                                <img src="Data/ResizeImage/files/anh%20tin%20tuc/anh-3x500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh"></a>
                                         </div>
                                         <div class="text-phongthuy-sb">
                                             <h3 class="h3-title"><a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh.html">Bí quyết chọn đồ phù hợp cho bếp xinh</a></h3>
@@ -191,7 +155,7 @@ $list_product=$product->product_category($listid);
                                     <li>
                                         <div class="img-phongthuy-sb">
                                             <a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh-bat-kip-xu-the-hien-dai.html">
-                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/bep-xinhx500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại"></a>
+                                                <img src="Data/ResizeImage/files/anh%20tin%20tuc/bep-xinhx500x500x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại"></a>
                                         </div>
                                         <div class="text-phongthuy-sb">
                                             <h3 class="h3-title"><a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh-bat-kip-xu-the-hien-dai.html">Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại</a></h3>
@@ -251,14 +215,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-33_2060.html">
-                                    <img class="owl-lazy"  src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-33_2060x500x500x4.png" alt="Tủ bếp Gỗ Xoan đ&#224;o AT - 33"></a>
+                                <a href="bep-tu-munchen-gm2285_8356.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bep-tu-munchen-GM-2285x500x500x4.jpg" alt="Bếp từ munchen GM2285"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-33_2060.html">Tủ bếp Gỗ Xoan đ&#224;o AT - 33</a></h3>
+                                <h3 class="h3-title"><a href="bep-tu-munchen-gm2285_8356.html">Bếp từ munchen GM2285</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">18.500.000</span>
+                                    <span class="s-ins">16.675.000</span>
                                 </div>
                             </div>
                         </div>
@@ -266,14 +230,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-32_2058.html">
-                                    <img class="owl-lazy"  src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-32_2058x500x500x4.png" alt="Tủ bếp Gỗ Xoan đ&#224;o AT - 32"></a>
+                                <a href="bep-tu-munchen-gm-292_8192.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bep-tu-munchen-GM-292x500x500x4.jpg" alt="Bếp từ Munchen GM 292"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-32_2058.html">Tủ bếp Gỗ Xoan đ&#224;o AT - 32</a></h3>
+                                <h3 class="h3-title"><a href="bep-tu-munchen-gm-292_8192.html">Bếp từ Munchen GM 292</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">19.100.000</span>
+                                    <span class="s-ins">17.200.000</span>
                                 </div>
                             </div>
                         </div>
@@ -281,14 +245,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-31_2056.html">
-                                    <img class="owl-lazy"  src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-31_2056x500x500x4.png" alt="Tủ bếp Gỗ Xoan đ&#224;o AT - 31"></a>
+                                <a href="bep-dien-tu-munchen-gm6629s_8190.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-munchen-gm6629s_8190x500x500x4.png" alt="Bếp điện từ munchen GM6629S"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-31_2056.html">Tủ bếp Gỗ Xoan đ&#224;o AT - 31</a></h3>
+                                <h3 class="h3-title"><a href="bep-dien-tu-munchen-gm6629s_8190.html">Bếp điện từ munchen GM6629S</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">23.300.000</span>
+                                    <span class="s-ins">21.200.000</span>
                                 </div>
                             </div>
                         </div>
@@ -296,14 +260,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-30_2054.html">
-                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-30_2054x500x500x4.png" alt="Tủ Bếp Gỗ Xoan Đ&#224;o AT-30"></a>
+                                <a href="bep-tu-doi-atg-ah968mi_7780.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/pageimage/beptu%20hutmui/968mix500x500x4.jpg" alt="Bếp Từ Đôi ATG-AH968MI"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-30_2054.html">Tủ Bếp Gỗ Xoan Đ&#224;o AT-30</a></h3>
+                                <h3 class="h3-title"><a href="bep-tu-doi-atg-ah968mi_7780.html">Bếp Từ Đôi ATG-AH968MI</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">19.000.000</span>
+                                    <span class="s-ins">15.900.000</span>
                                 </div>
                             </div>
                         </div>
@@ -311,14 +275,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-29_2053.html">
-                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-29_2053x500x500x4.png" alt="Tủ Bếp Gỗ Xoan Đ&#224;o AT-29"></a>
+                                <a href="bep-dien-tu-arber-ab-398_6098.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-arber-ab-398_6098x500x500x4.png" alt="Bếp điện từ Arber AB 398"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-29_2053.html">Tủ Bếp Gỗ Xoan Đ&#224;o AT-29</a></h3>
+                                <h3 class="h3-title"><a href="bep-dien-tu-arber-ab-398_6098.html">Bếp điện từ Arber AB 398</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">18.950.000</span>
+                                    <span class="s-ins">8.700.000</span>
                                 </div>
                             </div>
                         </div>
@@ -326,14 +290,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-28_2052.html">
-                                    <img class="owl-lazy" data-src="/public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-28_2052x500x500x4.png" src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-28_2052x500x500x4.png" alt="Tủ Bếp Gỗ Xoan Đ&#224;o AT-28"></a>
+                                <a href="bep-tu-arber-ab-396_6097.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-tu-arber-ab-396_6097x500x500x4.png" alt="Bếp từ Arber AB 396"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-28_2052.html">Tủ Bếp Gỗ Xoan Đ&#224;o AT-28</a></h3>
+                                <h3 class="h3-title"><a href="bep-tu-arber-ab-396_6097.html">Bếp từ Arber AB 396</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">17.850.000</span>
+                                    <span class="s-ins">10.500.000</span>
                                 </div>
                             </div>
                         </div>
@@ -341,14 +305,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-27_2050.html">
-                                    <img class="owl-lazy" data-src="/public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-27_2050x500x500x4.png" src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-27_2050x500x500x4.png" alt="Tủ Bếp Gỗ Xoan Đ&#224;o AT-27"></a>
+                                <a href="bep-tu-munchen-gm-8999_5203.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-tu-munchen-gm-8999_5203x500x500x4.png" alt="Bếp từ Munchen GM 8999"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-27_2050.html">Tủ Bếp Gỗ Xoan Đ&#224;o AT-27</a></h3>
+                                <h3 class="h3-title"><a href="bep-tu-munchen-gm-8999_5203.html">Bếp từ Munchen GM 8999</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">22.500.000</span>
+                                    <span class="s-ins">20.475.000</span>
                                 </div>
                             </div>
                         </div>
@@ -356,14 +320,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-26_2048.html">
-                                    <img class="owl-lazy" data-src="/public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-26_2048x500x500x4.png" src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-26_2048x500x500x4.png" alt="Tủ Bếp Gỗ Xoan Đ&#224;o AT-26"></a>
+                                <a href="bep-dien-tu-munchen-gm-6318_5181.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-munchen-gm-6318_5181x500x500x4.png" alt="Bếp điện từ Munchen GM 6318"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-26_2048.html">Tủ Bếp Gỗ Xoan Đ&#224;o AT-26</a></h3>
+                                <h3 class="h3-title"><a href="bep-dien-tu-munchen-gm-6318_5181.html">Bếp điện từ Munchen GM 6318</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">23.500.000</span>
+                                    <span class="s-ins">20.250.000</span>
                                 </div>
                             </div>
                         </div>
@@ -371,14 +335,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-25_2047.html">
-                                    <img class="owl-lazy" data-src="/public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-25_2047x500x500x4.png" src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-25_2047x500x500x4.png" alt="Tủ Bếp Gỗ Xoan Đ&#224;o AT-25"></a>
+                                <a href="bep-tu-munchen-gm-5656_5158.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bep-tu-Munchen-GM-5656x500x500x4.png" alt="Bếp từ Munchen GM 5656"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-25_2047.html">Tủ Bếp Gỗ Xoan Đ&#224;o AT-25</a></h3>
+                                <h3 class="h3-title"><a href="bep-tu-munchen-gm-5656_5158.html">Bếp từ Munchen GM 5656</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">22.500.000</span>
+                                    <span class="s-ins">20.475.000</span>
                                 </div>
                             </div>
                         </div>
@@ -386,14 +350,14 @@ $list_product=$product->product_category($listid);
                     <div class="item">
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
-                                <a href="tu-bep-go-xoan-dao-at-24_2046.html">
-                                    <img class="owl-lazy" data-src="/public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-24_2046x500x500x4.png" src="public/ResizeImage/images/product/bepanthinh/anhchinh/tu-bep-go-xoan-dao-at-24_2046x500x500x4.png" alt="Tủ Bếp Gỗ Xoan Đ&#224;o AT-24"></a>
+                                <a href="bep-tu-munchen-g60bk_468.html">
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bep-tu-munchen-g60bkx500x500x4.jpg" alt="Bếp Từ Munchen G60BK"></a>
                             </div>
                             <div class="text-item-sp-page">
-                                <h3 class="h3-title"><a href="tu-bep-go-xoan-dao-at-24_2046.html">Tủ Bếp Gỗ Xoan Đ&#224;o AT-24</a></h3>
+                                <h3 class="h3-title"><a href="bep-tu-munchen-g60bk_468.html">Bếp Từ Munchen G60BK</a></h3>
                                 <div class="price">
-                                    <span class="s-dell">1</span>
-                                    <span class="s-ins">1</span>
+                                    <span class="s-dell">17.300.000</span>
+                                    <span class="s-ins">15.535.000</span>
                                 </div>
                             </div>
                         </div>

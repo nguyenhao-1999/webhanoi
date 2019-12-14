@@ -20,7 +20,7 @@ class Category extends Database
 	function category_listid($id)
 	{
 		$arr=array();
-		//$arr[]=$id;
+		$arr[]=$id;
 		$list1=$this->category_parentid($id);
 		if(count($list1))
 		{
