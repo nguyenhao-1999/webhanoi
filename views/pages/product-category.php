@@ -1,5 +1,6 @@
 <?php 
 $product=loadModel('product');
+$topic=loadModel('topic');
 $category=loadModel('category');
 $cat=$_REQUEST['url'];
 $rowcat=$category->category_rowslug($cat);

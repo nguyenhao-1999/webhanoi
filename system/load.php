@@ -11,7 +11,22 @@ function loadComponent($page=true)
 		}
 		else
 		{
-			$view.=$link->link_index($_REQUEST['url']);
+			if($_REQUEST['url']=='cart')
+			{
+				$view.=$_REQUEST['url'];
+				if(isset($_REQUEST['cat']))
+				{
+					$view.='-'.$_REQUEST['cat'].'.php';
+				}
+				else
+				{
+					$view.='.php';
+				}
+			}
+			else
+			{
+				$view.=$link->link_index($_REQUEST['url']);
+			}
 		}
 	}
 	/*else

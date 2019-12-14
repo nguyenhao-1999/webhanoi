@@ -3,10 +3,6 @@ $slug=$_REQUEST['url'];
 $product=loadModel('product');
 $category=loadModel('category');
 $row=$product->product_rowslug($slug);
-if ($row['product_catid']) {
-  $category_of_product = $category->category_of($row['product_catid']);
-  $product_relate = $product->product_relate($row['product_catid'], $row['product_id']);
-}
 ?>
 <?php require_once('views/header.php'); ?>
 <section class="sec-content-page">
@@ -36,7 +32,7 @@ if ($row['product_catid']) {
                 <input type="hidden" id="ParentID" value="0" />
                 <div class="main-content-ctsp">
                     <div class="wp-title-ctsp">
-                        <h1 class="h1-title"><?php if($row['product_name']) echo $row['product_name']; ?></h1>
+                        <h1 class="h1-title"><?php echo $row['product_name']; ?></h1>
                         <ul class="ul-b list-icon-title">
                             <li>
                                 <a href="https://zalo.me/0913141368">
@@ -72,24 +68,26 @@ if ($row['product_catid']) {
                                 <div class="wp-right-box-img">
                                     <div class="top-box-img">
                                         <div class="wp-gia-km">
-                                            <span>Giá KM:<b><?php echo number_format($row['product_pricesale'], 0, '', '.'); ?> đ</b></span>
+                                            <span>Giá KM:<b><?php echo number_format($row['product_pricesale']); ?> đ</b></span>
                                         </div>
                                         <div class="wp-gia-ny">
-                                            <span>Giá niêm yết: <?php echo number_format($row['product_price'], 0, '', '.'); ?> đ</span>
+                                            <span>Giá niêm yết: <?php echo number_format($row['product_price']); ?> đ</span>
                                         </div>
                                         <div class="wp-tiet-kiem">
-                                            <span>Tiết kiệm: <?php echo number_format($row['product_price']-$row['product_pricesale'], 0, '', '.') ?> đ</span>
+                                            <span>Tiết kiệm: <?php echo number_format($row['product_price']-$row['product_pricesale']); ?> đ</span>
                                         </div>
                                     </div>
                                     <div class="main-box-img">
                                         <div class="box-s1">
                                             <div class="box-qua">
+                                                <span class="icon-qua">
+                                                    <img src="index.html" alt=""></span>
                                                 <ul class="ul-b list-qua">
-                                                    <?php if($row['product_detail']) echo $row['product_detail']; ?>
+                                                    <?php echo $row['product_detail']; ?>
                                                 </ul>
                                             </div>
                                             <div class="box-btn">
-                                                <a href="javascript:void(0)" class="buy_now btn btn-default btn-b1" data-id="3710" data-returnpath="%2fmay-hut-mui-abbaka-ab-70-pq_3971.html" rel="nofollow">
+                                                <a href="index.php?url=cart&cat=addcart&id=<?php echo $row['product_id']; ?>" class="buy_now btn btn-default btn-b1" data-id="3710" data-returnpath="%2fmay-hut-mui-abbaka-ab-70-pq_3971.html" rel="nofollow">
                                                     <span class="span-1">Mua ngay</span>
                                                     <span class="span-2">Giao hàng tận nơi trên toàn quốc</span>
                                                 </a>
@@ -310,10 +308,9 @@ if ($row['product_catid']) {
                                     </div>
                                     <div class="tab-3 tab-content">
                                         <div class="content-thongso">
-                                            <!-- fb danh gia -->
-                                            <!-- <div class="fb-comments" data-href="http://bepquangvinh.com/" data-width="" data-numposts="5"></div> -->
-                                            <div class="fb-comments" data-href="<?php echo $_SERVER["SERVER_NAME"].'/'.$_SERVER["REQUEST_URI"]; ?>" data-width="100%" data-numposts="5"></div>
-                                            <!-- end fb danh gia -->
+                                            <div class="form-box-danhgia">
+                                            </div>
+                                            <!-- end box danh gia -->
                                         </div>
                                     </div>
                                 </div>
@@ -347,6 +344,99 @@ if ($row['product_catid']) {
                                         </div>
                                     </div>
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wp-iframe-cmt-fb">
+                        <img src="public/images/iframe-fb.jpg" alt="">
+                    </div>
+                    <div class="box-cmt-danhgia">
+                        <div class="wp-title-danhgia">
+                            <h2 class="h2-title">Đánh giá - bình luận sản phẩm</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4 col-xs-12">
+                                <div class="wp-rating-left">
+                                    <div class="rating-left-at">
+                                        <div class="start-1 text-center">
+                                            <p>Chọn đánh giá</p>
+                                            <fieldset class="rating">
+                                                <input type="radio" id="star5" name="rating" value="5">
+                                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                                <input type="radio" id="star4half" name="rating" value="4.5">
+                                                <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                                <input type="radio" id="star4" name="rating" value="4">
+                                                <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                                <input type="radio" id="star3half" name="rating" value="3.5">
+                                                <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                                <input type="radio" id="star3" name="rating" value="3">
+                                                <label class="full" for="star3" title="Meh - 3 stars"></label>
+                                                <input type="radio" id="star2half" name="rating" value="2.5">
+                                                <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                                <input type="radio" id="star2" name="rating" value="2">
+                                                <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                                <input type="radio" id="star1half" name="rating" value="1.5">
+                                                <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                                <input type="radio" id="star1" name="rating" value="1">
+                                                <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                                <input type="radio" id="starhalf" name="rating" value="0.5">
+                                                <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                            </fieldset>
+                                            <span>(<b>0</b> người đánh giá)</span>
+                                        </div>
+                                        <div class="start-2">
+                                            <ul class="ul-b rating-at">
+                                                <li>
+                                                    <label>5 sao</label>
+                                                    <div><span style="width: 0;">&nbsp;</span> </div>
+                                                    <span class="count">0</span> </li>
+                                                <li>
+                                                    <label>4 sao</label>
+                                                    <div>
+                                                        <span style="width: 0;">&nbsp;</span>
+                                                    </div>
+                                                    <span class="count">0</span> </li>
+                                                <li>
+                                                    <label>3 sao</label>
+                                                    <div>
+                                                        <span style="width: 0;">&nbsp;</span>
+                                                    </div>
+                                                    <span class="count">0</span> </li>
+                                                <li>
+                                                    <label>2 sao</label>
+                                                    <div>
+                                                        <span style="width: 0;">&nbsp;</span>
+                                                    </div>
+                                                    <span class="count">0</span> </li>
+                                                <li>
+                                                    <label>1 sao</label>
+                                                    <div><span style="width: 0;">&nbsp;</span> </div>
+                                                    <span class="count">0</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9 col-sm-8 col-xs-12">
+                                <div class="wp-rating-right">
+                                    <div class="comment-at">
+                                        <form action="#">
+                                            <div class="form-group">
+                                                <label for="">Họ và tên</label>
+                                                <input type="text" placeholder="Nhập họ và tên" id="NameCmt" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Nội dung đánh giá</label>
+                                                <textarea name="" id="ContentRating" cols="5" placeholder="Nhập nội dung nhận xét về sản phẩm" class="form-control"></textarea>
+                                            </div>
+                                            <input class="btn btn-danger btn-cmt" onclick="add_comment('0', $('#ProductID').val(), $('input[name=rating]:checked').val(), $('#NameCmt').val(), $('#ContentRating').val());" value="Bình luận" />
+                                        </form>
+                                    </div>
+                                    <div class="media-at">
+                                        <!--tra loi comment-->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -448,31 +538,30 @@ if ($row['product_catid']) {
                                 <div class="row">
                                     <div class="col-md-6 hidden-sm hidden-xs">
                                         <div class="wp-left-xemtainha">
-                                            <h1 class="h1-title-xtn">Máy hút mùi ABBAKA AB 70 PQ</h1>
+                                            <div class="wp-left-xemtainha">
+                                            <h1 class="h1-title-xtn"><?php echo $row['product_name']; ?></h1>
                                             <div class="img-xtn">
-                                                <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/may-hut-mui-abbaka-ab-70-pq_3971x500x500x4.png" alt="Máy hút mùi ABBAKA AB 70 PQ">
+                                                <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/<?php echo $row['product_img']; ?>" alt="Máy hút mùi ABBAKA AB 70 PQ">
                                             </div>
                                             <div class="top-box-img">
                                                 <div class="wp-gia-km">
-                                                    <span>Giá KM:<b>6.752.000đ</b></span>
+                                                    <span>Giá KM:<b><?php echo number_format($row['product_pricesale']); ?>đ</b></span>
                                                 </div>
                                                 <div class="wp-gia-ny">
-                                                    <span>Giá niêm yết: 9.100.000 đ</span>
+                                                    <span>Giá niêm yết: <?php echo number_format($row['product_price']); ?> đ</span>
                                                 </div>
                                                 <div class="wp-tiet-kiem">
-                                                    <span>Tiết kiệm: 2.348.000</span>
+                                                    <span>Tiết kiệm: <?php echo number_format($row['product_price']-$row['product_pricesale']); ?>đ</span>
                                                 </div>
                                             </div>
                                             <div class="box-qua">
+                                                <span class="icon-qua">
+                                                <img src="index.html" alt=""></span>
                                                 <ul class="ul-b list-qua">
-                                                    <p>Thông tin chi tiết sản phẩm máy hút mùi ABBAKA AB 70 PQ</p>
-                                                    <p>Loại sản phẩm: Máy hút mùi tum kính</p>
-                                                    <p>Mã sản phẩm: ABBAKA AB 70 PQ</p>
-                                                    <p>Hãng sản xuất: ABBAKA</p>
-                                                    <p>Xuất xứ: Italy</p>
-                                                    <p>Chất ...</p>
+                                                    <?php echo $row['product_detail']; ?>
                                                 </ul>
                                             </div>
+                                        </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-xs-12">
@@ -514,29 +603,26 @@ if ($row['product_catid']) {
                                 <div class="row">
                                     <div class="col-md-6 hidden-sm hidden-xs">
                                         <div class="wp-left-xemtainha">
-                                            <h1 class="h1-title-xtn">Máy hút mùi ABBAKA AB 70 PQ</h1>
+                                            <h1 class="h1-title-xtn"><?php echo $row['product_name']; ?></h1>
                                             <div class="img-xtn">
-                                                <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/may-hut-mui-abbaka-ab-70-pq_3971x500x500x4.png" alt="Máy hút mùi ABBAKA AB 70 PQ">
+                                                <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/<?php echo $row['product_img']; ?>" alt="Máy hút mùi ABBAKA AB 70 PQ">
                                             </div>
                                             <div class="top-box-img">
                                                 <div class="wp-gia-km">
-                                                    <span>Giá KM:<b>6.752.000đ</b></span>
+                                                    <span>Giá KM:<b><?php echo number_format($row['product_pricesale']); ?>đ</b></span>
                                                 </div>
                                                 <div class="wp-gia-ny">
-                                                    <span>Giá niêm yết: 9.100.000 đ</span>
+                                                    <span>Giá niêm yết: <?php echo number_format($row['product_price']); ?> đ</span>
                                                 </div>
                                                 <div class="wp-tiet-kiem">
-                                                    <span>Tiết kiệm: 2.348.000</span>
+                                                    <span>Tiết kiệm: <?php echo number_format($row['product_price']-$row['product_pricesale']); ?>đ</span>
                                                 </div>
                                             </div>
                                             <div class="box-qua">
+                                                <span class="icon-qua">
+                                                <img src="index.html" alt=""></span>
                                                 <ul class="ul-b list-qua">
-                                                    <p>Thông tin chi tiết sản phẩm máy hút mùi ABBAKA AB 70 PQ</p>
-                                                    <p>Loại sản phẩm: Máy hút mùi tum kính</p>
-                                                    <p>Mã sản phẩm: ABBAKA AB 70 PQ</p>
-                                                    <p>Hãng sản xuất: ABBAKA</p>
-                                                    <p>Xuất xứ: Italy</p>
-                                                    <p>Chất ...</p>
+                                                    <?php echo $row['product_detail']; ?>
                                                 </ul>
                                             </div>
                                         </div>
@@ -569,47 +655,6 @@ if ($row['product_catid']) {
                     </div>
                 </div>
             </div>
-
-            <section class="sec-00 sec-sp-muanhieu">
-                <div class="container">
-                    <div class="wp-sec-sanpham wp-sanpham-muanhieu">
-                        <div class="wp-title-sp">
-                            <h2 class="h2-title"><a href="#">Sản phảm cùng chuyên mục</a></h2>
-                        </div>
-                        <div class="wp-list-sp">
-                            <div id="" class="slide-sp owl-carousel owl-theme">
-                            <?php if ($product_relate) { foreach ($product_relate as $key => $product) :?>
-                                <div class="item">
-                                    <div class="wp-item-sp-page">
-                                        <div class="img-item-sp-page">
-                                            <a href="<?php echo $product['product_slug']; ?>.html">
-                                                <img class="owl-lazy" data-src="public/ResizeImage/images/product/<?php echo $product['product_img']; ?>" src="public/ResizeImage/images/product/<?php echo $product['product_img']; ?>" alt="M<?php echo $product['product_name']; ?>"></a>
-                                        </div>
-                                        <div class="text-item-sp-page">
-                                            <h3 class="h3-title"><a href="<?php echo $product['product_slug']; ?>.html"><?php echo $product['product_name']; ?></a></h3>
-                                            <div class="price">
-                                                <span class="s-dell"><?php echo number_format($product['product_price'], 0, '', '.'); ?></span>
-                                                <span class="s-ins"><?php echo number_format($product['product_pricesale'], 0, '', '.'); ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; } ?>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-    </div>
-    <!-- end main content page -->
-</section>
-<?php require_once('views/footer.php'); ?>
-
-
-<!-- 
             <div class="loading"><i class="icon">Loading</i></div>
             <script type="text/javascript">
                 function regSurvey() {
@@ -790,4 +835,83 @@ if ($row['product_catid']) {
                         error: function() {}
                     });
                 }
-            </script> -->
+            </script>
+            <section class="sec-00 sec-sp-muanhieu">
+                <div class="container">
+                    <div class="wp-sec-sanpham wp-sanpham-muanhieu">
+                        <div class="wp-title-sp">
+                            <h2 class="h2-title"><a href="http://bepanthinh.akr.vn/san-pham-ban-chay.html">Sản phẩm được mua nhiều nhất</a></h2>
+                        </div>
+                        <div class="wp-list-sp">
+                            <div id="" class="slide-sp owl-carousel owl-theme">
+                                <div class="item">
+                                    <div class="wp-item-sp-page">
+                                        <div class="img-item-sp-page">
+                                            <a href="may-hut-mui-bosch-dwb77im50.html">
+                                                <img class="owl-lazy" data-src="/public/ResizeImage/images/product/may-hut-mui-bosch-dwb77im50x500x500x4.jpg" src="public/ResizeImage/images/product/may-hut-mui-bosch-dwb77im50x500x500x4.jpg" alt="Máy Hút Mùi Bosch DWB77IM50"></a>
+                                        </div>
+                                        <div class="text-item-sp-page">
+                                            <h3 class="h3-title"><a href="may-hut-mui-bosch-dwb77im50.html">Máy Hút Mùi Bosch DWB77IM50</a></h3>
+                                            <div class="price">
+                                                <span class="s-dell">19.990.000</span>
+                                                <span class="s-ins">10.860.000</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="wp-item-sp-page">
+                                        <div class="img-item-sp-page">
+                                            <a href="hut-mui-bosch-dwb66bc50.html">
+                                                <img class="owl-lazy" data-src="/public/ResizeImage/images/product/hut-mui-bosch-dwb66bc50x500x500x4.jpg" src="public/ResizeImage/images/product/hut-mui-bosch-dwb66bc50x500x500x4.jpg" alt="Hút Mùi Bosch DWB66BC50"></a>
+                                        </div>
+                                        <div class="text-item-sp-page">
+                                            <h3 class="h3-title"><a href="hut-mui-bosch-dwb66bc50.html">Hút Mùi Bosch DWB66BC50</a></h3>
+                                            <div class="price">
+                                                <span class="s-dell">15.890.000</span>
+                                                <span class="s-ins">8.700.000</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="wp-item-sp-page">
+                                        <div class="img-item-sp-page">
+                                            <a href="may-hut-mui-bosch-dwk97im20.html">
+                                                <img class="owl-lazy" data-src="/public/ResizeImage/images/product/May-Hut-Mui-Bosch-DWK97IM20x500x500x4.jpg" src="public/ResizeImage/images/product/May-Hut-Mui-Bosch-DWK97IM20x500x500x4.jpg" alt="Máy hút mùi Bosch DWK97IM20"></a>
+                                        </div>
+                                        <div class="text-item-sp-page">
+                                            <h3 class="h3-title"><a href="may-hut-mui-bosch-dwk97im20.html">Máy hút mùi Bosch DWK97IM20</a></h3>
+                                            <div class="price">
+                                                <span class="s-dell">35.100.000</span>
+                                                <span class="s-ins">22.500.000</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="wp-item-sp-page">
+                                        <div class="img-item-sp-page">
+                                            <a href="may-hut-mui-gan-tuong-bosch-dwq66dm50.html">
+                                                <img class="owl-lazy" data-src="/public/ResizeImage/images/product/may-hut-mui-gan-tuong-bosch-dwq66dm50x500x500x4.jpg" src="public/ResizeImage/images/product/may-hut-mui-gan-tuong-bosch-dwq66dm50x500x500x4.jpg" alt="Máy hút mùi gắn tường BOSCH DWQ66DM50"></a>
+                                        </div>
+                                        <div class="text-item-sp-page">
+                                            <h3 class="h3-title"><a href="may-hut-mui-gan-tuong-bosch-dwq66dm50.html">Máy hút mùi gắn tường BOSCH DWQ66DM50</a></h3>
+                                            <div class="price">
+                                                <span class="s-dell">16.000.000</span>
+                                                <span class="s-ins">10.800.000</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    </div>
+    <!-- end main content page -->
+</section>
+<?php require_once('views/footer.php'); ?>
