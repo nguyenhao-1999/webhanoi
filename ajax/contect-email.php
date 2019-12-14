@@ -18,6 +18,7 @@ function loadModelAjax($name)
     }
 }   
 $contact= loadModelAjax('contact');
+$option= loadModelAjax('option');
 $email=$_POST['input'];
 if(isset($email))
 {
@@ -46,7 +47,7 @@ if(isset($email))
         'contact_updatedby'=>1,
         'contact_status'=>1
         );
-        //$contact->contact_insert($data);
+        $contact->contact_insert($data);
         sendmail( 'phuong97nhp@gmail.com', "Nguyễn Hoàng Phương", $title = "Gửi thông tin email", $detail = "<h1>HELLO</h1>");
 
         $err['msg'] = 'Gửi thành công';

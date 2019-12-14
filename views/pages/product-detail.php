@@ -1,5 +1,5 @@
 <?php 
-$slug=$_REQUEST['url'];
+if (!empty($slug = $_REQUEST['option'])) {
 $product=loadModel('product');
 $category=loadModel('category');
 $option=loadModel('option');
@@ -8,7 +8,6 @@ if ($row['product_catid']) {
   $category_of_product = $category->category_of($row['product_catid']);
   $product_relate = $product->product_relate($row['product_catid'], $row['product_id']);
 }
-
 
 ?>
 <?php require_once('views/header.php'); ?>
@@ -794,3 +793,5 @@ if ($row['product_catid']) {
                     });
                 }
             </script> -->
+
+<?php }else{ Header("trang-chu.html");} ?>

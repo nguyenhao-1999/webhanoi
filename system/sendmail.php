@@ -50,16 +50,4 @@ function sendmail( $email = "", $name = "", $title = "", $detail = "")
     if($mail->Send()){
     	echo "Gửi thàn công";
     }
-
-/*    if(!$mail->Send()) {
-      set_flash('thongbao', "Trả lời bị lỗi: " . $mail->ErrorInfo);
-    } else {
-      //$check_sucssec = ;
-      if ($contact->contact_update($data_arr, $id) == TRUE) {
-        set_flash('thongbao', ['type'=>'success','msg'=>'Đã gửi email trả lời thành công !']);
-        $detail = "";
-      }else{
-        set_flash('thongbao', ['type'=>'success','msg'=>'Không thể gửi email này đi !']);
-      }
-  }*/
 }
