@@ -1,14 +1,3 @@
-$(document).ready(function(){
-	$.getScript("public/js/bootstrap.min.js");
-	$.getScript("public/js/sweetalert2.all.min.js");
-	$.getScript("public/js/owl.carousel.js");
-	$.getScript("public/js/modernizr.custom.js");
-	$.getScript("public/js/jquery.glasscase.minf195.js");
-	$.getScript("public/js/lazyload.js");
-	$.getScript("public/js/library.js");
-});
-
-
 jQuery(document).ready(function($) {
 	$('.cwButtonClose').on('click',function(){
 		$('#cwMessage').css("display", "none");
@@ -44,4 +33,15 @@ jQuery(document).ready(function($) {
 		});		
 	})
 });
+
+$(document).ready(function(){
+	$.getScript("public/js/bootstrap.min.js");
+	$.getScript("public/js/sweetalert2.all.min.js");
+	$.getScript("public/js/owl.carousel.js");
+	$.getScript("public/js/modernizr.custom.js");
+	$.getScript("public/js/jquery.glasscase.minf195.js");
+	$.getScript("public/js/lazyload.js");
+	$.getScript("public/js/library.js");
+});
+
 
