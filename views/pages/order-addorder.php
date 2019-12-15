@@ -1,4 +1,6 @@
-<?php 
+<?php  
+require_once('../system/sendmail.php');
+
 $order=loadModel('order');
 $option=loadModel('option');
 $product=loadModel('product');
@@ -43,6 +45,7 @@ if(isset($_POST['GUI']))
 			}
 		}
 	}
+
 	// Lấy ra thông tin email chính chủ
     $arr_option = ['option_name' => 'email','menu_status' => 1];
     $sendmail = $option->get_inforwebsite($arr_option);

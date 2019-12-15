@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <title>Trang Quản Trị</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../public/Admin/css/bootstrap.min.css" />
 <link rel="stylesheet" href="../public/Admin/css/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="../public/Admin/css/fullcalendar.css" />
@@ -12,9 +13,6 @@
 <link href="../public/Admin/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="../public/Admin/css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-
-
-
 </head>
 <body>
 
@@ -49,7 +47,7 @@
       </ul>
     </li>
     <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-    <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+    <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
   </ul>
 </div>
 <!--close-top-Header-menu-->

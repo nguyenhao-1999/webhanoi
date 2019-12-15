@@ -22,11 +22,11 @@ jQuery(document).ready(function($) {
 				if (result.success) 
 				{
 					$('#swal2-content').text(result.msg);
-					$('#message').css("display", "block");
+					$('#cwMessage').css("display", "block");
 
 				}else{
 					$('#swal2-content').text(result.msg);
-					$('#message').css("display", "block");
+					$('#cwMessage').css("display", "block");
 				}
 
 			}

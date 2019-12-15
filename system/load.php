@@ -7,7 +7,7 @@ function loadComponent($page=true)
 		$link=loadModel('link');
 		if(!isset($_REQUEST['option']))
 		{
-			$view.='home.php';
+			$view.='/home.php';
 		}
 		else
 		{

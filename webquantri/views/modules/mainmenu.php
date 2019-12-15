@@ -106,5 +106,12 @@
         <li><a href="index.php?option=category">Loại sản phẩm</a></li>
       </ul>
     </li>
+    <li class="submenu"> <a href="#"><i class="icon  icon-briefcase"></i> <span>Sản Phẩm</span> <span class="label label-important">3</span></a>
+      <ul>
+        <li><a href="index.php?option=product">Danh sách sản phẩm</a></li>
+        <li><a href="index.php?option=product&cat=insert">Thêm sản phẩm</a></li>
+        <li><a href="index.php?option=category">Loại sản phẩm</a></li>
+      </ul>
+    </li>
   </ul>
 </div>
