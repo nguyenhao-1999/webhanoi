@@ -6,6 +6,8 @@
     <title>
         BẾP AN THỊNH - THIẾT BỊ BẾP NHẬP KHẨU
     </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="public/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
 </head>

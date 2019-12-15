@@ -52,5 +52,7 @@ function sendmail( $email = "", $name = "", $title = "", $detail = "")
     $mail->IsHTML(true);   
     if($mail->Send()){
     	return true;
+    }else{
+        return false;
     }
 }

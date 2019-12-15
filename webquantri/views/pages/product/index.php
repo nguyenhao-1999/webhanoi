@@ -49,7 +49,7 @@ $title="Quản lý tất cả sản phẩm";
                       $id=$rlist['product_id'];
                       $namecat=$category->category_namecat($rlist['product_catid']); ?>
                       <td><?php echo $rlist['product_id']; ?></td>
-                      <td><!-- <img style="width:94px;" src="../public/images/product/<?php echo $rlist['product_img']; ?>"> --></td>
+                      <td><img style="width:94px;" src="../public/ResizeImage/images/product/bepanthinh/anhchinh/<?php echo $rlist['product_img']; ?>"></td>
                       <td><?php echo $rlist['product_name']; ?></td>
                       <td><?php   echo $namecat; ?>
                     </td>

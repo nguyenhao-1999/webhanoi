@@ -3,7 +3,6 @@ require_once('views/header.php');
 ?>
     <?php require_once('views/modules/slider.php'); ?>
 
-
     <!-- end slide home -->
     <section class="sec-02 md-od6 hidden-xs">
         <div class="container">

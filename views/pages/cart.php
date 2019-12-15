@@ -117,6 +117,22 @@ require_once('views/header.php');
                             </div>
                         </div>
                         </form>
+                        <?php   else: ?>
+                            <script type="text/javascript">
+                            function checkcart() {
+                                    Swal.fire({
+                                        type: 'error',
+                                        title: "Thông báo",
+                                        text: "Giỏ hàng hiện đang trống",
+                                        showCloseButton: true,
+                                        showCancelButton: true,
+                                        focusConfirm: false,
+                                        confirmButtonText: "OK",
+                                    })
+                                    return;
+                                }
+                                location.href = 'index.php';
+                        </script>
                     <?php endif; ?>
                     <form action="add-order.html" method="post">
                         <div class="box-form-info">

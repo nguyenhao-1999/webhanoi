@@ -96,7 +96,7 @@ if(isset($email))
     }
 
 }
-echo json_encode($err,true);
-die();
+    echo json_encode($err,true);
+    die();
 }
 ?>

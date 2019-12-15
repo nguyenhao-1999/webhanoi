@@ -231,8 +231,8 @@
 </div>
     <!--  Thông báo -->
 </footer>
-    <script src="public/js/jquery.min.js"></script>
-    <script type="text/javascript" src="public/js/owl.carousel.js"></script>
-    <script type="text/javascript" src="public/js/script.js"></script>
+     <script src="public/js/jquery.min.js"></script>
+   <script type="text/javascript" src="public/js/owl.carousel.js"></script>
+   <script type="text/javascript" src="public/js/script.js"></script> 
 </body>
 </html>
