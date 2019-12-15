@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
 			type: 'POST',
 			dataType: 'JSON',
 			data: {input: input},
-			success:function(data) 
+			success:function(result) 
 			{
 
 				if(result.constructor === String){
@@ -33,6 +33,30 @@ jQuery(document).ready(function($) {
 		});		
 	})
 });
+
+jQuery(document).ready(function($) {
+	$("#customemail").click(function(){
+		var input = $('#EmailRegister').val();
+
+		if (id.length == 4) {
+			$.ajax({
+				url: 'ajax/contect-email.php',
+				dataType: 'json',
+				type: 'POST',
+				data: { 'input': input },
+				success: function( result){  
+					$('#swal2-content').text(result.msg);
+					$('#cwMessage').css("display", "block");
+				}
+			});
+		}else
+		{
+			$('#swal2-content').text(result.msg);
+			$('#cwMessage').css("display", "block");
+		}
+	});
+});
+
 
 $(document).ready(function(){
 	$.getScript("public/js/bootstrap.min.js");

@@ -24,11 +24,12 @@ if(isset($email))
 {
     if($email=="")
     {
-    	$err['msg'] = 'Cần nhập vào thông tin';
+    	$err['msg'] = 'Bạn không được để trống thông tin';
         $err['el'] = 'EmailRegister';
+        $err['img'] = 'EmailRegister';
         $err['success'] = false;
     }elseif ($contact->contact_list($email) !=0) {
-        $err['msg'] = 'Email đã tồn tại';
+        $err['msg'] = 'Email của bạn đã tồn tại';
         $err['el'] = 'EmailRegister';
         $err['success'] = false;
     }
