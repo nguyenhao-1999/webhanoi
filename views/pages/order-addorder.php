@@ -48,8 +48,18 @@ if(isset($_POST['GUI']))
 	// Lấy ra thông tin email chính chủ
     $arr_option = ['option_name' => 'email','menu_status' => 1];
     $sendmail = $option->get_inforwebsite($arr_option);
-
-    $check  = sendmail( $sendmail['option_value'], "Bếp Quang Vinh", $title = "Đơn hàng mới", $detail = '<p style="text-align:center;">Bạn vừa nhận được 1 đơn hàng mới từ khách hàng của mình. </p>');
+    $noteSend = "";
+    $noteSend .= '<h3>Đơn hàng của bạn</h3><table class="table table-hover table-bordered bg-info text-white"><thead><tr><th>Sản phẩm</th><th>Tổng</th></tr></thead><tbody>';
+  	$tong=0;
+    foreach($cart as $k=>$r)
+    {
+    	$noteSend .= '<tr><td>'.$r['name'].'*'.$r['qty'].'</td>';
+    	$tien=$r['price']*$r['qty'];
+		$tong+=$tien;
+		$noteSend .= '<td>'.$tien.'<sup>đ</sup></td>';
+    }		
+	$noteSend .= '<tr><td class="text-right" colspan="6"><strong>Tổng tiền: <span class="text-danger">number_format($tong)<sup>đ</sup></span></strong></td></tr></tbody></table>';		
+    $check  = sendmail( $sendmail['option_value'], "Bếp Quang Vinh", $title = "Đơn hàng mới", $detail = $noteSend);
 
 	unset($_SESSION['cart']);
 	set_flash('thongbao',['type'=>'success','msg'=>'Đặt hàng thành công']);
