@@ -1,22 +1,8 @@
 <?php 
 require_once("../Config.php");
 require_once('../system/Database.php');
-require_once('../system/sendmail.php');
-function loadModelAjax($name)
-{
-    $name=ucfirst(strtolower($name));//đầu là chữ hoa mà sau là chữ thường
-    $pathModel='../models/'.$name.'.php';
-    if (file_exists($pathModel)) 
-    {
-        include($pathModel);
-        $modelclass=new $name;
-        return $modelclass;
-    }       
-    else
-    {
-        return NULL;
-    }
-}   
+require_once('../system/sendmail.php');   
+require_once('../system/load.php');   
 $contact= loadModelAjax('contact');
 $option= loadModelAjax('option');
 $email=$_POST['input'];

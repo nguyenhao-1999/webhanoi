@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html class="no-js" lang="vi-vn" xml:lang="vi-vn">
-
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <title>
         BẾP AN THỊNH - THIẾT BỊ BẾP NHẬP KHẨU
@@ -61,34 +59,15 @@
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="wp-search">
-                                <form method="post" id="formSearchTop" onsubmit="doSearch(); return false;">
+                                <form method="GET" id="formSearchTop" action="">
                                     <div class="content-search">
-                                        <input type="text" class="form-control" name="keyword" id="keyword" onkeyup="search(this.value)" autocomplete="off" value="" placeholder="Nhập từ khóa tìm kiếm">
+                                        <input type="text" class="form-control" name="keyword" id="keyword" autocomplete="off" value="" placeholder="Nhập từ khóa tìm kiếm">
                                         <button class="btn btn-danger btn-search" onclick="doSearch(); return false;"><i class="fa fa-search"></i></button>
-                                        <ul class="resuiltSearch ul-menu-muiten"></ul>
+                                        <ul class="resuiltSearch ul-menu-muiten" id="addHtml"></ul>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <script type="text/javascript">
-                            function doSearch() {
-                                var keyword = $('#keyword').val();
-                                if (keyword.length < 2 || keyword == 'Nhập từ khóa tìm kiếm') {
-                                    //zebra_alert('Thông báo !', 'Từ khóa phải nhiều hơn 1 ký tự.');
-                                    Swal.fire({
-                                        type: 'error',
-                                        title: "Thông báo",
-                                        text: "Từ khóa phải nhiều hơn 1 ký tự.",
-                                        showCloseButton: true,
-                                        showCancelButton: true,
-                                        focusConfirm: false,
-                                        confirmButtonText: "OK",
-                                    })
-                                    return;
-                                }
-                                location.href = 'https://bepanthinh.com/tim-kiem.html?keyword=' + keyword;
-                            }
-                        </script>
                         <div class="col-md-3 col-sm-12 col-xs-12">
                             <div class="wp-right-headertop">
                                 <div class="wp-hotline hidden-sm hidden-xs">
