@@ -1,34 +1,62 @@
-<!--end-main-container-part-->
-
-<!--Footer-part-->
-
-<div class="row-fluid">
-  <div id="footer" class="span12"> Xây dựng bơi -  <a href="http://chuyenweb.com">Nguyễn Văn Hào</a> </div>
+<footer class="sticky-footer">
+  <div class="container my-auto">
+     <div class="copyright text-center my-auto">
+       <span>Copyright © Your Website 2018</span>
+     </div>
+  </div>
+</footer>
 </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
 
 <!--end-Footer-part-->
 
-<script src="../public/Admin/js/excanvas.min.js"></script> 
-<script src="../public/Admin/js/jquery.min.js"></script> 
-<script src="../public/Admin/js/jquery.ui.custom.js"></script> 
-<script src="../public/Admin/js/bootstrap.min.js"></script> 
-<script src="../public/Admin/js/jquery.flot.min.js"></script> 
-<script src="../public/Admin/js/jquery.flot.resize.min.js"></script> 
-<script src="../public/Admin/js/jquery.peity.min.js"></script> 
-<script src="../public/Admin/js/fullcalendar.min.js"></script> 
-<script src="../public/Admin/js/matrix.js"></script> 
-<script src="../public/Admin/js/matrix.dashboard.js"></script> 
-<script src="../public/Admin/js/jquery.gritter.min.js"></script> 
-<script src="../public/Admin/js/matrix.interface.js"></script> 
-<script src="../public/Admin/js/matrix.chat.js"></script> 
-<script src="../public/Admin/js/jquery.validate.js"></script> 
-<script src="../public/Admin/js/matrix.form_validation.js"></script> 
-<script src="../public/Admin/js/jquery.wizard.js"></script> 
-<script src="../public/Admin/js/jquery.uniform.js"></script> 
-<script src="../public/Admin/js/select2.min.js"></script> 
-<script src="../public/Admin/js/matrix.popover.js"></script> 
-<script src="../public/Admin/js/jquery.dataTables.min.js"></script> 
-<script src="../public/Admin/js/matrix.tables.js"></script> 
+<script src="../public/Admin/js/jquery.min.js"></script>
+<script src="../public/Admin/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+<script src="../public/Admin/js/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+<script src="../public/Admin/js/Chart.min.js"></script>
+<script src="../public/Admin/js/jquery.dataTables.js"></script>
+<script src="../public/Admin/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+<script src="../public/Admin/js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+<script src="../public/Admin/js/datatables-demo.js"></script>
+<script src="../public/Admin/js/chart-area-demo.js"></script>
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
@@ -54,6 +82,3 @@ function resetMenu() {
    document.gomenu.selector.selectedIndex = 2;
 }
 </script>
-
-</body>
-</html>

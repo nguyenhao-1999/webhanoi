@@ -73,9 +73,9 @@ class Product extends Database
 		$sql="SELECT * FROM $this->table WHERE product_id='$id'";
 		return $this->QueryOne($sql);
 	}
-	function product_search($keyword)
+	function product_search($keyword,$limit=16)
 	{
-		$sql="SELECT * FROM $this->table WHERE (product_name like '%$keyword%' OR product_metakey like '%$keyword%' OR product_detail like '%$keyword%'OR product_metadesc like '%$keyword%') AND product_status='1' ORDER BY product_createdat DESC";
+		$sql="SELECT * FROM $this->table WHERE (product_name like '%$keyword%' OR product_metakey like '%$keyword%' OR product_detail like '%$keyword%'OR product_metadesc like '%$keyword%') AND product_status='1' ORDER BY product_createdat DESC LIMIT $limit";
 		if($this->QueryCount($sql)>0)
 		{
 			return $this->QueryAll($sql);

@@ -48,6 +48,9 @@ class Link extends Database
                     case 'order':
                         $view='order-addorder.php';
                         break;
+                     case 'search':
+                        $view='search.php';
+                        break;
                     default:
                         $view='error404.php';
                         break;
