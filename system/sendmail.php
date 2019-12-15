@@ -51,6 +51,6 @@ function sendmail( $email = "", $name = "", $title = "", $detail = "")
     $mail->Body = $body;
     $mail->IsHTML(true);   
     if($mail->Send()){
-    	echo "Gửi thàn công";
+    	return true;
     }
 }

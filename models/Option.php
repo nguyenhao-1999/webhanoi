@@ -7,28 +7,53 @@ class Option extends Database
 		parent::__construct();
 		$this->table=$this->TableName('option');
 	}
-	/*function menu_list($parentid=0)
-	{
-		$sql="SELECT * FROM $this->table WHERE menu_position='mainmenu' AND menu_status='1' AND menu_parentid='$parentid'";
-		return $this->QueryAll($sql);
-	}
-	function menu_row()
-	{
-		$sql="SELECT * FROM nvh_menu";
-		return $this->QueryOne($sql);
-	}*/
 
-	/*function get_inforwebsite($option){
-		if (!$option[0] && !empty($option)) {
-			$sql="SELECT * FROM $this->table WHERE option_name='$option' AND menu_status=$option AND option_address='$option'";
+	function get_inforwebsite($option)
+	{
+		// trường hợp rỗng
+		if ($option["option_name"]) $option_name = "";
+		if ($option["menu_status"]) $menu_status = 1;
+		// không rỗi
+		if ($option["option_name"]) $option_name = $option["option_name"];
+		if ($option["menu_status"]) $menu_status = $option["menu_status"];
+
+		// dòng truy vấn dữ liệu
+		if ($option_name !="" && $menu_status !="") 
+		{
+			$sql="SELECT * FROM $this->table WHERE option_name='$option_name' AND option_status=$menu_status";
+			$cuont = $this->QueryCount($sql);
 			// có cả 2
-		}elseif (!empty($name) && empty($address)) {
-			$sql="SELECT * FROM $this->table WHERE option_name='$option' AND menu_status=$option AND option_address='$option'";
-			// chỉ có name
-		}elseif(empty($name) && !empty($address)){
-			$sql="SELECT * FROM $this->table WHERE option_name='$option' AND menu_status=$option AND option_address='$option'";
-			// chỉ có address
+			if ($cuont > 1) 
+			{
+				return $this->QueryAll($sql);
+			}else{
+				return $this->QueryOne($sql);
+			}
 		}
-		return $this->QueryAll($sql);
-	}*/
+	}
+	function option_insert($data)
+	{
+		$strf='';
+		$strv='';
+		foreach($data as $f=>$v)
+		{
+			$strf.=$f.',';
+			$strv.="'".$v."', ";
+		}
+		$strf=rtrim(rtrim($strf),',');
+		$strv=rtrim(rtrim($strv),',');
+		$sql="INSERT INTO $this->table($strf) VALUES($strv)";
+		$this->QueryNoResult($sql);
+	}
+	function option_update($data,$id)
+	{
+		$strset='';
+		foreach($data as $f=>$v)
+		{
+			$strset.=$f."='$v',";
+		}
+		$strset=rtrim(rtrim($strset),',');
+		$sql="UPDATE $this->table SET $strset WHERE option_name='$id'";
+		$this->QueryNoResult($sql);
+	}
 }

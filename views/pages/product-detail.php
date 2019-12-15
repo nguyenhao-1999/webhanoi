@@ -280,37 +280,6 @@ if ($row['product_catid']) {
                         </div>
                     </div>
                 </div>
-                <!-- end box thong sso -->
-                <div class="box-dangky">
-                    <div class="wp-form-dk-cttin box-form-ctsp">
-                        <div class="bg-form-dk-ct">
-                            <div class="wpfr-ct">
-                                <div class="wp-title-form-cttin">
-                                    <h3 class="h3-title">ĐĂNG KÝ NHẬN MÃ GIẢM GIÁ LÊN ĐẾN</h3>
-                                    <p class="text-center"><span class="ma-giamgia">1.000.000</span></p>
-                                    <p class="text-center">Áp dụng khi mua hàng tại Bếp An Thịnh</p>
-                                </div>
-                                <form>
-                                    <div class="form-dk-ct">
-                                        <div class="wp-input wp-input1 form-group">
-                                            <input id="Name_Code" type="text" placeholder="Họ và tên" class="form-control">
-                                        </div>
-                                        <div class="wp-input wp-input2 form-group">
-                                            <input id="Phone_Code" type="text" placeholder="Số điện thoại" class="form-control">
-                                        </div>
-                                        <div class="wp-input wp-input3 form-group">
-                                            <input id="Email_Code" type="text" placeholder="Email" class="form-control">
-                                        </div>
-                                        <div class="wp-button">
-                                            <a href="javascript:void(0)" type="button" onclick="regCode()" class="btn btn-submit">ĐĂNG KÝ NGAY <i class="fas fa-paper-plane"></i></a>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end box dang ky -->
             </div>
             <!-- cac modal popup bo sung -->
             <div class="modal fade" id="modal-danhgia">

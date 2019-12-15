@@ -10,18 +10,6 @@
                 <div class="form-dk-ct">
                     <div class="wp-input wp-input1 form-group">
                         <input type="text" placeholder="Họ và tên" class="form-control" required name="fullname">
-                        <div class="wp-gioitinh">
-                            <div class="radio">
-                                <label id="nam">
-                                    <input type="radio" name="gioitinh">Nam
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label id="nu">
-                                    <input type="radio" name="gioitinh">Nữ
-                                </label>
-                            </div>
-                        </div>
                     </div>
                     <div class="wp-input wp-input2 form-group">
                         <input type="text" placeholder="Số điện thoại" class="form-control" required name="phone">

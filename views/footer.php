@@ -12,7 +12,7 @@
                     <div class="wp-form-dk">
                         <form>
                             <div class="form-dk">
-                                <input type="text" id="EmailRegister" name="EmailRegister" placeholder="Nhập địa chỉ email" class="form-control">
+                                <input type="text" id="EmailRegister" name="cwEmail" placeholder="Nhập địa chỉ email" class="form-control">
                                 <button type="button" class="btn btn-default btn-submit" id="customemail">ĐĂNG KÝ</button>
                             </div>
                         </form>
@@ -208,6 +208,28 @@
         </div>
     </div>
     
+
+
+    <!--  Thông báo -->
+<div id="cwMessage" class="swal2-container swal2-center swal2-fade swal2-shown" style="overflow-y: auto; display: none;">
+    <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: flex; top: 30%;">
+        <div class="swal2-header">
+            <img align="center" style="width: 100px;" src="public/images/thongbao.png">
+            <button type="button" class="swal2-close cwButtonClose" aria-label="Close this dialog" style="display: flex;">×</button>
+        </div>
+        <div class="swal2-content">
+            <div id="swal2-content" style="display: block;">
+
+                vjgjg
+            </div>
+        </div>
+        <div class="swal2-actions" style="display: flex;">
+            <button type="button" class="swal2-confirm swal2-styled cwButtonClose" aria-label="" style="display: inline-block; border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">OK</button>
+        </div>
+        <div class="swal2-footer" style="display: none;"></div>
+    </div>
+</div>
+    <!--  Thông báo -->
 </footer>
     <script src="public/js/jquery.min.js"></script>
     <script type="text/javascript" src="public/js/owl.carousel.js"></script>
