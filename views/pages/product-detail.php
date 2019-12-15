@@ -87,7 +87,7 @@ if ($row['product_catid']) {
                                         <div class="box-s1">
                                             <div class="box-qua">
                                                 <ul class="ul-b list-qua">
-                                                    <?php if($row['product_detail']) echo $row['product_detail']; ?>
+                                                    <?php if($row['product_informations']) echo $row['product_informations']; ?>
                                                 </ul>
                                             </div>
                                             <div class="box-btn">
@@ -262,51 +262,8 @@ if ($row['product_catid']) {
                                     <div class="tab-2 tab-content">
                                         <div class="content-thongso">
                                             <div class="post-thongso">
-                                                <h3><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Thông tin chi tiết sản phẩm<strong> máy <a href="index.html" title="hút mùi ABBAKA">hút mùi ABBAKA</a> AB 70 PQ</strong></span></span></h3>
-                                                <ul>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Loại sản phẩm: Máy hút mùi tum kính</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Mã sản phẩm: <strong>ABBAKA AB 70 PQ</strong></span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Hãng sản xuất: ABBAKA</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Xuất xứ: Italy</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Chất liệu: Inox</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Công suất hút: 1000m3/h _+60m3/h</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Độ ồn: =<></span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Kích thước: 90cm</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">GW/NW: 29/25KG</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Điện Áp: 240V/60Hz</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Áp lực gió: 160Pa</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Lưới lọc mỡ: Aluminium – 5 lớp</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Ống thoát khí: (150mm)</span></span>
-                                                    </li>
-                                                    <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Bảo hành: 3 năm</span></span>
-                                                    </li>
-                                                </ul>
-                                                <hr>
-                                                <p><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Trong mỗi căn nhà, người chăm lo những bữa ăn ngon, bỗ dưỡng cho gia đình là người phụ nữ. Và được nhìn thấy mọi thành viên vui vẻ quây quần bên bữa cơm chính là niềm hạnh phúc của họ. Tuy nhiên, hiện nay bàn ăn thường được bố trí ngay trong gian bếp thì mùi thức ăn, hơi gas hoặc các mùi khó chịu khác sinh ra khi nấu thường làm ảnh hưởng trực tiếp đến chất lượng bữa ăn gia đình bạn. Chính vì vậy cần phải có giải pháp giúp loại bỏ điều này.</span></span>
-                                                </p>
-                                                <p><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Đi cùng với sự phát triển của thời đại, nhiều máy móc hiện đại được chế tạo để phục vụ nhu cầu của con người. Trong đó có <strong>máy hút mùi</strong>, đến với BẾP AN THỊNH chúng tôi mang đến bạn dòng sản phẩm <strong>máy hút mùi</strong> với những chức năng hiện đại nhất và hiệu quả cao nhất.</span></span>
-                                                </p>
-                                                <p style="text-align:center"><span style="font-size:16px"><span style="font-family:times new roman,times,serif"><img alt="" src="index.html" style="height:312px; width:500px"></span></span>
-                                                </p>
-                                                <p style="text-align:center"><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Hình ảnh <strong>máy hút mùi ABBAKA AB 70 PQ</strong></span></span>
-                                                </p>
-                                                <p><span style="font-size:16px"><span style="font-family:times new roman,times,serif"><strong>Hút mùi Abbaka AB 70 PQ </strong>có thiết kế khá hiện đại và sang trọng phù hợp với mọi thiết kế nhà bếp. Sản phẩm được nhập khẩu và phân phối bởi hãng Abbaka - một trong những nhà cung cấp Thiết bị nhà bếp hàng đầu thế giới.</span></span>
-                                                </p>
-                                                <p><span style="font-family:times new roman,times,serif; font-size:16px">Với kích thước 70cm, công suất hút 1000m3/h, độ ồn =<60dba, điện năng="" tiêu="" thụ 240v/60hz="" và="" áp="" lực="" gió="" là=""></60dba, điện><strong>Abbaka AB 70 PQ</strong> thực sự phù hợp với những căn bếp có diện tích 15m2 trở lên. Ngoài ra, sản phẩm còn có lưới lọc mỡ Aluminium 5 lớp có thể dễ dàng tháo ra làm sạch nhanh chóng. <strong>Máy <a href="may-hut-mui.html" title="hút mùi">hút mùi</a> Abbaka AB 70 PQ</strong> được bảo hành 3 năm chính hãng.</span></p>
-                                                <p><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Bếp An Thịnh luôn đồng hành cùng Quý khách hàng, cung cấp những thiết bị nhà bếp cao cấp, uy tín và chất lượng, giao hàng và miễn phí công lắp đặt tại nhà. Bạn hãy nhấc máy và liên hệ ngày cho chúng tôi khi có bất ký thắc mắc gì về <a href="index.html" title="máy hút mùi Abbaka AB 75 PQ"><strong>máy hút mùi Abbaka AB 75 PQ</strong></a>. Đội ngũ nhân viên tư vấn chuyên nghiệp nhiệt tình chắc chắn sẽ khiến bạn hài lòng!</span></span>
-                                                </p>
+
+                                                <?php if ($row['product_detail']) echo $row['product_detail']; ?>
                                             </div>
                                         </div>
                                     </div>
