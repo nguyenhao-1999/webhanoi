@@ -3,7 +3,7 @@
 <!--Footer-part-->
 
 <div class="row-fluid">
-  <div id="footer" class="span12"> Xây dựng bơi -  <a href="http://themedesigner.in">Nguyễn Văn Hào</a> </div>
+  <div id="footer" class="span12"> Xây dựng bơi -  <a href="http://chuyenweb.com">Nguyễn Văn Hào</a> </div>
 </div>
 
 <!--end-Footer-part-->
