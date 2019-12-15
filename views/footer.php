@@ -215,7 +215,7 @@
 <div id="cwMessage" class="swal2-container swal2-center swal2-fade swal2-shown" style="overflow-y: auto; display: none;">
     <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: flex; top: 30%;">
         <div class="swal2-header">
-            <img align="center" style="width: 100px;" src="public/images/thongbao.png">
+            <img align="center" id="show-img" style="width: 30px;" src="public/images/thongbao.png">
             <button type="button" class="swal2-close cwButtonClose" aria-label="Close this dialog" style="display: flex;">×</button>
         </div>
         <div class="swal2-content">
@@ -237,3 +237,5 @@
    <script type="text/javascript" src="public/js/script.js"></script> 
 </body>
 </html>
+
+
