@@ -101,6 +101,17 @@ class Product extends Database
 		$sql = "SELECT * FROM $this->table WHERE  product_id NOT IN ('$not') AND product_status = $status AND product_catid = $catid ORDER BY product_id DESC  LIMIT $limit";
 		return $this->QueryAll($sql);
 	}
+	function search_product($keyword){
+		$sql="SELECT * FROM $this->table WHERE (product_name like '%$keyword%' OR product_metakey like '%$keyword%' OR product_detail like '%$keyword%'OR product_metadesc like '%$keyword%') AND product_status='1' ORDER BY product_id DESC LIMIT 5";
+		if($this->QueryCount($sql)>0)
+		{
+			return $this->QueryAll($sql);
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
 	
 }
 ?>

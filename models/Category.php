@@ -69,5 +69,17 @@ class Category extends Database
 		$sql="SELECT*FROM $this->table WHERE category_id = $id AND category_status = 1 ";
 		return $this->QueryOne($sql);
 	}
+
+	function search_category($keyword){
+		$sql="SELECT * FROM $this->table WHERE category_name LIKE '%$keyword%' AND category_status = 1  ORDER BY category_id DESC LIMIT 3";
+		if($this->QueryCount($sql)>0)
+		{
+			return $this->QueryAll($sql);
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
 }
 ?>

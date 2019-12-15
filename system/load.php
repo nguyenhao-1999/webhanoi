@@ -51,6 +51,22 @@ function loadComponent($page=true)
 	require_once($view);
 }
 
+function loadModelAjax($name)
+{
+    $name=ucfirst(strtolower($name));//đầu là chữ hoa mà sau là chữ thường
+    $pathModel='../models/'.$name.'.php';
+    if (file_exists($pathModel)) 
+    {
+        include($pathModel);
+        $modelclass=new $name;
+        return $modelclass;
+    }       
+    else
+    {
+        return NULL;
+    }
+}
+
 function loadModel($name)
 {
 	$name=ucfirst(strtolower($name));

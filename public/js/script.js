@@ -38,29 +38,47 @@ jQuery(document).ready(function($) {
 	})
 });
 
-jQuery(document).ready(function($) {
-	$("#customemail").click(function(){
-		var input = $('#EmailRegister').val();
+// tim kiếm
+function doSearch() {
+	var keyword = $('#keyword').val();
+	if (keyword.length < 2 || keyword == 'Nhập từ khóa tìm kiếm') {
+		Swal.fire({
+			type: 'error',
+			title: "Thông báo",
+			text: "Từ khóa phải nhiều hơn 1 ký tự.",
+			showCloseButton: true,
+			showCancelButton: true,
+			focusConfirm: false,
+			confirmButtonText: "OK",
+		})
+		return;
+	}
+	location.href = 'tim-kiem.html?keyword=' + keyword;
+}
 
-		if (id.length == 4) {
-			$.ajax({
-				url: 'ajax/contect-email.php',
-				dataType: 'json',
-				type: 'POST',
-				data: { 'input': input },
-				success: function( result){  
-					$('#swal2-content').text(result.msg);
-					$('#cwMessage').css("display", "block");
+$(document).ready(function(){
+	$('#keyword').keyup(function(){
+		var keyword = $(this).val();
+		$.ajax({
+			url: 'ajax/search-form.php',
+			type: 'POST',
+			dataType: 'JSON',
+			data: {keyword: keyword},
+			success:function(result) 
+			{
+
+				if(result.constructor === String){
+					result = JSON.parse(result);
 				}
-			});
-		}else
-		{
-			$('#swal2-content').text(result.msg);
-			$('#cwMessage').css("display", "block");
-		}
+				$('#addHtml').html(result.success);
+				$('#addHtml').css("display", "block");
+
+			}
+		}); 
 	});
 });
 
+// include
 
 $(document).ready(function(){
 	$.getScript("public/js/bootstrap.min.js");
