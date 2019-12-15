@@ -65,7 +65,7 @@ if ($row['product_catid']) {
                                         <input type="hidden" id="__VIEWxSTATE" />
                                         <ul id='zoom1' class='gc-start'>
                                             <li>
-                                                <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/<?php echo $row['product_img']; ?>" alt='<?php echo $row['product_name']; ?>' /></li>
+                                                <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/<?php echo $row['product_img']; ?>" alt="<?php echo $row['product_name']; ?>" /></li>
                                         </ul>
                                     </div>
                                 </div>

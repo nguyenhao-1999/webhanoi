@@ -44,7 +44,7 @@ $listmenu1=$menu->menu_list(0);
                 </nav>
             </div>
         </div>
-       <!-- <div class="backdrop__body-backdrop___1rvky"></div>
+       <div class="backdrop__body-backdrop___1rvky"></div>
         <div class="mobile-main-menu">
             <div class="la-scroll-fix-infor-user">
                 <div class="la-nav-menu-items">
@@ -298,5 +298,5 @@ $listmenu1=$menu->menu_list(0);
                     <i class="fas fa-phone-volume"></i>HOTLINE: <a href="tel:0913 14 1368">0913 14 1368</a>
                 </li>
             </ul>
-        </div>-->
+        </div>
     </div>
