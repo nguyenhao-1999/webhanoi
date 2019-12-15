@@ -26,17 +26,19 @@ if(isset($email))
     {
     	$err['msg'] = 'Bạn không được để trống thông tin';
         $err['el'] = 'EmailRegister';
-        $err['img'] = 'EmailRegister';
+        $err['img'] = 'error.png';
         $err['success'] = false;
     }elseif ($contact->contact_list($email) !=0) {
         $err['msg'] = 'Email của bạn đã tồn tại';
         $err['el'] = 'EmailRegister';
+        $err['img'] = 'error.png';
         $err['success'] = false;
     }
     elseif(!filter_var($_POST['input'],FILTER_VALIDATE_EMAIL))
     {
         $err['msg'] = 'Email không chính xác';
         $err['el'] = 'EmailRegister';
+        $err['img'] = 'error.png';
         $err['success'] = false;
     }
     else
@@ -93,6 +95,7 @@ if(isset($email))
     if ( $check) {
         $err['msg'] =  "Bạn đã gửi thành công email.";
         $err['el'] = 'EmailRegister';
+        $err['img'] = 'confirmation.png';
         $err['success'] = true;
     }
 

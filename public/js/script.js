@@ -4,6 +4,8 @@ jQuery(document).ready(function($) {
 	});
 });
 
+var uri_img_success = 'public/images/';
+
 jQuery(document).ready(function($) {
 	$('#customemail').on('click',function(){		
 		var input = $('#EmailRegister').val();
@@ -22,10 +24,12 @@ jQuery(document).ready(function($) {
 				if (result.success) 
 				{
 					$('#swal2-content').text(result.msg);
+					$('#show-img').attr("src", uri_img_success+result.img);
 					$('#cwMessage').css("display", "block");
 
 				}else{
 					$('#swal2-content').text(result.msg);
+					$('#show-img').attr("src", uri_img_success+result.img);
 					$('#cwMessage').css("display", "block");
 				}
 
