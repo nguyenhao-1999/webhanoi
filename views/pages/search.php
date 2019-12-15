@@ -39,6 +39,7 @@ $list_post=$post->post_search($keyword);
                             </div>
                             <div class="wp-list-item-danhmuc">
                                 <div class="row">
+                                	<?php if($list_product!=null): ?>
                                     <?php foreach($list_product as $row): ?>
                                     <div class="col-md-3 col-sm-3 col-xs-6 ">
                                                 <div class="wp-item-sp-page">
@@ -56,6 +57,7 @@ $list_post=$post->post_search($keyword);
                                                 </div>
                                             </div>
                                     <?php endforeach; ?>
+                                <?php endif; ?>
                                 </div>
                             </div>
                             <div class="phantrang text-center">
