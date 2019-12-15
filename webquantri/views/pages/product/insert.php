@@ -10,6 +10,24 @@ $title="Thêm sản phẩm";
 ?>
 
 <?php require_once 'views/header.php'; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="clearfix maincontent" >	
  <div class="container-fluid">
   <form action="index.php?option=product&cat=process" method="post" enctype="multipart/form-data">

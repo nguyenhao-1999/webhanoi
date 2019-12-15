@@ -1,5 +1,7 @@
 <?php  
+require_once('../system/sendmail.php');
 $order=loadModel('order');
+$option=loadModel('option');
 $product=loadModel('product');
 $list_product=$product->product_list_all();
 $orderdetail=loadModel('orderdetail');
@@ -43,6 +45,12 @@ if(isset($_POST['GUI']))
 			}
 		}
 	}
+	 // Lấy ra thông tin email chính chủ
+    $arr_option = ['option_name' => 'email','menu_status' => 1];
+    $sendmail = $option->get_inforwebsite($arr_option);
+
+    // gửi mail và kiểm tra có thành công hay không
+    $check  = sendmail( $sendmail['option_value'], "Bếp Quang Vinh", $title = "Gửi thông tin email", $detail = '<p style="text-align:center;">Bạn vừa nhận được 1 đơn hàng mới</p><p style="text-align:center;"></p>');
 	unset($_SESSION['cart']);
 	set_flash('thongbao',['type'=>'success','msg'=>'Đặt hàng thành công']);
 	redirect('gio-hang.html');

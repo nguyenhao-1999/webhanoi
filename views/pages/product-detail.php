@@ -91,7 +91,7 @@ if ($row['product_catid']) {
                                                 </ul>
                                             </div>
                                             <div class="box-btn">
-                                                <a href="javascript:void(0)" class="buy_now btn btn-default btn-b1" data-id="3710" data-returnpath="%2fmay-hut-mui-abbaka-ab-70-pq_3971.html" rel="nofollow">
+                                                <a href="index.php?option=cart&cat=addcart&id=<?php echo $row['product_id']; ?>" class="buy_now btn btn-default btn-b1" data-id="3710" data-returnpath="%2fmay-hut-mui-abbaka-ab-70-pq_3971.html" rel="nofollow">
                                                     <span class="span-1">Mua ngay</span>
                                                     <span class="span-2">Giao hàng tận nơi trên toàn quốc</span>
                                                 </a>
