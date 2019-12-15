@@ -13,11 +13,10 @@ if(isset($_SESSION['user_admin']))
 if(isset($_POST['DANGNHAP']))
 {
 	$username=$_POST['username'];
-	$password=sha1($_POST['password']);
-	var_dump($auth->auth_check($username));
+	$password=$_POST['password'];
 	if($auth->auth_check($username)==true)
 	{
-		$user=$auth->auth_guard($username,$password);
+		$user=$auth->auth_guard($username,sha1($password));
 		if($user!=FALSE)
 		{
 					//Đăng nhập thành công
@@ -58,14 +57,14 @@ if(isset($_POST['DANGNHAP']))
 			<div class="control-group">
 				<div class="controls">
 					<div class="main_input_box">
-						<span class="add-on bg_lg"><i class="icon-user"> </i></span><input name="username" type="text" placeholder="Tài khoảng" />
+						<span class="add-on bg_lg"><i class="icon-user"> </i></span><input value="<?php if($username) echo $username; ?>" name="username" type="text" placeholder="Tài khoảng" />
 					</div>
 				</div>
 			</div>
 			<div class="control-group">
 				<div class="controls">
 					<div class="main_input_box">
-						<span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" name="password" placeholder="Mật khẩu" />
+						<span class="add-on bg_ly"><i class="icon-lock"></i></span><input value="<?php if($password) echo $password; ?>" type="password" name="password" placeholder="Mật khẩu" />
 					</div>
 				</div>
 			</div>

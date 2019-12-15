@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg text-light">
+<!-- <nav class="navbar navbar-expand-lg text-light">
        <a class="navbar-brand text-light" href="index.php">Delta Shoes</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle   navigation">
         <span class="navbar-toggler-icon"></span>
@@ -85,4 +85,26 @@
       <li> <i class="fas fa-power-off ml-2"></i><a class="logout" href="logout.php"> Thoát</a></li>
     </ul>
   </div>
-</nav>
+</nav> -->
+
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
+
+    <li class="submenu"> <a href="#"><i class="icon icon-book"></i> <span>Bài Viết</span> <span class="label label-important">3</span></a>
+      <ul>
+        <li><a href="index.php?option=post">Danh sách bài viết</a></li>
+        <li><a href="index.php?option=post&cat=insert">Thêm bài viết</a></li>
+        <li><a href="index.php?option=topic">Loại bài viết</a></li>
+      </ul>
+    </li>
+    <li class="submenu"> <a href="#"><i class="icon  icon-briefcase"></i> <span>Sản Phẩm</span> <span class="label label-important">3</span></a>
+      <ul>
+        <li><a href="index.php?option=product">Danh sách sản phẩm</a></li>
+        <li><a href="index.php?option=product&cat=insert">Thêm sản phẩm</a></li>
+        <li><a href="index.php?option=category">Loại sản phẩm</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
