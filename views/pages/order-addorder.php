@@ -1,5 +1,4 @@
 <?php  
-require_once('../system/sendmail.php');
 
 $order=loadModel('order');
 $option=loadModel('option');
@@ -59,7 +58,7 @@ if(isset($_POST['GUI']))
 		$tong+=$tien;
 		$noteSend .= '<td>'.$tien.'<sup>đ</sup></td>';
     }		
-	$noteSend .= '<tr><td class="text-right" colspan="6"><strong>Tổng tiền: <span class="text-danger">number_format($tong)<sup>đ</sup></span></strong></td></tr></tbody></table>';		
+	$noteSend .= '<tr><td class="text-right" colspan="6"><strong>Tổng tiền: <span class="text-danger">'.number_format($tong).'<sup>đ</sup></span></strong></td></tr></tbody></table>';		
     $check  = sendmail( $sendmail['option_value'], "Bếp Quang Vinh", $title = "Đơn hàng mới", $detail = $noteSend);
 
 	unset($_SESSION['cart']);
