@@ -1,5 +1,4 @@
 <?php  
-require_once('../system/sendmail.php');
 
 $order=loadModel('order');
 $option=loadModel('option');
