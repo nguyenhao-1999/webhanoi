@@ -91,6 +91,38 @@ $(document).ready(function(){
 	});
 });
 
+// kiểm tra giỏ hàng đã có sản phẩm hay chưa
+
+ $(document).ready(function(){
+	$('#keyword').keyup(function(){
+		var keyword = $(this).val();
+		$.ajax({
+			url: 'ajax/check-cart.php',
+			type: 'POST',
+			dataType: 'JSON',
+			data: {keyword: keyword},
+			success:function(result) 
+			{
+
+				if(result.constructor === String){
+					result = JSON.parse(result);
+				}
+				$('#addHtml').html(result.success);
+				$('#addHtml').show();
+
+				$(document).on('click', function (e) {
+                    if ($(e.target).closest('#addHtml').length === 0) {
+                        $('#addHtml').hide();
+                    }
+                });
+
+			}
+		}); 
+	});
+});
+
+
+
 // include
 
 $(document).ready(function(){

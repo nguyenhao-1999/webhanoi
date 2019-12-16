@@ -1,0 +1,13 @@
+<?php 
+session_start();	
+require_once('../Config.php');
+require_once('../system/load.php');
+require_once('../system/core.php');
+require_once('../system/Database.php');
+date_default_timezone_set("Asia/Ho_Chi_Minh");
+if(!isset($_SESSION['user_admin']))
+{
+	redirect('login.php');
+}
+loadComponent(false);
+?>

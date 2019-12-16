@@ -16,22 +16,22 @@
             <div class="container">
                 <div class="header-top">
                     <div class="row">
-                        <div class="col-md-9 hidden-sm hidden-xs">
+                        <div class="col-md-8 hidden-sm hidden-xs">
                             <div class="left-header-top">
-                                <i class="fas fa-shield-alt"></i>
-                                <ul class="ul-b list-link-top">
-                                    <li><a href="#">Mua hàng đảm bảo tại An Thịnh</a></li>
-                                    <li><a href="#">Giới thiệu về An Thịnh</a></li>
-                                    <li><a href="#">Ưu đãi đại lý/ khách công trình</a></li>
-                                    <li><a href="#">Hợp tác mở chi nhánh tỉnh</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 hidden-sm hidden-xs">
-                            <div class="right-header-top">
                                 <i class="fas fa-clock"></i>
                                 <ul class="ul-b time-open">
                                     <li>Thời gian mở cửa: <b>08h00 - 22h00</b></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 hidden-sm hidden-xs">
+                            <div class="right-header-top">
+                                <i class="fas fa-shield-alt"></i>
+                                <ul class="ul-b list-link-top">
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Tuyển dụng</a></li>
+                                    <li><a href="#">Ưu đãi</a></li>
+                                    <li><a href="#">Chính sách</a></li>
                                 </ul>
                             </div>
                         </div>
