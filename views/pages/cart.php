@@ -1,7 +1,6 @@
 <?php 
 $cart=loadClass('cart');
 $cart_list=$cart->cart_content();
-if ($cart->count_toltal_product() != 0) :
 ?>
 <?php 
 require_once('views/header.php');
@@ -118,9 +117,6 @@ require_once('views/header.php');
                             </div>
                         </div>
                         </form>
-                        <?php   else: ?>
-                            
-                    <?php endif; ?>
                     <form action="add-order.html" method="post">
                         <div class="box-form-info">
                             <div class="row">
@@ -194,6 +190,9 @@ require_once('views/header.php');
                             </div>
                         </div>
                         </form>
+                        <?php   else: ?>
+                            
+                    <?php endif; ?>
                     </div>
                 </div>
                 <section class="sec-00 sec-sp-muanhieu">
@@ -366,8 +365,5 @@ require_once('views/header.php');
 </section>
 	<?php 
     require_once('views/footer.php');
-else:
-    header('Location:index.html');
-endif;
 	
 	?>
