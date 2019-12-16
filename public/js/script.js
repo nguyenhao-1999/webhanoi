@@ -1,9 +1,3 @@
-jQuery(document).ready(function($) {
-	$('.cwButtonClose').on('click',function(){
-		$('#cwMessage').css("display", "none");
-	});
-});
-
 var uri_img_success = 'public/images/';
 
 jQuery(document).ready(function($) {
@@ -23,14 +17,27 @@ jQuery(document).ready(function($) {
 
 				if (result.success) 
 				{
-					$('#swal2-content').text(result.msg);
-					$('#show-img').attr("src", uri_img_success+result.img);
-					$('#cwMessage').css("display", "block");
+					Swal.fire({
+						type: 'success',
+						title: "Thông báo",
+						text: result.msg,
+						showCloseButton: true,
+						showCancelButton: true,
+						focusConfirm: false,
+						confirmButtonText: "OK",
+					})
 
 				}else{
-					$('#swal2-content').text(result.msg);
-					$('#show-img').attr("src", uri_img_success+result.img);
-					$('#cwMessage').css("display", "block");
+
+					Swal.fire({
+						type: 'error',
+						title: "Thông báo",
+						text: result.msg,
+						showCloseButton: true,
+						showCancelButton: true,
+						focusConfirm: false,
+						confirmButtonText: "OK",
+					})
 				}
 
 			}
@@ -71,7 +78,13 @@ $(document).ready(function(){
 					result = JSON.parse(result);
 				}
 				$('#addHtml').html(result.success);
-				$('#addHtml').css("display", "block");
+				$('#addHtml').show();
+
+				$(document).on('click', function (e) {
+                    if ($(e.target).closest('#addHtml').length === 0) {
+                        $('#addHtml').hide();
+                    }
+                });
 
 			}
 		}); 

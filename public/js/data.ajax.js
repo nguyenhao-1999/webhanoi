@@ -98,7 +98,7 @@ function checkout() {
     });
 }
 
-function search(keyword) {
+/*function search(keyword) {
     $.ajax({
         url: '/ajax/GetSearch.html',
         type: 'GET',
@@ -121,9 +121,9 @@ function search(keyword) {
         error: function () { }
     });
 }
+*/
 
-
-function searchBrand(keyword, menuid) {
+/*function searchBrand(keyword, menuid) {
     $.ajax({
         url: '/ajax/GetBrand.html',
         type: 'GET',
@@ -137,9 +137,9 @@ function searchBrand(keyword, menuid) {
         },
         error: function () { }
     });
-}
+}*/
 
-function getEmail() {
+/*function getEmail() {
     var EmailRegister = $("#EmailRegister").val();
     $('.loading').show();
     $.ajax({
@@ -171,4 +171,4 @@ function getEmail() {
         },
         error: function () { }
     });
-}
+}*/
