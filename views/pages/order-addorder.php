@@ -50,16 +50,17 @@ if(isset($_POST['GUI']))
     $sendmail = $option->get_inforwebsite($arr_option);
     $noteSend = "";
   	$tong=0;
+  	$send="";
     foreach($cart as $k=>$r)
     {
     	$tien=$r['price']*$r['qty'];
 		$tong+=$tien;
 
-    	$noteSend .= '<tr><td>'.$r['name'].'</td><td>'.$r['qty'].'</td><td>'.$tien.'<sup>đ</sup></td></tr>';
+    	$send .= '<tr><td>'.$r['name'].'</td><td>'.$r['qty'].'</td><td>'.$tien.'<sup>đ</sup></td></tr>';
     }		
 
 
-    $noteSend .= ' <h2 class="title-cart">Đơn hàng</h2><div class="cart-center"><table class="table-cart"><thead><tr><th>Trên sản phẩm</th><th>Số lượng</th><th>Thành tiền</th></tr></thead><tbody>'.$noteSend.'</tbody></table><div class="total-cart"><p><b>Tổng tiền : </b>'.$tong.'<sup>đ</sup></p></div></div><div class="address-cart"><h3>Thông tin khách hàng</h3><p><span>Họ tên người nhận: </span>'.$_POST['fullname'].'</p><p><span>Địa chỉ: </span>'.$_POST['address'].'</p><p><span>Điện Thoại: </span>'.$_POST['phone'].'</p><p><span>Thông tin thêm: </span>'.$_POST['content'].'</p></div><p class="date-cart">( BếpQuangVinh ngày '.date('dd').' tháng '.date('mm').' năm '.date('YYYY').' )</p>';
+    $noteSend .= ' <h2 class="title-cart">Đơn hàng</h2><div class="cart-center"><table class="table-cart"><thead><tr><th>Trên sản phẩm</th><th>Số lượng</th><th>Thành tiền</th></tr></thead><tbody>'.$send.'</tbody></table><div class="total-cart"><p><b>Tổng tiền : </b>'.$tong.'<sup>đ</sup></p></div></div><div class="address-cart"><h3>Thông tin khách hàng</h3><p><span>Họ tên người nhận: </span>'.$_POST['fullname'].'</p><p><span>Địa chỉ: </span>'.$_POST['address'].'</p><p><span>Điện Thoại: </span>'.$_POST['phone'].'</p><p><span>Thông tin thêm: </span>'.$_POST['content'].'</p></div><p class="date-cart">( BếpQuangVinh ngày '.date('d').' tháng '.date('m').' năm '.date('Y').'-'.date('h:i:s').' )</p>';
 
 
     $check  = sendmail( $sendmail['option_value'], "Bếp Quang Vinh", $title = "Đơn hàng mới", $detail = $noteSend);
