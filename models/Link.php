@@ -35,7 +35,7 @@ class Link extends Database
                         $view='product-category.php';
                         break;
                     case 'topic':
-                        $view=$this->post_topic($slug);
+                        $view='post.php';
                         break;
                     case 'page':
                         $view='page-category.php';

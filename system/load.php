@@ -25,7 +25,15 @@ function loadComponent($page=true)
 			}
 			else
 			{
-				$view.=$link->link_index($_REQUEST['option']);
+				if(isset($_REQUEST['cat']))
+				{
+					$view.='-'.$_REQUEST['cat'].'.php';
+				}
+				else
+				{
+					$view.=$link->link_index($_REQUEST['option']);
+				}
+				
 			}
 		}
 	}
