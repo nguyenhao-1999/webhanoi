@@ -62,7 +62,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12 fl-left">
                     <?php require_once('views/modules/slidebar.php'); ?>
-                </div>
+                	</div>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-tu-munchen-gm2285_8356.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/product/bep-tu-munchen-GM-2285x500x500x4.jpg" src="Data/ResizeImage/images/product/bep-tu-munchen-GM-2285x500x500x4.jpg" alt="Bếp từ munchen GM2285"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bep-tu-munchen-GM-2285x500x500x4.jpg" alt="Bếp từ munchen GM2285"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-tu-munchen-gm2285_8356.html">Bếp từ munchen GM2285</a></h3>
@@ -96,7 +96,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-tu-munchen-gm-292_8192.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/product/bep-tu-munchen-GM-292x500x500x4.jpg" src="Data/ResizeImage/images/product/bep-tu-munchen-GM-292x500x500x4.jpg" alt="Bếp từ Munchen GM 292"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bep-tu-munchen-GM-292x500x500x4.jpg" alt="Bếp từ Munchen GM 292"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-tu-munchen-gm-292_8192.html">Bếp từ Munchen GM 292</a></h3>
@@ -111,7 +111,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-dien-tu-munchen-gm6629s_8190.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-munchen-gm6629s_8190x500x500x4.png" src="Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-munchen-gm6629s_8190x500x500x4.png" alt="Bếp điện từ munchen GM6629S"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-munchen-gm6629s_8190x500x500x4.png" alt="Bếp điện từ munchen GM6629S"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-dien-tu-munchen-gm6629s_8190.html">Bếp điện từ munchen GM6629S</a></h3>
@@ -126,7 +126,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-tu-doi-atg-ah968mi_7780.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/pageimage/beptu hutmui/968mix500x500x4.jpg" src="Data/ResizeImage/images/pageimage/beptu%20hutmui/968mix500x500x4.jpg" alt="Bếp Từ Đôi ATG-AH968MI"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/pageimage/beptu%20hutmui/968mix500x500x4.jpg" alt="Bếp Từ Đôi ATG-AH968MI"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-tu-doi-atg-ah968mi_7780.html">Bếp Từ Đôi ATG-AH968MI</a></h3>
@@ -141,7 +141,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-dien-tu-arber-ab-398_6098.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-arber-ab-398_6098x500x500x4.png" src="Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-arber-ab-398_6098x500x500x4.png" alt="Bếp điện từ Arber AB 398"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-arber-ab-398_6098x500x500x4.png" alt="Bếp điện từ Arber AB 398"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-dien-tu-arber-ab-398_6098.html">Bếp điện từ Arber AB 398</a></h3>
@@ -156,7 +156,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-tu-arber-ab-396_6097.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-tu-arber-ab-396_6097x500x500x4.png" src="Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-tu-arber-ab-396_6097x500x500x4.png" alt="Bếp từ Arber AB 396"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-tu-arber-ab-396_6097x500x500x4.png" alt="Bếp từ Arber AB 396"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-tu-arber-ab-396_6097.html">Bếp từ Arber AB 396</a></h3>
@@ -171,7 +171,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-tu-munchen-gm-8999_5203.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-tu-munchen-gm-8999_5203x500x500x4.png" src="Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-tu-munchen-gm-8999_5203x500x500x4.png" alt="Bếp từ Munchen GM 8999"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-tu-munchen-gm-8999_5203x500x500x4.png" alt="Bếp từ Munchen GM 8999"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-tu-munchen-gm-8999_5203.html">Bếp từ Munchen GM 8999</a></h3>
@@ -186,7 +186,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-dien-tu-munchen-gm-6318_5181.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-munchen-gm-6318_5181x500x500x4.png" src="Data/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-munchen-gm-6318_5181x500x500x4.png" alt="Bếp điện từ Munchen GM 6318"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bepanthinh/anhchinh/bep-dien-tu-munchen-gm-6318_5181x500x500x4.png" alt="Bếp điện từ Munchen GM 6318"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-dien-tu-munchen-gm-6318_5181.html">Bếp điện từ Munchen GM 6318</a></h3>
@@ -201,7 +201,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-tu-munchen-gm-5656_5158.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/product/bep-tu-Munchen-GM-5656x500x500x4.png" src="Data/ResizeImage/images/product/bep-tu-Munchen-GM-5656x500x500x4.png" alt="Bếp từ Munchen GM 5656"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bep-tu-Munchen-GM-5656x500x500x4.png" alt="Bếp từ Munchen GM 5656"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-tu-munchen-gm-5656_5158.html">Bếp từ Munchen GM 5656</a></h3>
@@ -216,7 +216,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                         <div class="wp-item-sp-page">
                             <div class="img-item-sp-page">
                                 <a href="bep-tu-munchen-g60bk_468.html">
-                                    <img class="owl-lazy" data-src="/Data/ResizeImage/images/product/bep-tu-munchen-g60bkx500x500x4.jpg" src="Data/ResizeImage/images/product/bep-tu-munchen-g60bkx500x500x4.jpg" alt="Bếp Từ Munchen G60BK"></a>
+                                    <img class="owl-lazy" src="public/ResizeImage/images/product/bep-tu-munchen-g60bkx500x500x4.jpg" alt="Bếp Từ Munchen G60BK"></a>
                             </div>
                             <div class="text-item-sp-page">
                                 <h3 class="h3-title"><a href="bep-tu-munchen-g60bk_468.html">Bếp Từ Munchen G60BK</a></h3>
@@ -232,4 +232,4 @@ $list=$post->post_topicid($rowlist,$first,$limit);
         </div>
     </div>
 </section>
-<?php require_once('views.footer.php'); ?>
+<?php require_once('views/footer.php'); ?>

@@ -98,21 +98,21 @@
             <ul class="ul-b list-item-box">
                 <li class="item-avt-sp">
                     <div class="img-avt">
-                        <a href="#"><img src="Content/pc/images/icon-sp1.png" alt=""></a>
+                        <a href="#"><img src="publicimages/icon-sp1.png" alt=""></a>
                     </div>
                     <div class="text-avt">
                         <h3 class="h3-title">Kinh Doanh Hà Nội</h3><span>0913 14 1368</span></div>
                 </li>
                 <li class="item-avt-sp">
                     <div class="img-avt">
-                        <a href="#"><img src="Content/pc/images/icon-sp1.png" alt=""></a>
+                        <a href="#"><img src="publicimages/icon-sp1.png" alt=""></a>
                     </div>
                     <div class="text-avt">
                         <h3 class="h3-title">Kinh Doanh HCM</h3><span>0888 34 1368</span></div>
                 </li>
                 <li class="item-avt-sp">
                     <div class="img-avt">
-                        <a href="#"><img src="Content/pc/images/icon-sp1.png" alt=""></a>
+                        <a href="#"><img src="publicimages/icon-sp1.png" alt=""></a>
                     </div>
                     <div class="text-avt">
                         <h3 class="h3-title">Góp Ý Dịch Vụ</h3><span>0914 03 1368</span></div>

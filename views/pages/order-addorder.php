@@ -49,20 +49,24 @@ if(isset($_POST['GUI']))
     $arr_option = ['option_name' => 'email','menu_status' => 1];
     $sendmail = $option->get_inforwebsite($arr_option);
     $noteSend = "";
-    $noteSend .= '<div align="center"  style="margin: 0 auto;"><h3 style="width: 100%; border: 1px #ddd solid;">Đơn hàng của bạn</h3><table class="table table-hover table-bordered bg-info text-white"><thead><tr style="width: 100%; border: 1px #ddd solid;"><th style="width: 100%; border: 1px #ddd solid;">Sản phẩm</th><th style="width: 100%; border: 1px #ddd solid;">Tổng</th></tr></thead><tbody>';
   	$tong=0;
     foreach($cart as $k=>$r)
     {
-    	$noteSend .= '<tr style="width: 100%; border: 1px #ddd solid;"><td style="width: 100%; border: 1px #ddd solid;">'.$r['name'].'*'.$r['qty'].'</td>';
     	$tien=$r['price']*$r['qty'];
 		$tong+=$tien;
-		$noteSend .= '<td style="border: 1px #ddd solid;">'.$tien.'<sup>đ</sup></td>';
+    	$noteSend .= '<tr style="width: 100%; border: 1px #ddd solid;"><td style="width: 100%; border: 1px #ddd solid;">'.$r['name'].'*'.$r['qty'].'</td><td>'.$r['name'].'</td><td>'.$r['qty'].'</td><td>'.$tien.' <sup>đ</sup></td></tr>';
     }		
-	$noteSend .= '<tr style="width: 100%; border: 1px #ddd solid;"><td class="text-right" colspan="6"><strong>Tổng tiền: <span class="text-danger">'.number_format($tong).'<sup>đ</sup></span></strong></td></tr></tbody></table>';		
+
+
+    $noteSend .= ' <h2 class="title-cart">Đơn hàng</h2><div class="cart-center"><table class="table-cart"><thead><tr><th>Trên sản phẩm</th><th>Số lượng</th><th>Thành tiền</th></tr></thead><tbody>'.$noteSend.'</tbody></table><div class="total-cart"><p><b>Tổng tiền : </b>'.$tong.'<sup>đ</sup></p></div></div><div class="address-cart"><h3>Thông tin khách hàng</h3><p><span>Họ tên người nhận: </span>bepquangvinh@gmail.com</p><p><span>Địa chỉ: </span>Số 28 Nguyễn Văn Trỗi, Phương Liệt, Thanh Xuân Hà Nội</p><p><span>Điện Thoại: </span>04 3662.5489</p><p><span>Thông tin thêm: </span>'.$_POST['content'].'</p></div><p class="date-cart">( BếpQuangVinh ngày 16 tháng 12 năm 2019 )</p>';
+
+
     $check  = sendmail( $sendmail['option_value'], "Bếp Quang Vinh", $title = "Đơn hàng mới", $detail = $noteSend);
+
 
 	unset($_SESSION['cart']);
 	set_flash('thongbao',['type'=>'success','msg'=>'Đặt hàng thành công']);
 	redirect('gio-hang.html');
 }
 ?>
+
