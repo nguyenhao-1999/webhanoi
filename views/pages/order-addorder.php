@@ -54,11 +54,12 @@ if(isset($_POST['GUI']))
     {
     	$tien=$r['price']*$r['qty'];
 		$tong+=$tien;
-    	$noteSend .= '<tr style="width: 100%; border: 1px #ddd solid;"><td style="width: 100%; border: 1px #ddd solid;">'.$r['name'].'*'.$r['qty'].'</td><td>'.$r['name'].'</td><td>'.$r['qty'].'</td><td>'.$tien.' <sup>đ</sup></td></tr>';
+
+    	$noteSend .= '<tr><td>'.$r['name'].'</td><td>'.$r['qty'].'</td><td>'.$tien.'<sup>đ</sup></td></tr>';
     }		
 
 
-    $noteSend .= ' <h2 class="title-cart">Đơn hàng</h2><div class="cart-center"><table class="table-cart"><thead><tr><th>Trên sản phẩm</th><th>Số lượng</th><th>Thành tiền</th></tr></thead><tbody>'.$noteSend.'</tbody></table><div class="total-cart"><p><b>Tổng tiền : </b>'.$tong.'<sup>đ</sup></p></div></div><div class="address-cart"><h3>Thông tin khách hàng</h3><p><span>Họ tên người nhận: </span>bepquangvinh@gmail.com</p><p><span>Địa chỉ: </span>Số 28 Nguyễn Văn Trỗi, Phương Liệt, Thanh Xuân Hà Nội</p><p><span>Điện Thoại: </span>04 3662.5489</p><p><span>Thông tin thêm: </span>'.$_POST['content'].'</p></div><p class="date-cart">( BếpQuangVinh ngày 16 tháng 12 năm 2019 )</p>';
+    $noteSend .= ' <h2 class="title-cart">Đơn hàng</h2><div class="cart-center"><table class="table-cart"><thead><tr><th>Trên sản phẩm</th><th>Số lượng</th><th>Thành tiền</th></tr></thead><tbody>'.$noteSend.'</tbody></table><div class="total-cart"><p><b>Tổng tiền : </b>'.$tong.'<sup>đ</sup></p></div></div><div class="address-cart"><h3>Thông tin khách hàng</h3><p><span>Họ tên người nhận: </span>'.$_POST['fullname'].'</p><p><span>Địa chỉ: </span>'.$_POST['address'].'</p><p><span>Điện Thoại: </span>'.$_POST['phone'].'</p><p><span>Thông tin thêm: </span>'.$_POST['content'].'</p></div><p class="date-cart">( BếpQuangVinh ngày '.date('dd').' tháng '.date('mm').' năm '.date('YYYY').' )</p>';
 
 
     $check  = sendmail( $sendmail['option_value'], "Bếp Quang Vinh", $title = "Đơn hàng mới", $detail = $noteSend);
