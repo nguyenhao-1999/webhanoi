@@ -29,3 +29,9 @@
 .main-header {
     padding: 16px 0 14px 0;
 }
+.list-link-top li {
+    float: left;
+    display: flex;
+    margin-right: 15px;
+    position: relative;
+}

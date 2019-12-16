@@ -81,10 +81,10 @@ $(document).ready(function(){
 				$('#addHtml').show();
 
 				$(document).on('click', function (e) {
-                    if ($(e.target).closest('#addHtml').length === 0) {
-                        $('#addHtml').hide();
-                    }
-                });
+					if ($(e.target).closest('#addHtml').length === 0) {
+						$('#addHtml').hide();
+					}
+				});
 
 			}
 		}); 
@@ -93,28 +93,32 @@ $(document).ready(function(){
 
 // kiểm tra giỏ hàng đã có sản phẩm hay chưa
 
- $(document).ready(function(){
-	$('#keyword').keyup(function(){
-		var keyword = $(this).val();
+$(document).ready(function(){
+	$('#check-cart').on('click', function(){
 		$.ajax({
 			url: 'ajax/check-cart.php',
 			type: 'POST',
-			dataType: 'JSON',
-			data: {keyword: keyword},
 			success:function(result) 
 			{
-
 				if(result.constructor === String){
 					result = JSON.parse(result);
 				}
-				$('#addHtml').html(result.success);
-				$('#addHtml').show();
 
-				$(document).on('click', function (e) {
-                    if ($(e.target).closest('#addHtml').length === 0) {
-                        $('#addHtml').hide();
-                    }
-                });
+				if (Number(result.success) > 0) {
+					location.href = home_url+'gio-hang.html';
+				}else{
+					Swal.fire({
+						type: 'error',
+						title: "Thông báo",
+						text: "Giỏ hàng không có sản phẩm.",
+						showCloseButton: true,
+						showCancelButton: true,
+						focusConfirm: false,
+						confirmButtonText: "OK",
+					})
+					return;
+				}
+				
 
 			}
 		}); 

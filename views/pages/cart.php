@@ -1,6 +1,7 @@
 <?php 
 $cart=loadClass('cart');
 $cart_list=$cart->cart_content();
+if ($cart->count_toltal_product() != 0) :
 ?>
 <?php 
 require_once('views/header.php');
@@ -364,5 +365,9 @@ require_once('views/header.php');
     <!-- end main content page -->
 </section>
 	<?php 
-	require_once('views/footer.php');
+    require_once('views/footer.php');
+else:
+    header('Location:index.html');
+endif;
+	
 	?>

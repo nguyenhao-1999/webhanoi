@@ -8,6 +8,10 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="public/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script>
+        var home_url = 'http://localhost:81/webhanoi/';
+    </script>
+
 </head>
 <body id="body">
 <header id="header-site">
@@ -18,9 +22,9 @@
                     <div class="row">
                         <div class="col-md-8 hidden-sm hidden-xs">
                             <div class="left-header-top">
-                                <i class="fas fa-clock"></i>
+                                <i class="fas fa-phone-square-alt"></i>
                                 <ul class="ul-b time-open">
-                                    <li>Thời gian mở cửa: <b>08h00 - 22h00</b></li>
+                                    <li><b>Holine: </b><a href="tell:0913 14 1368">0913 14 1368</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -29,9 +33,9 @@
                                 <i class="fas fa-shield-alt"></i>
                                 <ul class="ul-b list-link-top">
                                     <li><a href="#">Giới thiệu</a></li>
-                                    <li><a href="#">Tuyển dụng</a></li>
-                                    <li><a href="#">Ưu đãi</a></li>
                                     <li><a href="#">Chính sách</a></li>
+                                    <li><a href="#">Ưu đãi</a></li>
+                                    <li><a href="#">Tuyển dụng</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -81,7 +85,7 @@
                                 </div>
                                 <div class="wp-cart">
                                     <div class="wp-icon">
-                                        <a href="gio-hang.html">
+                                        <a id="check-cart" href="javscript::void(0)">
                                             <i class="fas fa-shopping-basket"></i>
                                             <span id="ins-sp"><?php $count=loadClass('cart');
                                             echo $count->count_toltal_product();?></span>

@@ -89,6 +89,13 @@ function loadClass($name)
 	require_once($pathClass);
 	return new $name;
 }
+function loadClassAjax($name)
+{
+	$name=ucfirst(strtolower($name));
+	$pathClass='../system/'.$name.'.php';
+	require_once($pathClass);
+	return new $name;
+}
 function loadClassadmin($name)
 {
 	$name=ucfirst(strtolower($name));
