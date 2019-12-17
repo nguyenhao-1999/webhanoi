@@ -79,6 +79,7 @@ if(isset($_POST['CAPNHAT']))
 			$str_img = str_replace( $home_url["option_value"], '', $_POST['img'] );
 			$mydata['product_img']=$str_img;
 		}
+		
 		$product->product_update($mydata,$id);
 		set_flash('thongbao',['type'=>'success','msg'=>'Cập nhật thành công']);
 		redirect('index.php?option=product');
