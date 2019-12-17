@@ -45,7 +45,7 @@ if(isset($email))
 
     // Lấy ra số lượng thông báo
     $arr_notification = ['option_name' => 'notification', 'menu_status' => 1];
-    $notification = $option->get_inforwebsite($arr_notification);
+    $notification = $option->get_field($arr_notification);
     $number_of_name = (int)$notification['option_value'];
 
     // lưu về thông báo (Thây đổi số lương thông báo cần xữ lý)
@@ -73,7 +73,7 @@ if(isset($email))
 
     // Lấy ra thông tin email chính chủ
     $arr_option = ['option_name' => 'email','menu_status' => 1];
-    $sendmail = $option->get_inforwebsite($arr_option);
+    $sendmail = $option->get_field($arr_option);
 
     // gửi mail và kiểm tra có thành công hay không
     $check  = sendmail( $sendmail['option_value'], "Bếp Quang Vinh", $title = "Gửi thông tin email", $detail = '<p style="text-align:center;">Bạn vừa nhận được 1 email mới từ khách hàng của mình. </p><p style="text-align:center;">Nhấn vào đây để trả lời email :<a href="mailto:'.$email.'">'.$email.'</a></p>');

@@ -53,13 +53,19 @@ class Post extends Database
 	{
 		$sql="SELECT * FROM $this->table WHERE (post_title like '%$keyword%' OR post_metakey like '%$keyword%' OR post_detail like '%$keyword%'OR post_metadesc like '%$keyword%') AND post_status='1' AND post_type='$type' ORDER BY post_createdat DESC";
 		if($this->QueryCount($sql)>0)
-		{
+		{  
 			return $this->QueryAll($sql);
 		}
 		else
 		{
 			return FALSE;
 		}
+	}
+	function get_post_by_id($id_string)
+	{
+		$strin = implode(', ', $id_string);
+		$sql="SELECT * FROM $this->table WHERE post_id IN ($strin);";
+		return $this->QueryAll($sql);
 	}
 }
 
