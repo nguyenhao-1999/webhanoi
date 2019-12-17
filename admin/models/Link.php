@@ -26,6 +26,11 @@ class Link extends Database
 		$sql="SELECT * FROM $this->table WHERE link_id='$id'";
 		return $this->QueryOne($sql);
 	}
+	function link_rowslug($slug)
+	{
+		$sql="SELECT * FROM $this->table WHERE link_slug='$slug'";
+		return $this->QueryOne($sql);
+	}
 	function link_update($data,$id)
 	{
 		$strset='';
@@ -70,7 +75,7 @@ class Link extends Database
 	}
 	function link_delete($id)
 	{
-		$sql="DELETE FROM $this->table WHERE link_id='$id'";
+		$sql="DELETE FROM $this->table WHERE link_slug='$id'";
 		$this->QueryNoResult($sql);
 	}
 }

@@ -30,7 +30,7 @@ class Post extends Database
 		}
 		$strset=rtrim(rtrim($strset),',');
 		$sql="UPDATE $this->table SET $strset WHERE post_id='$id' AND post_type='$type'";
-		$this->QueryNoResult($sql);
+		return $this->QueryNoResult($sql);
 	}
 	function post_delete($id,$type='post')
 	{
@@ -49,7 +49,8 @@ class Post extends Database
 		$strf=rtrim(rtrim($strf),',');
 		$strv=rtrim(rtrim($strv),',');
 		$sql="INSERT INTO $this->table($strf) VALUES($strv)";
-		$this->QueryNoResult($sql);
+		//echo $sql;
+		return $this->QueryNoResult($sql);
 
 	}
 	function post_exists_title($title,$type='post',$id=0)

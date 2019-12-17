@@ -25,9 +25,17 @@ if(isset($_POST["THEM"]))
 			'category_updatedby'=>$_SESSION['user_id'],
 			'category_status'=>$_POST['status']
 		);
+		if($_POST['parentid']==0)
+		{
+			$type='product';
+		}
+		else
+		{
+			$type='category';
+		}
 		$data=array(
 			'link_slug'=>$slug,
-			'link_type'=>'category',
+			'link_type'=>$type,
 			'link_tableid'=>'1',
 			'link_createdat'=>date('Y-m-d H:i:s'),
 			'link_createdby'=>$_SESSION['user_id'],
@@ -50,6 +58,7 @@ if(isset($_POST['CAPNHAT']))
 {
 	$id=$_POST['id'];
 	$row=$category->category_rowid($id);
+	$rowlink=$link->link_rowslug($row['category_slug']);
 	if($category->category_exists_name($_POST['name'],$id))
 	{
 		$slug=str_slug($_POST['name']);
@@ -73,9 +82,17 @@ if(isset($_POST['CAPNHAT']))
 		}
 		print_r($mydata);
 		$category->category_update($mydata,$id);
+		if($_POST['parentid']==0)
+		{
+			$type='product';
+		}
+		else
+		{
+			$type='category';
+		}
 		$data=array(
 			'link_slug'=>$slug,
-			'link_type'=>'category',
+			'link_type'=>$type,
 			'link_tableid'=>'1',
 			'link_createdat'=>date('Y-m-d H:i:s'),
 			'link_createdby'=>$_SESSION['user_id'],
@@ -83,7 +100,7 @@ if(isset($_POST['CAPNHAT']))
 			'link_updatedby'=>$_SESSION['user_id'],
 			'link_status'=>$_POST['status']
 		);
-		$link->link_update($data,$id);
+		$link->link_update($data,$rowlink['link_id']);
 		set_flash('thongbao',['type'=>'success','msg'=>'Cập nhật thành công']);
 		redirect('index.php?option=category');
 	}

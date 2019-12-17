@@ -39,7 +39,7 @@ $list=$post->post_topicid($rowlist,$first,$limit);
                                 <div class="wp-item-tin-page">
                                     <div class="img-item-tin-page">
                                         <a href="<?php echo $row['post_slug']; ?>.html" title="<?php echo $row['post_title']; ?>">
-                                            <img src="Data/ResizeImage/images/<?php echo $row['post_img']; ?>" alt="<?php echo $row['post_title']; ?>" />
+                                            <img src="<?php echo $row['post_img']; ?>" alt="<?php echo $row['post_title']; ?>" />
                                         </a>
                                     </div>
                                     <div class="text-item-tin-page">

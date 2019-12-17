@@ -30,7 +30,7 @@ class Post extends Database
 	function post_topicid($topicid,$first,$limit)
 	{
 		$strin=implode($topicid,',');
-		$sql="SELECT * FROM $this->table WHERE post_status='1' AND post_topid IN($strin) AND post_type='post' LIMIT $first,$limit";
+		$sql="SELECT * FROM $this->table WHERE post_status='1' AND post_topid IN($strin) AND post_type='post' ORDER BY post_createdat DESC LIMIT $first,$limit";
 		return $this->QueryAll($sql);
 	}
 	function post_topic_count($topicid)

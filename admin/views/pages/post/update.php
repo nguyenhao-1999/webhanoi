@@ -63,16 +63,22 @@ $title="Sửa bài viết";
         <div class="col-md-3">
           <fieldset class="form-group">
             <label for="loaisp">Chủ đề bài viết</label>
-            <select name="catid" class="form-control" id="loaisp">
+            <select name="topid" class="form-control" id="loaisp">
               <option value=""></option>
               <?php echo $html_catid; ?>
             </select>
           </fieldset>
           <fieldset class="form-group">
-            <label for="hinh">Hình đại diện</label>
-            <input type="file" name="img" class="form-control" id="hinh">
-            <img src="../public/images/post/<?php echo $row['post_img']; ?>" class="w-100">
-          </fieldset>
+              <label for="img">Hình đại diện</label>
+                <div class="input-group mb-3">
+                  <input type="hidden" id="ckfinder-input-1" name="img" value="<?php echo $row['post_img']; ?>" class="form-control" required aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button type="button" id="ckfinder-popup-1">Chọn hình</button>
+                </div>
+              </div>
+              <img src="../<?php echo $row['post_img']; ?>" alt="Chọn hình"  class="mb-2"id="uml_img_test" style="width: 150px;height: 150px; border: 1px #eee solid;">
+              </fieldset>
+            <fieldset class="form-group">
           <fieldset class="form-group">
             <label for="trangthai">Trạng thái</label>
             <select name="status" class="form-control" id="trangthai">
@@ -92,4 +98,32 @@ $title="Sửa bài viết";
     $('#myTable').DataTable();
      CKEDITOR.replace('chitietbv');
   } );</script>
+   <script>
+  var button1 = document.getElementById( 'ckfinder-popup-1' );
+
+  button1.onclick = function() {
+    selectFileWithCKFinder( 'ckfinder-input-1' );
+  };
+
+  function selectFileWithCKFinder( elementId ) {
+  CKFinder.modal( {
+    chooseFiles: true,
+    width: 800,
+    height: 600,
+    onInit: function( finder ) {
+      finder.on( 'files:choose', function( evt ) {
+        var file = evt.data.files.first();
+        var output = document.getElementById( elementId );
+        $('#uml_img_test').attr('src', file.getUrl() );
+        $('#ckfinder-input-1').val(file.getUrl());
+      } );
+
+      finder.on( 'file:choose:resizedImage', function( evt ) {
+        var output = document.getElementById( elementId );
+        output.value = evt.data.resizedUrl;
+      } );
+    }
+  } );
+}
+</script>
   <?php require_once 'views/footer.php'; ?>

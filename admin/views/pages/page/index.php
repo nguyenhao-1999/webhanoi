@@ -13,8 +13,8 @@ $title="Quản lý tất cả trang đơn";
       <div class="row">
         <div class="col-md-6"><h3><?php echo $title; ?></h3></div>  
         <div class="col-md-6 text-right"> 
-         <a href="index.php?option=page&cat=insert" class="btn btn-success"><i class="fas fa-plus"></i> Thêm mới</a>
-         <a href="index.php?option=page&cat=trash" class="btn btn-danger"><i class="far fa-trash-alt"></i> Thùng rác</a>
+         <a href="index.php?option=post&cat=insert" class="btn btn-success"><i class="fas fa-plus"></i> Thêm mới</a>
+         <a href="index.php?option=post&cat=trash" class="btn btn-danger"><i class="far fa-trash-alt"></i> Thùng rác</a>
        </div> 
      </div>
    </div>
@@ -40,7 +40,7 @@ $title="Quản lý tất cả trang đơn";
             $nametop=$topic->topic_nametop($rlist['post_topid']);
            ?>
             <td><?php echo $rlist['post_id']; ?></td>
-            <td><img style="width:94px;" src="../public/images/page/<?php echo $rlist['post_img']; ?>" class="w-100"></td>
+            <td><img style="width:94px;" src="../<?php echo $rlist['post_img']; ?>" class="w-100"></td>
             <td><?php echo $rlist['post_title']; ?></td>
             <td><?php echo $nametop; ?>
           </td>
@@ -48,9 +48,9 @@ $title="Quản lý tất cả trang đơn";
               <?php echo $rlist['post_createdat']; ?></td>
             <td>
               <?php $status=($rlist['post_status']==1)?'<i class="fas fa-toggle-on btn btn-info"></i>':'<i class="fas fa-toggle-off btn btn-danger"></i>' ?>
-              <a href="index.php?option=page&cat=status&id=<?php echo $id; ?>"><?php echo $status; ?></a>
-              <a class="btn btn-sm btn-success" href="index.php?option=page&cat=update&id=<?php echo $id; ?>"><i class="fas fa-edit"></i></a>
-              <a class="btn btn-sm btn-danger" href="index.php?option=page&cat=deltrash&id=<?php echo $id; ?>"><i class="far fa-trash-alt"></i></a>
+              <a href="index.php?option=post&cat=status&id=<?php echo $id; ?>"><?php echo $status; ?></a>
+              <a class="btn btn-sm btn-success" href="index.php?option=post&cat=update&id=<?php echo $id; ?>"><i class="fas fa-edit"></i></a>
+              <a class="btn btn-sm btn-danger" href="index.php?option=post&cat=deltrash&id=<?php echo $id; ?>"><i class="far fa-trash-alt"></i></a>
             </td>
           </tr>
         <?php endforeach; ?>

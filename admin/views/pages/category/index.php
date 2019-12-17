@@ -24,6 +24,7 @@ $title="Quản lý loại sản phẩm";
       <thead>
         <tr>
           <th style="width:20px;">ID</th>
+          <th style="width:94px;">Hình ảnh</th>
           <th style="width:540px;">Tên loại sản phẩm</th>
           <th>Liên kết(Slug)</th>
           <th>Ngày đăng</th>
@@ -37,6 +38,7 @@ $title="Quản lý loại sản phẩm";
             $id=$rlist['category_id'];
            ?>
             <td><?php echo $rlist['category_id']; ?></td>
+            <td><img style="width:94px;"src="../<?php echo $rlist['post_img']; ?>"></td>
             <td><?php echo $rlist['category_name']; ?></td>
             <td><?php   echo $rlist['category_slug']; ?></td>
             <td>

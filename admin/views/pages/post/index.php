@@ -40,7 +40,7 @@ $title="Quản lý tất cả bài viết";
             $nametop=$topic->topic_nametop($rlist['post_topid']);
            ?>
             <td><?php echo $rlist['post_id']; ?></td>
-            <td><img style="width:94px;" src="../public/images/post/<?php echo $rlist['post_img']; ?>" class="w-100"></td>
+            <td><img style="width:94px;" src="../<?php echo $rlist['post_img']; ?>" class="w-100"></td>
             <td><?php echo $rlist['post_title']; ?></td>
             <td><?php echo $nametop; ?>
           </td>

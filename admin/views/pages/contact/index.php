@@ -25,10 +25,10 @@ $title="Quản lý liên hệ";
 
           <th style="width:20px;">ID</th>
           <th style="width:150px;">Tên</th>
+          <th>Số điện thoại</th>
           <th>Email</th>
-          <th>Chủ đề</th>
-          <th>Nội dung liên hệ</th>
-          <th>Ngày đăng</th>
+          <th>Giới tính </th>
+          <th>Ngày gửi</th>
           <th style="width:160px;">Chức năng</th>
         </tr>
       </thead>
@@ -40,10 +40,15 @@ $title="Quản lý liên hệ";
             ?>
             <td><?php echo $rlist['contact_id']; ?></td>
             <td><?php echo $rlist['contact_fullname']; ?></td>
+            <td><?php echo $rlist['contact_phone']; ?></td>
             <td><?php echo $rlist['contact_email']; ?></td>
-            <td><?php echo $rlist['contact_title']; ?></td>
-            <td><?php echo $rlist['contact_detail']; ?></td>
-          </td>
+            <?php if($rlist['contact_gender']=='on'): ?>
+            <td>Nam</td>
+            <?php elseif($rlist['contact_gender']=='off'): ?>
+              <td>Nữ</td>
+            <?php else: ?>
+              <td>Không xác định</td>
+            <?php endif; ?>
           <td>
             <?php echo $rlist['contact_createdat']; ?></td>
             <td>

@@ -32,7 +32,7 @@
                 <li>
                     <div class="img-exp-sb">
                         <a href="<?php echo $rowpost['post_slug']; ?>.html">
-                            <img src="Data/ResizeImage/images/<?php echo $rowpost['post_img']; ?>" alt="<?php echo $rowpost['post_title']; ?>"></a>
+                            <img src="<?php echo $rowpost['post_img']; ?>" alt="<?php echo $rowpost['post_title']; ?>"></a>
                     </div>
                     <div class="text-exp-sb">
                         <h3 class="h3-title"><a href="<?php echo $rowpost['post_slug']; ?>.html"><?php echo $rowpost['post_title']; ?></a></h3>
@@ -53,7 +53,7 @@
                 <li>
                     <div class="img-exp-sb">
                         <a href="<?php echo $rowpost['post_slug']; ?>.html">
-                            <img src="Data/ResizeImage/images/<?php echo $rowpost['post_img']; ?>" alt="<?php echo $rowpost['post_title']; ?>"></a>
+                            <img src="<?php echo $rowpost['post_img']; ?>" alt="<?php echo $rowpost['post_title']; ?>"></a>
                     </div>
                     <div class="text-exp-sb">
                         <h3 class="h3-title"><a href="<?php echo $rowpost['post_slug']; ?>.html"><?php echo $rowpost['post_title']; ?></a></h3>
