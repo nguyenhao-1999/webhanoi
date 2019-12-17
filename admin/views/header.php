@@ -12,7 +12,8 @@
   <script src="../public/admin/js/popper.min.js" ></script>
   <script src="../public/admin/js/bootstrap.min.js" ></script>
   <script src="../public/admin/js/jquery.dataTables.min.js" ></script>
-  <script src="../public/ckeditor/ckeditor.js" ></script>
+  <script src="../public/admin/ckeditor/ckeditor.js" ></script>
+  <script src="../public/admin/ckfinder/ckfinder.js" ></script>
 </head>
 <body>
   <section class="header clearfix bg-dark mx-3" > 

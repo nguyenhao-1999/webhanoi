@@ -51,6 +51,19 @@ $title="Sửa sản phẩm";
             <textarea name="detail" class="form-control" id="chitietsp" required rows="7"><?php echo $row['product_detail'];?></textarea>
           </fieldset>
           <fieldset class="form-group">
+                <label for="informations">Thông số kỹ thuật</label>
+                <div id="buildyourform">
+                  
+                  <?php $arr_informations = json_decode($row['product_informations']);?>
+                  <?php if($arr_informations!=null): ?>
+                    <?php foreach($arr_informations as $key => $info):?>
+                        <div class="fieldwrapper row  mb-1" id="field1"><div class="col-md-4"><input type="text" value="<?php echo $info[0]; ?>" class="fieldname form-control" name="informations_field1[]"></div><div class="col-md-7"><input type="text" value="<?php echo $info[1]; ?>" class="fieldname form-control" name="informations_field2[]"></div><input type="button" class="btn btn-danger remove" value="x"></div>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
+                </div>
+                <input type="button" value="Thêm mới" class="add" id="add" />
+            </fieldset>
+          <fieldset class="form-group">
             <label for="mota">Mô tả sản phẩm</label>
             <textarea name="metadesc" class="form-control" id="mota" rows="2"><?php echo $row['product_metadesc'];?></textarea>
           </fieldset>
@@ -90,9 +103,13 @@ $title="Sửa sản phẩm";
             </select>
           </fieldset>
           <fieldset class="form-group">
-            <label for="hinh">Hình đại diện</label>
-            <input type="file" name="img" class="form-control" id="hinh">
-            <img src="../public/images/product/<?php echo $row['product_img']; ?>" class="w-100">
+                <img src="../public/upload/<?php echo $row['product_img']; ?>" alt="sss" id="uml_img_test" style="width: 150px;height: 150px; border: 1px #eee solid;">
+                <div class="input-group mb-3">
+                  <input type="hidden" id="ckfinder-input-1" name="img" class="form-control" required aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button type="button" id="ckfinder-popup-1">Chọn hình</button>
+                </div>
+              </div>
           </fieldset>
         </div>
       </div>
@@ -105,5 +122,50 @@ $title="Sửa sản phẩm";
   $(document).ready( function () {
     $('#myTable').DataTable();
      CKEDITOR.replace('chitietsp');
-  } );</script>
+  } );
+
+  $(document).ready(function() {
+    $("#add").click(function() {
+        var lastField = $("#buildyourform div:last");
+        var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
+        var fieldWrapper = $("<div class=\"fieldwrapper row  mb-1\" id=\"field" + intId + "\"/>");
+        fieldWrapper.data("idx", intId);
+        var fName = $("<div class=\"col-md-4\"><input type=\"text\" placeholder=\"Tiêu đề thông số\" class=\"fieldname form-control\" name=\"informations_field1[]\" /></div>");
+        var fType = $("<div class=\"col-md-7\"><input type=\"text\" placeholder=\"Nội dung thông số\" class=\"fieldname form-control\" name=\"informations_field2[]\" /></div>");
+        var removeButton = $("<input type=\"button\" class=\"btn btn-danger remove\" value=\"x\" />");
+        removeButton.click(function() {
+            $(this).parent().remove();
+        });
+        fieldWrapper.append(fName);
+        fieldWrapper.append(fType);
+        fieldWrapper.append(removeButton);
+        $("#buildyourform").append(fieldWrapper);
+    });
+
+    $("#preview").click(function() {
+        $("#yourform").remove();
+        var fieldSet = $("<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>");
+        $("#buildyourform div").each(function() {
+            var id = "input" + $(this).attr("id").replace("field","");
+            var label = $("<label for=\"" + id + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
+            var input;
+            switch ($(this).find("select.fieldtype").first().val()) {
+                case "checkbox":
+                    input = $("<input type=\"checkbox\" id=\"" + id + "\" name=\"" + id + "\" />");
+                    break;
+                case "textbox":
+                    input = $("<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" />");
+                    break;
+                case "textarea":
+                    input = $("<textarea id=\"" + id + "\" name=\"" + id + "\" ></textarea>");
+                    break;    
+            }
+            fieldSet.append(label);
+            fieldSet.append(input);
+        });
+        $("body").append(fieldSet);
+    });
+});
+</script>
+
   <?php require_once 'views/footer.php'; ?>

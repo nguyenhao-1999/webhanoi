@@ -19,13 +19,13 @@ if(isset($_SESSION['user_admin']))
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Đăng nhập hệ thống</title>
 
-	<link rel="stylesheet" href="../public/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../public/css/all.min.css">
-	<link rel="stylesheet" href="../public/css/layoutadmin.css">
-	<link rel="stylesheet" href="../public/css/login.css">
-	<script src="../public/js/jquery-3.3.1.min.js" ></script>
-	<script src="../public/js/popper.min.js" ></script>
-	<script src="../public/js/bootstrap.min.js" ></script>
+	<link rel="stylesheet" href="../public/admin/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../public/admin/css/all.min.css">
+	<link rel="stylesheet" href="../public/admin/css/layoutadmin.css">
+	<link rel="stylesheet" href="../public/admin/css/login.css">
+	<script src="../public/admin/js/jquery-3.3.1.min.js" ></script>
+	<script src="../public/admin/js/popper.min.js" ></script>
+	<script src="../public/admin/js/bootstrap.min.js" ></script>
 </head>
 <body>
 	<?php
