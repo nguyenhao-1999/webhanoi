@@ -14,6 +14,14 @@ $address = $option->get_field(["option_name" => 'address', 'menu_status' => 1]);
 $phone = $option->get_field(["option_name" => 'phone', 'menu_status' => 1]);
 $city = $option->get_field(["option_name" => 'city', 'menu_status' => 1]);
 
+
+// mãng xã hội
+$zalo = $option->get_field(["option_name" => 'zalo', 'menu_status' => 1]);
+$facebook = $option->get_field(["option_name" => 'facebook', 'menu_status' => 1]);
+$youtube = $option->get_field(["option_name" => 'youtube', 'menu_status' => 1]);
+$messenger = $option->get_field(["option_name" => 'messenger', 'menu_status' => 1]);
+$gmail = $option->get_field(["option_name" => 'gmail', 'menu_status' => 1]);
+
 ?>
 <?php require_once('views/header.php'); ?>
 <section class="sec-content-page">
@@ -46,15 +54,15 @@ $city = $option->get_field(["option_name" => 'city', 'menu_status' => 1]);
                         <h1 class="h1-title"><?php if($row['product_name']) echo $row['product_name']; ?></h1>
                         <ul class="ul-b list-icon-title">
                             <li>
-                                <a href="https://zalo.me/0913141368">
+                                <a href="<?php echo $zalo; ?>">
                                     <img src="public/images/mxh1.png" alt="Link_Zalo"></a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com/sieuthibepanthinh/">
+                                <a href="<?php echo $facebook; ?>">
                                     <img src="public/images/mxh2.png" alt="Link_Facebook"></a>
                             </li>
                             <li>
-                                <a href="https://www.messenger.com/t/sieuthibepanthinh">
+                                <a href="<?php echo $messenger; ?>">
                                     <img src="public/images/img-mess.png" alt="Link_Messenger"></a>
                             </li>
                         </ul>
@@ -155,7 +163,7 @@ $city = $option->get_field(["option_name" => 'city', 'menu_status' => 1]);
                                                                 <img src="public/images/chi-tiet-sp_23.gif" alt="">
                                                             </div>
                                                             <div class="text">
-                                                                <span>Hotline: <b>0913 14 1368</b></span>
+                                                                <span>Hotline: <b><?php echo $phone["option_value"]; ?></b></span>
                                                             </div>
                                                         </li>
                                                         <li class="item-dichvu">
@@ -163,7 +171,7 @@ $city = $option->get_field(["option_name" => 'city', 'menu_status' => 1]);
                                                                 <img src="public/images/chi-tiet-sp_26.gif" alt="">
                                                             </div>
                                                             <div class="text">
-                                                                <span><a href="https://www.messenger.com/t/sieuthibepanthinh">Messenger</a></span>
+                                                                <span><a href="<?php echo $messenger["option_value"]; ?>">Messenger</a></span>
                                                             </div>
                                                         </li>
                                                         <li class="item-dichvu">
@@ -171,7 +179,7 @@ $city = $option->get_field(["option_name" => 'city', 'menu_status' => 1]);
                                                                 <img src="public/images/chi-tiet-sp_28.gif" alt="">
                                                             </div>
                                                             <div class="text">
-                                                                <span><a href="https://www.messenger.com/t/sieuthibepanthinh">Zalo</a></span>
+                                                                <span><a href="<?php echo $zalo["option_value"]; ?>">Zalo</a></span>
                                                             </div>
                                                         </li>
                                                         <li class="item-dichvu">

@@ -1,6 +1,8 @@
 <?php 
 $option = loadModel('option');
 $category = loadModel('category');
+$topic = loadModel('topic');
+$post = loadModel('post');
 $product = loadModel('product');
 $cat = $option->get_field(["option_name" => 'home_product', 'menu_status' => 1]);
 $phone = $option->get_field(["option_name" => 'phone', 'menu_status' => 1]);
@@ -16,6 +18,8 @@ $servics = $option->get_field(["option_name" => 'servics', 'menu_status' => 1]);
 $servics_name = json_decode($servics["option_value"]);
 
 // lấy ra video đại diện 
+$videos = $option->get_field(["option_name" => 'videos', 'menu_status' => 1]);
+$videos_arr  = json_decode($videos["option_value"]);
 
 // banner tư vấn
 $bannerTuvan = $option->get_field(["option_name" => 'bannerTuvan', 'menu_status' => 1]);
@@ -41,10 +45,12 @@ $position_arr  = json_decode($position["option_value"]);
 
 // lấy ra chủ để của bài viết
 $topic1 = $option->get_field(["option_name" => 'topic1', 'menu_status' => 1]);
-$topic2 = $option->get_field(["option_name" => 'topic2', 'menu_status' => 1]);
 
+$get_posts_by_id1 = $post->get_posts_by_id($topic1["option_value"],  3);
+$get_posts_by_id2 = $post->get_posts_by_id($topic2["option_value"],  4);
 
-
+// sản phẩm bàn giao thực tế
+$actual_products = $option->get_field(["option_name" => 'actual_products', 'menu_status' => 1]);
 
 require_once('views/header.php');
 ?>
@@ -98,88 +104,60 @@ require_once('views/header.php');
             </div>
         </div>
     </section>
+
+
+<?php 
+
+/*$video = [['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],];
+
+echo json_encode( $video, JSON_UNESCAPED_UNICODE  );*/
+
+
+?>
     <!-- end sec 02 -->
     <section class="sec-03 md-od7">
         <div class="container">
             <div class="wp-sec-video">
                 <div class="wp-title-sec">
-                    <h2 class="h2-title"><a href="video.html">VIDEO</a></h2>
+                    <h2 class="h2-title">VIDEO</h2>
                     <div class="wp-after-title"></div>
                 </div>
                 <div class="row">
+                    <?php foreach ($videos_arr as $kesry => $varray) : if($kesry == 0): ?>
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="wp-item-video1 image_tn">
-                            <a href="https://www.youtube.com/embed/T4ZcLOj94qs" data-showsocial="true" class="html5lightbox" title="">
-                                <img src="public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png">
+                            <a href="<?php echo $varray->link_youtube; ?>" data-showsocial="true" class="html5lightbox" title="">
+                                <img src="<?php echo $varray->image; ?>">
                             </a>
                             <div class="text-video">
-                                <h3 class="h3-title">Review chi tiết Hút mùi Arber TM01/TM02/TM03</h3>
+                                <h3 class="h3-title"><?php echo $varray->title; ?></h3>
                                 <div class="div-view">
                                     <i class="fas fa-user"></i>
-                                    <span>0 lượt xem</span>
+                                    <span><?php echo $varray->view; ?> lượt xem</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                <?php endif; endforeach; ?>
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="wp-right-video">
                             <div class="row">
+                                <?php foreach ($videos_arr as $kesry => $varray) : if($kesry != 0): ?>
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <div class="wp-item-video2 image_tn">
-                                        <a href="https://www.youtube.com/embed/Qz1OeOXWjic" data-showsocial="true" class="html5lightbox" title="">
-                                            <img src="public/ResizeImage/files/anh%20dai%20dien%20video/HINH-DAI-DIEN-VIDEOx300x300x4.png">
+                                        <a href="<?php echo $varray->link_youtube; ?>" data-showsocial="true" class="html5lightbox" title="">
+                                            <img src="<?php echo $varray->image; ?>">
                                         </a>
                                         <div class="text-video">
-                                            <h3 class="h3-title">Giới thiệu Bếp từ Faster FS 288I/ Bếp điện từ Faster FS 288HI</h3>
+                                            <h3 class="h3-title"><?php echo $varray->title; ?></h3>
                                             <div class="div-view">
                                                 <i class="fas fa-user"></i>
-                                                <span>4 lượt xem</span>
+                                                <span><?php echo $varray->view; ?> lượt xem</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 ">
-                                    <div class="wp-item-video2 image_tn">
-                                        <a href="https://www.youtube.com/embed/Wy7GTEU_lcg" data-showsocial="true" class="html5lightbox" title="">
-                                            <img src="public/ResizeImage/files/anh%20dai%20dien%20video/M-U-H-NH-MINH-H-A-VIDEO-BINOVA-BI-107-IDx300x300x4.png">
-                                        </a>
-                                        <div class="text-video">
-                                            <h3 class="h3-title">Giới thiệu Bếp từ Binova BI-107-ID</h3>
-                                            <div class="div-view">
-                                                <i class="fas fa-user"></i>
-                                                <span>13 lượt xem</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 hidden-xs ">
-                                    <div class="wp-item-video2 image_tn">
-                                        <a href="https://www.youtube.com/embed/lQPaNNKx6lQ" data-showsocial="true" class="html5lightbox" title="">
-                                            <img src="public/ResizeImage/files/anh%20dai%20dien%20video/m-u-h-nh--i-di-n-video-750x500x300x300x4.png">
-                                        </a>
-                                        <div class="text-video">
-                                            <h3 class="h3-title">Giới thiệu Bếp từ Cata IB 1822 BK made in Spain</h3>
-                                            <div class="div-view">
-                                                <i class="fas fa-user"></i>
-                                                <span>29 lượt xem</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 hidden-xs ">
-                                    <div class="wp-item-video2 image_tn">
-                                        <a href="https://www.youtube.com/embed/0lrCcGtGplQ&amp;t=44s" data-showsocial="true" class="html5lightbox" title="">
-                                            <img src="public/ResizeImage/files/anh%20dai%20dien%20video/H-NH--I-DI-N-H-T-M-I-CATA-SELENE-750x500x300x300x4.png">
-                                        </a>
-                                        <div class="text-video">
-                                            <h3 class="h3-title">Video thực tế - Giới thiệu hút mùi Cata Selene kích thước 600/700/900</h3>
-                                            <div class="div-view">
-                                                <i class="fas fa-user"></i>
-                                                <span>13 lượt xem</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <?php endif; endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -294,7 +272,7 @@ require_once('views/header.php');
                                 <h2 class="h2-title">
                                     <span class="icon-title1"><a href="gioi-thieu-ve-bep-an-thinh.html">
                                     <img src="public/images/<?php echo $icon["option_value"]; ?>" alt=""></a></span>
-                                    <span><a href="gioi-thieu-ve-bep-an-thinh.html">Giới thiệu về bếp An Thịnh</a></span>
+                                    <span><a href="gioi-thieu-ve-bep-an-thinh.html">Giới thiệu về bếp Quang Vinh</a></span>
                                 </h2>
                             </div>
                             <div class="img-gioithiu">
@@ -472,21 +450,27 @@ $get_products = $product->get_products($name_cat["category_id"]);// lấy ra dan
                             </h2>
                         </div>
                         <div class="wp-content-tin">
-                            <div class="wp-tin-1">
-                                <div class="img-tin1">
-                                    <a href="chuyen-gia-huong-dan-cach-su-dung-may-hut-mui-dung-cach-hieu-qua.html">
-                                        <img src="public/ResizeImage/images/hut-mui-am-tu-boschx500x500x4.jpg" alt="Chuyên gia hướng dẫn cách sử dụng máy hút mùi đúng cách, hiệu quả"></a>
-                                    <span class="icon-hot"></span>
-                                </div>
-                                <div class="text-tin1">
-                                    <h3 class="h3-title"><a href="chuyen-gia-huong-dan-cach-su-dung-may-hut-mui-dung-cach-hieu-qua.html">Chuyên gia hướng dẫn cách sử dụng máy hút mùi đúng cách, hiệu quả</a></h3>
-                                    <a href="chuyen-gia-huong-dan-cach-su-dung-may-hut-mui-dung-cach-hieu-qua.html" class="a-xemthem">Xem thêm <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
+
+                                <?php foreach ($get_posts_by_id1 as $ksdfey => $postsksdfey): if ($ksdfey < 1) : ?>
+
+                                    <div class="wp-tin-1">
+                                        <div class="img-tin1">
+                                            <a href="<?php echo $postsksdfey["post_slug"]; ?>.html">
+                                                <img src="<?php echo $postsksdfey["post_img"]; ?>" alt="<?php echo $postsksdfey["post_title"]; ?>"></a>
+                                            <span class="icon-hot"></span>
+                                        </div>
+                                        <div class="text-tin1">
+                                            <h3 class="h3-title"><a href="<?php echo $postsksdfey["post_slug"]; ?>.html"><?php echo $postsksdfey["post_title"]; ?></a></h3>
+                                            <a href="<?php echo $postsksdfey["post_slug"]; ?>.html" class="a-xemthem">Xem thêm <i class="fas fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+
+                                <?php endif; endforeach; ?>
                             <div class="wp-list-tin-sau">
                                 <ul class="ul-b list-tin2">
-                                    <li><a href="nhung-luu-y-khi-su-dung-va-huong-dan-bao-quan-lo-nuong-dien-dung-cach.html">Những lưu ý khi sử dụng và hướng dẫn bảo quản lò nướng điện đúng cách</a></li>
-                                    <li><a href="gioi-thieu-ve-bep-hong-ngoai-la-gi-bep-cua-thoi-dai-cong-nghe-moi.html">Giới thiệu về bếp hồng ngoại là gì? - bếp của thời đại công nghệ mới</a></li>
+                                    <?php foreach ($get_posts_by_id1 as $ksdfesy => $postsksdfdey): if ($ksdfesy >= 1) : ?>
+                                    <li><a href="<?php echo $postsksdfey["post_slug"]; ?>.html"><?php echo $postsksdfdey["post_title"]; ?></a></li>
+                                    <?php endif; endforeach; ?>
                                 </ul>
                             </div>
                         </div>
@@ -504,46 +488,17 @@ $get_products = $product->get_products($name_cat["category_id"]);// lấy ra dan
                         <div class="wp-content-tin">
                             <div class="wp-list-phongthuy">
                                 <ul class="ul-b list-tin-phongthuy">
+                                    <?php foreach ($get_posts_by_id2 as $ks => $posy): ?>
                                     <li>
                                         <div class="img-phongthuy">
-                                            <a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh.html">
-                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/anh-3x300x300x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh"></a>
+                                            <a href="<?php echo $posy["post_slug"]; ?>.html">
+                                                <img src="<?php echo $posy["post_img"]; ?>" alt="<?php echo $posy["post_title"]; ?>"></a>
                                         </div>
                                         <div class="text-phongthuy">
-                                            <h3 class="h3-title"><a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh.html">Bí quyết chọn đồ phù hợp cho bếp xinh</a></h3>
-                                            <span class="s-date">08.08.2019</span>
+                                            <h3 class="h3-title"><a href="<?php echo $posy["post_slug"]; ?>.html"><?php echo $posy["post_title"]; ?></a></h3>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="img-phongthuy">
-                                            <a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh-bat-kip-xu-the-hien-dai.html">
-                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/bep-xinhx300x300x4.png" alt="Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại"></a>
-                                        </div>
-                                        <div class="text-phongthuy">
-                                            <h3 class="h3-title"><a href="bi-quyet-chon-do-phu-hop-cho-bep-xinh-bat-kip-xu-the-hien-dai.html">Bí quyết chọn đồ phù hợp cho bếp xinh bắt kịp xu thế hiện đại</a></h3>
-                                            <span class="s-date">23.08.2019</span>
-                                        </div>
-                                    </li>
-                                    <li class="hidden-xs">
-                                        <div class="img-phongthuy">
-                                            <a href="bep-hong-ngoai-taka-dung-co-tot-khong.html">
-                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/anh2x300x300x4.png" alt="Bếp hồng ngoại Taka dùng có tốt không ?"></a>
-                                        </div>
-                                        <div class="text-phongthuy">
-                                            <h3 class="h3-title"><a href="bep-hong-ngoai-taka-dung-co-tot-khong.html">Bếp hồng ngoại Taka dùng có tốt không ?</a></h3>
-                                            <span class="s-date">08.08.2019</span>
-                                        </div>
-                                    </li>
-                                    <li class="hidden-xs">
-                                        <div class="img-phongthuy">
-                                            <a href="bep-hong-ngoai-la-gi.html">
-                                                <img src="public/ResizeImage/files/anh%20tin%20tuc/bep-hong-ngoaix300x300x4.png" alt="Bếp hồng ngoại là gì?"></a>
-                                        </div>
-                                        <div class="text-phongthuy">
-                                            <h3 class="h3-title"><a href="bep-hong-ngoai-la-gi.html">Bếp hồng ngoại là gì?</a></h3>
-                                            <span class="s-date">08.08.2019</span>
-                                        </div>
-                                    </li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                         </div>

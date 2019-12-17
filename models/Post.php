@@ -44,6 +44,11 @@ class Post extends Database
 		$sql="SELECT * FROM $this->table WHERE post_status='1' AND post_topid IN($strin)  AND post_type='post'";
 		return $this->QueryCount($sql);
 	}
+	function get_posts_by_id($id,  $limit)
+	{
+		$sql="SELECT * FROM $this->table WHERE post_status='1' AND post_topid = '$id' AND post_type = 'post' ORDER BY post_id DESC LIMIT $limit";
+		return $this->QueryAll($sql);
+	}
 	function post_orther($topicid,$id,$limit)
 	{
 		$sql="SELECT * FROM $this->table WHERE post_status='1' AND post_type='post' AND post_id!='$id' AND post_topid='$topicid' ORDER BY post_createdat DESC LIMIT $limit";
