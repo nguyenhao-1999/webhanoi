@@ -21,5 +21,10 @@ class Orderdetail extends Database
 		$sql="INSERT INTO $this->table($strf) VALUES($strv)";
 		$this->QueryNoResult($sql);
 	}
+	function orderdetail_count_product($id)
+	{
+		$sql="SELECT * FROM $this->table WHERE orderdetail_productid='$id'";
+		return $this->QueryOne($sql);
+	}
 }
 ?>
