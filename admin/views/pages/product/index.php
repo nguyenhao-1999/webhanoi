@@ -23,13 +23,13 @@ $title="Quản lý tất cả sản phẩm";
     <table class="table table-hover table-inverse table-bordered" id="myTable">
       <thead>
         <tr>
-
           <th style="width:20px;">ID</th>
           <th style="width:94px;">Hình ảnh</th>
-          <th style="width:540px;">Tên sản phẩm</th>
+          <th style="width:500px;">Tên sản phẩm</th>
+          <th>Thương hiệu</th>
           <th>Loại sản phẩm</th>
           <th>Ngày đăng</th>
-          <th style="width:160px;">Chức năng</th>
+          <th style="width:150px;">Chức năng</th>
         </tr>
       </thead>
       <tbody>
@@ -37,12 +37,26 @@ $title="Quản lý tất cả sản phẩm";
           <tr>
             <?php   
             $id=$rlist['product_id'];
-            $namecat=$category->category_namecat($rlist['product_catid']); ?>
+            $namecat=$category->category_namecat($rlist['product_catid']);
+            if($namecat!=null)
+             {
+              $row=$namecat['category_trademark'];
+             } 
+             $name_trademark="untrademark";
+            if($row>0)
+            {
+              $name_trademark=$category->category_nametrademark($row);
+            }
+            ?>
             <td><?php echo $rlist['product_id']; ?></td>
-            <td><img style="width:94px;"src="../public/images/product/<?php echo $rlist['product_img']; ?>"></td>
+            <td><img style="width:94px;"src="../<?php echo $rlist['product_img']; ?>"></td>
             <td><?php echo $rlist['product_name']; ?></td>
-            <td><?php   echo $namecat; ?>
-          </td>
+            <td><?php   echo $name_trademark; ?></td>
+            <?php if($namecat==null): ?>
+            <td><?php   echo "uncategory"; ?></td>
+            <?php else: ?>
+            <td><?php   echo $namecat['category_name']; ?></td>
+          <?php endif; ?>
             <td>
               <?php echo $rlist['product_createdat']; ?></td>
             <td>

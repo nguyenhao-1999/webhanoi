@@ -1,10 +1,15 @@
 <?php 
 $category=loadModel('category');
 $listcategory=$category->category_list('index');
+$listtrademark=$category->category_trademark('index');
 $html_catid='';
 foreach($listcategory as $cat)
 {
   $html_catid.="<option value='".$cat['category_id']."'>".$cat['category_name']."</option>";
+}
+foreach($listtrademark as $cat)
+{
+  $html_trademark.="<option value='".$cat['category_id']."'>".$cat['category_name']."</option>";
 }
 $title="Thêm sản phẩm";
 ?>
@@ -52,6 +57,13 @@ $title="Thêm sản phẩm";
           </div>
           <div class="col-md-3">
             <fieldset class="form-group">
+              <label for="thuonghieu">Thương hiệu</label>
+              <select name="thuonghieu" class="form-control" required id="thuonghieu">
+                <option value="">[--Chọn thương hiệu--]</option>
+                <?php echo $html_catid; ?>
+              </select>
+            </fieldset>
+            <fieldset class="form-group">
               <label for="loaisp">Loại sản phẩm</label>
               <select name="catid" class="form-control" required id="loaisp">
                 <option value="">[--Chọn loại sản phẩm--]</option>
@@ -70,7 +82,7 @@ $title="Thêm sản phẩm";
             </fieldset>
             <fieldset class="form-group">
               <label for="Gia">Số lượng</label>   
-              <input type="number" name="number" class="form-control" value="0" min="0" max="1000" id="soluong">
+              <input type="number" name="number" class="form-control" value="1" min="1" max="1000" id="soluong">
 
             </fieldset>
             <fieldset class="form-group">
@@ -123,8 +135,8 @@ $title="Thêm sản phẩm";
         var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
         var fieldWrapper = $("<div class=\"fieldwrapper row  mb-1\" id=\"field" + intId + "\"/>");
         fieldWrapper.data("idx", intId);
-        var fName = $("<div class=\"col-md-4\"><input type=\"text\" placeholder=\"Tiêu đề thông số\" class=\"fieldname form-control\" name=\"informations_field1[]\" /></div>");
-        var fType = $("<div class=\"col-md-7\"><input type=\"text\" placeholder=\"Nội dung thông số\" class=\"fieldname form-control\" name=\"informations_field2[]\" /></div>");
+        var fName = $("<div class=\"col-md-4\"><input type=\"text\" value=\"\" placeholder=\"Tiêu đề thông số\" class=\"fieldname form-control\" name=\"informations_field1[]\" /></div>");
+        var fType = $("<div class=\"col-md-7\"><input type=\"text\" value=\"\" placeholder=\"Nội dung thông số\" class=\"fieldname form-control\" name=\"informations_field2[]\" /></div>");
         var removeButton = $("<input type=\"button\" class=\"btn btn-danger remove\" value=\"x\" />");
         removeButton.click(function() {
             $(this).parent().remove();

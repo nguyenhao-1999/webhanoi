@@ -10,14 +10,24 @@ class Category extends Database
 	function category_namecat($id)
 	{
 		$sql="SELECT * FROM $this->table WHERE category_id='$id' LIMIT 1";
+		return $this->QueryOne($sql);
+	}
+	function category_nametrademark($id)
+	{
+		$sql="SELECT * FROM $this->table WHERE category_id='$id' LIMIT 1";
 		$row=$this->QueryOne($sql);
-		if($row==NULL)
-		{
-			return "uncategory";
-		}
 		return $row['category_name'];
 	}
 	function category_list($page='index')
+	{
+		$sql="SELECT * FROM $this->table WHERE category_status!='0'ORDER BY category_order ASC";
+		if($page!='index')
+		{
+			$sql="SELECT * FROM $this->table WHERE category_status='0'ORDER BY category_order ASC";
+		}
+		return $this->QueryAll($sql);
+	}
+	function category_trademark($page='index')
 	{
 		$sql="SELECT * FROM $this->table WHERE category_status!='0'ORDER BY category_order ASC";
 		if($page!='index')

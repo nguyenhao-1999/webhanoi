@@ -355,14 +355,18 @@ $get_products = $product->get_products($name_cat["category_id"]);// lấy ra dan
                             <div class="wp-item-sp-page">
                                 <div class="img-item-sp-page">
                                     <a href="<?php echo $valuep['product_slug'] ?>.html">
-                                        <img class="owl-lazy" data-src="public/images/products/<?php echo $valuep['product_img']; ?>" src="public/images/products/<?php echo $valuep["product_img"]; ?>" alt="<?php echo $valuep['product_name'] ?>">
+                                        <img class="owl-lazy" data-src="<?php echo $valuep['product_img']; ?>" src="<?php echo $valuep["product_img"]; ?>" alt="<?php echo $valuep['product_name'] ?>">
                                     </a>
                                 </div>
                                 <div class="text-item-sp">
                                     <h3 class="h3-title"><a href="<?php echo $valuep['product_slug'] ?>.html"><?php echo $valuep['product_name'] ?></a></h3>
                                     <div class="price">
-                                        <span class="s-dell"><?php echo $valuep['product_price'] ?></span>
-                                        <span class="s-ins"><?php echo $valuep['product_pricesale'] ?></span>
+                                        <?php if($valuep['product_pricesale']>0): ?>
+                                        <span class="s-dell"><?php echo number_format($valuep['product_price']); ?><sup>đ</sup></span>
+                                        <span class="s-ins"><?php echo number_format($valuep['product_pricesale']); ?><sup>đ</sup></span>
+                                        <?php else: ?>
+                                            <span class="s-ins"><?php echo number_format($valuep['product_price']); ?><sup>đ</sup></span>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
