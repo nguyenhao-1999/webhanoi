@@ -70,16 +70,6 @@
         </a>
       </li>
     </ul>
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
     <ul class="navbar account">
       <li><i class="far fa-user-circle"></i> <?php  echo $_SESSION['user_fullname'];?> </li> 
       <li> <i class="fas fa-power-off ml-2"></i><a class="logout" href="logout.php"> Thoát</a></li>

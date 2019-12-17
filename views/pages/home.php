@@ -18,6 +18,8 @@ $servics = $option->get_field(["option_name" => 'servics', 'menu_status' => 1]);
 $servics_name = json_decode($servics["option_value"]);
 
 // lấy ra video đại diện 
+$videos = $option->get_field(["option_name" => 'videos', 'menu_status' => 1]);
+$videos_arr  = json_decode($videos["option_value"]);
 
 // banner tư vấn
 $bannerTuvan = $option->get_field(["option_name" => 'bannerTuvan', 'menu_status' => 1]);
@@ -43,13 +45,12 @@ $position_arr  = json_decode($position["option_value"]);
 
 // lấy ra chủ để của bài viết
 $topic1 = $option->get_field(["option_name" => 'topic1', 'menu_status' => 1]);
-$topic2 = $option->get_field(["option_name" => 'topic2', 'menu_status' => 1]);
 
 $get_posts_by_id1 = $post->get_posts_by_id($topic1["option_value"],  3);
 $get_posts_by_id2 = $post->get_posts_by_id($topic2["option_value"],  4);
 
-// lấy ra tên của topic
-//var_dump($get_posts_by_id1);
+// sản phẩm bàn giao thực tế
+$actual_products = $option->get_field(["option_name" => 'actual_products', 'menu_status' => 1]);
 
 require_once('views/header.php');
 ?>
@@ -103,88 +104,60 @@ require_once('views/header.php');
             </div>
         </div>
     </section>
+
+
+<?php 
+
+/*$video = [['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],];
+
+echo json_encode( $video, JSON_UNESCAPED_UNICODE  );*/
+
+
+?>
     <!-- end sec 02 -->
     <section class="sec-03 md-od7">
         <div class="container">
             <div class="wp-sec-video">
                 <div class="wp-title-sec">
-                    <h2 class="h2-title"><a href="video.html">VIDEO</a></h2>
+                    <h2 class="h2-title">VIDEO</h2>
                     <div class="wp-after-title"></div>
                 </div>
                 <div class="row">
+                    <?php foreach ($videos_arr as $kesry => $varray) : if($kesry == 0): ?>
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="wp-item-video1 image_tn">
-                            <a href="https://www.youtube.com/embed/T4ZcLOj94qs" data-showsocial="true" class="html5lightbox" title="">
-                                <img src="public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png">
+                            <a href="<?php echo $varray->link_youtube; ?>" data-showsocial="true" class="html5lightbox" title="">
+                                <img src="<?php echo $varray->image; ?>">
                             </a>
                             <div class="text-video">
-                                <h3 class="h3-title">Review chi tiết Hút mùi Arber TM01/TM02/TM03</h3>
+                                <h3 class="h3-title"><?php echo $varray->title; ?></h3>
                                 <div class="div-view">
                                     <i class="fas fa-user"></i>
-                                    <span>0 lượt xem</span>
+                                    <span><?php echo $varray->view; ?> lượt xem</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                <?php endif; endforeach; ?>
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="wp-right-video">
                             <div class="row">
+                                <?php foreach ($videos_arr as $kesry => $varray) : if($kesry != 0): ?>
                                 <div class="col-md-6 col-sm-6 col-xs-6 ">
                                     <div class="wp-item-video2 image_tn">
-                                        <a href="https://www.youtube.com/embed/Qz1OeOXWjic" data-showsocial="true" class="html5lightbox" title="">
-                                            <img src="public/ResizeImage/files/anh%20dai%20dien%20video/HINH-DAI-DIEN-VIDEOx300x300x4.png">
+                                        <a href="<?php echo $varray->link_youtube; ?>" data-showsocial="true" class="html5lightbox" title="">
+                                            <img src="<?php echo $varray->image; ?>">
                                         </a>
                                         <div class="text-video">
-                                            <h3 class="h3-title">Giới thiệu Bếp từ Faster FS 288I/ Bếp điện từ Faster FS 288HI</h3>
+                                            <h3 class="h3-title"><?php echo $varray->title; ?></h3>
                                             <div class="div-view">
                                                 <i class="fas fa-user"></i>
-                                                <span>4 lượt xem</span>
+                                                <span><?php echo $varray->view; ?> lượt xem</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 ">
-                                    <div class="wp-item-video2 image_tn">
-                                        <a href="https://www.youtube.com/embed/Wy7GTEU_lcg" data-showsocial="true" class="html5lightbox" title="">
-                                            <img src="public/ResizeImage/files/anh%20dai%20dien%20video/M-U-H-NH-MINH-H-A-VIDEO-BINOVA-BI-107-IDx300x300x4.png">
-                                        </a>
-                                        <div class="text-video">
-                                            <h3 class="h3-title">Giới thiệu Bếp từ Binova BI-107-ID</h3>
-                                            <div class="div-view">
-                                                <i class="fas fa-user"></i>
-                                                <span>13 lượt xem</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 hidden-xs ">
-                                    <div class="wp-item-video2 image_tn">
-                                        <a href="https://www.youtube.com/embed/lQPaNNKx6lQ" data-showsocial="true" class="html5lightbox" title="">
-                                            <img src="public/ResizeImage/files/anh%20dai%20dien%20video/m-u-h-nh--i-di-n-video-750x500x300x300x4.png">
-                                        </a>
-                                        <div class="text-video">
-                                            <h3 class="h3-title">Giới thiệu Bếp từ Cata IB 1822 BK made in Spain</h3>
-                                            <div class="div-view">
-                                                <i class="fas fa-user"></i>
-                                                <span>29 lượt xem</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 hidden-xs ">
-                                    <div class="wp-item-video2 image_tn">
-                                        <a href="https://www.youtube.com/embed/0lrCcGtGplQ&amp;t=44s" data-showsocial="true" class="html5lightbox" title="">
-                                            <img src="public/ResizeImage/files/anh%20dai%20dien%20video/H-NH--I-DI-N-H-T-M-I-CATA-SELENE-750x500x300x300x4.png">
-                                        </a>
-                                        <div class="text-video">
-                                            <h3 class="h3-title">Video thực tế - Giới thiệu hút mùi Cata Selene kích thước 600/700/900</h3>
-                                            <div class="div-view">
-                                                <i class="fas fa-user"></i>
-                                                <span>13 lượt xem</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <?php endif; endforeach; ?>
                             </div>
                         </div>
                     </div>
