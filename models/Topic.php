@@ -12,6 +12,11 @@ class Topic extends Database
 		$sql="SELECT * FROM $this->table WHERE topic_status='1' AND topic_slug='$slug'";
 		return $this->QueryOne($sql);
 	}
+	function topic_name($id)
+	{
+		$sql="SELECT * FROM $this->table WHERE topic_status='1' AND topic_slug='$id'";
+		return $this->QueryOne($sql);
+	}
 	function topic_list($parentid=0,$slug="")
 	{
 		$sql="SELECT * FROM $this->table WHERE topic_parentid='$parentid' AND topic_slug='kinh-nghiem-hay'";
