@@ -128,6 +128,11 @@ class Product extends Database
 		$sql="SELECT * FROM $this->table WHERE product_catid = $id AND product_status = '1' ORDER BY product_id DESC LIMIT 10";
 		return $this->QueryAll($sql);
 	}
+	function get_products_pricesale()
+	{
+		$sql="SELECT * FROM $this->table WHERE product_status = '1' ORDER BY product_pricesale ASC LIMIT 10";
+		return $this->QueryAll($sql);
+	}
 	
 }
 ?>
