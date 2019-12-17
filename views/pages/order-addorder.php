@@ -47,7 +47,7 @@ if(isset($_POST['GUI']))
 
 	// Lấy ra thông tin email chính chủ
     $arr_option = ['option_name' => 'email','menu_status' => 1];
-    $sendmail = $option->get_inforwebsite($arr_option);
+    $sendmail = $option->get_field($arr_option);
     $noteSend = "";
   	$tong=0;
   	$send="";

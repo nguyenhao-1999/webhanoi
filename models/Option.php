@@ -8,7 +8,7 @@ class Option extends Database
 		$this->table=$this->TableName('option');
 	}
 
-	function get_inforwebsite($option)
+	function get_field($option)
 	{
 		// trường hợp rỗng
 		if ($option["option_name"]) $option_name = "";

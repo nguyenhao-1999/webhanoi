@@ -1,4 +1,21 @@
 <?php 
+$option = loadModel('option');
+$category = loadModel('category');
+$product = loadModel('product');
+$cat = $option->get_field(["option_name" => 'home_product', 'menu_status' => 1]);
+$phone = $option->get_field(["option_name" => 'phone', 'menu_status' => 1]);
+$cat_arr  = json_decode($cat["option_value"]);
+$cat_list = $category->get_category_by_id($cat_arr);
+
+// lời nói của CEO 
+$customer_reviews_author = $option->get_field(["option_name" => 'customer_reviews_author', 'menu_status' => 1]);
+$customer_reviews = $option->get_field(["option_name" => 'customer_reviews', 'menu_status' => 1]);
+
+// lấy ra danh sách dịch vụ
+$servics = $option->get_field(["option_name" => 'servics', 'menu_status' => 1]);
+$servics_name = json_decode($servics["option_value"]);
+
+
 require_once('views/header.php');
 ?>
     <?php require_once('views/modules/slider.php'); ?>
@@ -17,8 +34,8 @@ require_once('views/header.php');
                             <div class="wp-item-why">
                                 <div class="wp-icon-why"><img src="public/images/icon01.png" alt=""></div>
                                 <div class="wp-text-why">
-                                    <h3 class="h3-title">100% chính hãng</h3>
-                                    <p>An Thịnh là đối tác số 1 của hàng trăm thương hiệu thiết bị nhà bếp hàng đầu thế giới như Bosch,Teka, Fagor, Cata, Munchen, Bauknecht... Cam kết đền 1 tỷ đồng nếu phát hiện hàng giả, hàng nhái.</p>
+                                    <h3 class="h3-title"><?php echo $servics_name[0]->title; ?></h3>
+                                    <p><?php echo $servics_name[0]->content; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -26,8 +43,8 @@ require_once('views/header.php');
                             <div class="wp-item-why">
                                 <div class="wp-icon-why"><img src="public/images/icon02.png" alt=""></div>
                                 <div class="wp-text-why">
-                                    <h3 class="h3-title">Uy tín - chuyên nghiệp - tận tâm</h3>
-                                    <p>Phục vụ khách hàng bằng tất cả cái “Tâm” và “Sự tử tế” của người làm nghề. Luôn nhiệt tình và chuyên nghiệp với mục tiêu đem lại sự hài lòng cao nhất cho Quý khách hàng.</p>
+                                    <h3 class="h3-title"><?php echo $servics_name[1]->title; ?></h3>
+                                    <p><?php echo $servics_name[1]->content; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -35,16 +52,16 @@ require_once('views/header.php');
                             <div class="wp-item-why">
                                 <div class="wp-icon-why"><img src="public/images/icon03.png" alt=""></div>
                                 <div class="wp-text-why">
-                                    <h3 class="h3-title">Số 1 về chất lượng</h3>
-                                    <p>Cam kết đem tới sản phẩm Chất lượng tốt nhất với Giá cạnh tranh nhất. Thường xuyên và liên tục diễn ra các chương trình khuyến mãi với nhiều ưu đãi và quà tặng hấp dẫn.</p>
+                                    <h3 class="h3-title"><?php echo $servics_name[2]->title; ?></h3>
+                                    <p><?php echo $servics_name[2]->content; ?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="wp-text-2why">
                         <div class="text-2why">
-                            <p>Với phương châm làm nghề bằng tất cả “Cái tâm” và “Sự tử tế” - Bếp An Thịnh cam kết đem tới cho Quý khách sản phẩm chất lượng tốt nhất với giá cạnh tranh nhất cùng dịch vụ hậu mãi hoàn hảo. Sự hài lòng của khách hàng là tiêu chí phát triển hàng đầu của chúng tôi!</p>
-                            <h4 class="h4-title">Nguyễn Thùy Dung - CEO Bếp An Thịnh</h4>
+                            <p><?php echo $customer_reviews['option_value']; ?></p>
+                            <h4 class="h4-title"><?php echo $customer_reviews_author['option_value']; ?></h4>
                         </div>
                     </div>
                 </div>
@@ -291,192 +308,93 @@ require_once('views/header.php');
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php foreach ($cat_list as $key => $list): 
+
+$name_cat = $category->category_name_by_id($list["category_id"]);// lấy mãng 1 chiều
+$get_categorys = $category->get_categorys($list["category_id"]);// lấy ra mang 2 chiều
+$get_products = $product->get_products($name_cat["category_id"]);// lấy ra danh sách sản phẩm
+?>
+    
+
     <!-- end sec 05 -->
     <section class="sec-06 md-od2">
         <div class="container">
             <div class="wp-sec-sanpham wp-thietbibep">
                 <div class="wp-title-sp">
-                    <h2 class="h2-title"><a href="thiet-bi-nha-bep.html">Thiết bị nhà bếp</a></h2>
+                    <h2 class="h2-title">
+                        <a href="<?php echo $name_cat["category_slug"]; ?>.html"><?php echo $name_cat["category_name"]; ?></a>
+                    </h2>
                     <button class="btn btn-click hidden-md hidden-lg"><i class="fas fa-sort-down"></i></button>
                     <ul class="ul-b list-link-title">
-                        <li><a href="bep-tu.html">Bếp từ</a></li>
-                        <li><a href="bep-dien-tu.html">Bếp điện từ</a></li>
-                        <li><a href="may-hut-mui.html">Máy Hút Mùi</a></li>
-                        <li><a href="lo-nuong.html">Lò Nướng</a></li>
+                        <?php if($get_categorys): foreach ($get_categorys as $key => $category_title) {
+                            echo '<li><a href="'.$category_title["category_slug"].'">'.$category_title["category_name"].'</a></li>';
+                        } endif; ?>
                     </ul>
                 </div>
                 <div class="wp-list-sp">
                     <div id="" class="slide-sp owl-carousel owl-theme">
+
+                        <?php foreach ($get_products as $key => $valuep) : ?>
                         <div class="item">
                             <div class="wp-item-sp-page">
                                 <div class="img-item-sp-page">
-                                    <a href="chao-xao-elmich_654.html">
-                                        <img class="owl-lazy" data-src="public/ResizeImage/images/product/bepanthinh/chao-titanium-chong-dinh-day-tu-28-cm-22f65x500x500x4.jpg" src="public/ResizeImage/images/product/bepanthinh/chao-titanium-chong-dinh-day-tu-28-cm-22f65x500x500x4.jpg" alt="Chảo xào Elmich">
+                                    <a href="<?php echo $valuep['product_slug'] ?>.html">
+                                        <img class="owl-lazy" data-src="public/images/products/<?php echo $valuep['product_img']; ?>" src="public/images/products/<?php echo $valuep["product_img"]; ?>" alt="<?php echo $valuep['product_name'] ?>">
                                     </a>
                                 </div>
                                 <div class="text-item-sp">
-                                    <h3 class="h3-title"><a href="chao-xao-elmich_654.html">Chảo xào Elmich</a></h3>
+                                    <h3 class="h3-title"><a href="<?php echo $valuep['product_slug'] ?>.html"><?php echo $valuep['product_name'] ?></a></h3>
                                     <div class="price">
-                                        <span class="s-dell">500.000</span>
-                                        <span class="s-ins">500.000</span>
+                                        <span class="s-dell"><?php echo $valuep['product_price'] ?></span>
+                                        <span class="s-ins"><?php echo $valuep['product_pricesale'] ?></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="wp-item-sp-page">
-                                <div class="img-item-sp-page">
-                                    <a href="may-loc-nuoc-5-loi-arber-ab-05_4683.html">
-                                        <img class="owl-lazy" data-src="public/ResizeImage/images/product/bepanthinh/may-loc-nuoc-Arber-AB-05x500x500x4.jpg" src="public/ResizeImage/images/product/bepanthinh/may-loc-nuoc-Arber-AB-05x500x500x4.jpg" alt="Máy lọc nước 5 lõi Arber AB 05">
-                                    </a>
-                                </div>
-                                <div class="text-item-sp">
-                                    <h3 class="h3-title"><a href="may-loc-nuoc-5-loi-arber-ab-05_4683.html">Máy lọc nước 5 lõi Arber AB 05</a></h3>
-                                    <div class="price">
-                                        <span class="s-dell">4.750.000</span>
-                                        <span class="s-ins">3.325.000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="wp-item-sp-page">
-                                <div class="img-item-sp-page">
-                                    <a href="lo-vi-song-ariston-mwe-222-ax_2863.html">
-                                        <img class="owl-lazy" data-src="public/ResizeImage/images/product/bepanthinh/lo-vi-song-ariston-mwe-222-axx500x500x4.jpg" src="public/ResizeImage/images/product/bepanthinh/lo-vi-song-ariston-mwe-222-axx500x500x4.jpg" alt="Lò Vi Sóng Ariston MWE 222 AX">
-                                    </a>
-                                </div>
-                                <div class="text-item-sp">
-                                    <h3 class="h3-title"><a href="lo-vi-song-ariston-mwe-222-ax_2863.html">Lò Vi Sóng Ariston MWE 222 AX</a></h3>
-                                    <div class="price">
-                                        <span class="s-dell">18.900.000</span>
-                                        <span class="s-ins">17.000.000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="wp-item-sp-page">
-                                <div class="img-item-sp-page">
-                                    <a href="lo-nuong-ariston-fh-99-ix_3039.html">
-                                        <img class="owl-lazy" data-src="public/ResizeImage/images/product/bepanthinh/lo-nuong-ariston-fh99ixx500x500x4.jpg" src="public/ResizeImage/images/product/bepanthinh/lo-nuong-ariston-fh99ixx500x500x4.jpg" alt="Lò Nướng Ariston FH 99 IX">
-                                    </a>
-                                </div>
-                                <div class="text-item-sp">
-                                    <h3 class="h3-title"><a href="lo-nuong-ariston-fh-99-ix_3039.html">Lò Nướng Ariston FH 99 IX</a></h3>
-                                    <div class="price">
-                                        <span class="s-dell">23.000.000</span>
-                                        <span class="s-ins">20.700.000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="wp-item-sp-page">
-                                <div class="img-item-sp-page">
-                                    <a href="lo-nuong-ariston-os-99d-p-ix_3040.html">
-                                        <img class="owl-lazy" data-src="public/ResizeImage/images/product/bepanthinh/Lo-nuong-Ariston-OS-99D-P-IXx500x500x4.png" src="public/ResizeImage/images/product/bepanthinh/Lo-nuong-Ariston-OS-99D-P-IXx500x500x4.png" alt="Lò Nướng Ariston OS 99D P IX">
-                                    </a>
-                                </div>
-                                <div class="text-item-sp">
-                                    <h3 class="h3-title"><a href="lo-nuong-ariston-os-99d-p-ix_3040.html">Lò Nướng Ariston OS 99D P IX</a></h3>
-                                    <div class="price">
-                                        <span class="s-dell">18.900.000</span>
-                                        <span class="s-ins">17.000.000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <?php endforeach; ?>
+
+
                     </div>
                 </div>
             </div>
         </div>
 </section>
-<section class="sec-06 md-od2">
-    <div class="container">
-        <div class="wp-sec-sanpham wp-thietbibep">
-            <div class="wp-title-sp">
-                <h2 class="h2-title"><a href="quat-tran-den.html">Quạt trần đèn</a></h2>
-                <button class="btn btn-click hidden-md hidden-lg"><i class="fas fa-sort-down"></i></button>
-                <ul class="ul-b list-link-title">
-                    <li><a href="quat-tran-canh-cup-xoe.html">Quạt Trần Cánh Cụp Xòe</a></li>
-                    <li><a href="quat-tran-khong-den.html">Quạt Trần Không Đèn</a></li>
-                    <li><a href="quat-tran-canh-la.html">Quạt Trần Cánh Lá</a></li>
-                    <li><a href="quat-tran-phong-tre-em.html">Quạt Trần Phòng Trẻ Em</a></li>
-                </ul>
-            </div>
-            <div class="wp-list-sp">
-                <div id="" class="slide-sp owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="wp-item-sp-page">
-                            <div class="img-item-sp-page">
-                                <a href="quat-tran-den-at6601.html">
-                                    <img class="owl-lazy" data-src="public/ResizeImage/images/pageimage/quattranden/1e4474622f04c85a9115x500x500x4.jpg" src="public/ResizeImage/images/pageimage/quattranden/1e4474622f04c85a9115x500x500x4.jpg" alt="Quạt trần đèn AT-6601">
-                                </a>
-                            </div>
-                            <div class="text-item-sp">
-                                <h3 class="h3-title"><a href="quat-tran-den-at6601.html">Quạt trần đèn AT-6601</a></h3>
-                                <div class="price">
-                                    <span class="s-dell">10.500.000</span>
-                                    <span class="s-ins">3.550.000</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="wp-item-sp-page">
-                            <div class="img-item-sp-page">
-                                <a href="quat-tran-canh-go-an-thinh-68at330y.html">
-                                    <img class="owl-lazy" data-src="public/ResizeImage/images/pageimage/quattranden/001b--Lan-qu-t-1650kx500x500x4.jpg" src="public/ResizeImage/images/pageimage/quattranden/001b--Lan-qu-t-1650kx500x500x4.jpg" alt="Quạt trần cánh gỗ An Thịnh 68AT-330Y">
-                                </a>
-                            </div>
-                            <div class="text-item-sp">
-                                <h3 class="h3-title"><a href="quat-tran-canh-go-an-thinh-68at330y.html">Quạt trần cánh gỗ An Thịnh 68AT-330Y</a></h3>
-                                <div class="price">
-                                    <span class="s-dell">3.990.000</span>
-                                    <span class="s-ins">2.550.000</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="wp-item-sp-page">
-                            <div class="img-item-sp-page">
-                                <a href="quat-tran-canh-go-an-thinh-66ta988.html">
-                                    <img class="owl-lazy" data-src="public/ResizeImage/images/product/bepanthinh/bepanthinh/quat-tran-den-060889x500x500x4.jpg" src="public/ResizeImage/images/product/bepanthinh/quat-tran-den-060889x500x500x4.jpg" alt="Quạt trần cánh gỗ An Thịnh 66TA-988">
-                                </a>
-                            </div>
-                            <div class="text-item-sp">
-                                <h3 class="h3-title"><a href="quat-tran-canh-go-an-thinh-66ta988.html">Quạt trần cánh gỗ An Thịnh 66TA-988</a></h3>
-                                <div class="price">
-                                    <span class="s-dell">4.950.000</span>
-                                    <span class="s-ins">2.990.000</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="item">
-                        <div class="wp-item-sp-page">
-                            <div class="img-item-sp-page">
-                                <a href="quat-tran-canh-go-an-thinh-68at330y.html">
-                                    <img class="owl-lazy" data-src="public/ResizeImage/images/pageimage/quattranden/bepanthinh/quat-tran-den-060889x500x500x4.jpg" src="public/ResizeImage/images/pageimage/quattranden/bepanthinh/quat-tran-den-060889x500x500x4.jpg" alt="Quạt trần cánh gỗ An Thịnh 68AT-330Y">
-                                </a>
-                            </div>
-                            <div class="text-item-sp">
-                                <h3 class="h3-title"><a href="quat-tran-canh-go-an-thinh-68at330y.html">Quạt trần cánh gỗ An Thịnh 68AT-330Y</a></h3>
-                                <div class="price">
-                                    <span class="s-dell">3.990.000</span>
-                                    <span class="s-ins">2.550.000</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+
+<?php endforeach ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="sec-10 md-od10">
     <div class="container">
         <div class="wp-sec-sanpham wp-sec-xakho">

@@ -81,5 +81,21 @@ class Category extends Database
 			return FALSE;
 		}
 	}
+	function get_category_by_id($id_string)
+	{
+		$strin = implode(', ', $id_string);
+		$sql="SELECT * FROM $this->table WHERE category_id IN ($strin);";
+		return $this->QueryAll($sql);
+	}
+	function get_categorys($id)
+	{
+		$sql = "SELECT * FROM $this->table WHERE category_parentid = $id AND category_status = '1' ORDER BY category_id DESC LIMIT 5";
+		return $this->QueryAll($sql);
+	}
+	function category_name_by_id($id)
+	{
+		$sql = " SELECT * FROM $this->table WHERE category_status = '1' AND category_id='$id' ";
+		return $this->QueryOne($sql);
+	}
 }
 ?>

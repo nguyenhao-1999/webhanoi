@@ -1,3 +1,4 @@
+
 <?php 
 if (!empty($slug = $_REQUEST['option'])) {
 $product=loadModel('product');
