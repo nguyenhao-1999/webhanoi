@@ -1,7 +1,6 @@
 <?php 
 class Product extends Database
 {
-	
 	function __construct()
 	{
 		parent::__construct();
@@ -17,9 +16,15 @@ class Product extends Database
 		$sql="SELECT * FROM $this->table WHERE product_status='1'";
 		return $this->QueryAll($sql);
 	}
-	function product_list($limit=4)
+	function product_list()
 	{
-		$sql="SELECT * FROM $this->table WHERE product_status='1'ORDER BY RAND() DESC LIMIT $limit";
+		$sql="SELECT * FROM $this->table WHERE product_status='1'";
+		return $this->QueryAll($sql);
+	}
+	function product_most($aorder,$limit=4)
+	{
+		$strin=implode($aorder,',');
+		$sql="SELECT * FROM $this->table WHERE product_status='1' AND product_id IN($strin) LIMIT $limit";
 		return $this->QueryAll($sql);
 	}
 	function product_promotion($limit=4)

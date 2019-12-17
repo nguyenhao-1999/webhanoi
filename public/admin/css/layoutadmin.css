@@ -1,0 +1,40 @@
+.nav-link
+{
+	color:white;
+}
+.dropdown-item
+{
+	color:black;
+}
+.account
+{
+	list-style:none outside;
+}
+.logout
+{
+	color:red;
+}
+.logout:hover
+{
+	text-decoration: none;
+}
+.khung
+{
+	max-width:500px;
+	min-height:300px;
+	margin:auto;
+	border-radius:10px;
+	border:1px solid #ccc;
+}
+.dropdown-menu a
+{
+	color:black;
+}
+.sorting
+{
+	width:0;
+}
+/*.dropdown:hover>.dropdown-menu 
+{
+  display: block;
+}*/
