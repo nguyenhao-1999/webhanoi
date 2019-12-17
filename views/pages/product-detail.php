@@ -1,6 +1,7 @@
 
 <?php 
 if (!empty($slug = $_REQUEST['option'])) {
+$option=loadModel('option');
 $product=loadModel('product');
 $category=loadModel('category');
 $option=loadModel('option');
@@ -9,6 +10,9 @@ if ($row['product_catid']) {
   $category_of_product = $category->category_of($row['product_catid']);
   $product_relate = $product->product_relate($row['product_catid'], $row['product_id']);
 }
+$address = $option->get_field(["option_name" => 'address', 'menu_status' => 1]);
+$phone = $option->get_field(["option_name" => 'phone', 'menu_status' => 1]);
+$city = $option->get_field(["option_name" => 'city', 'menu_status' => 1]);
 
 ?>
 <?php require_once('views/header.php'); ?>
@@ -66,7 +70,8 @@ if ($row['product_catid']) {
                                         <input type="hidden" id="__VIEWxSTATE" />
                                         <ul id='zoom1' class='gc-start'>
                                             <li>
-                                                <img src="public/ResizeImage/images/product/bepanthinh/anhchinh/<?php echo $row['product_img']; ?>" alt="<?php echo $row['product_name']; ?>" /></li>
+                                                <img src="<?php echo $row['product_img']; ?>" alt="<?php echo $row['product_name']; ?>" />
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -74,6 +79,7 @@ if ($row['product_catid']) {
                             <div class="col-md-7 col-sm-12 col-xs-12 col-edit-0">
                                 <div class="wp-right-box-img">
                                     <div class="top-box-img">
+                                        <?php if($row['product_pricesale']>0): ?>
                                         <div class="wp-gia-km">
                                             <span>Giá KM:<b><?php echo number_format($row['product_pricesale'], 0, '', '.'); ?> đ</b></span>
                                         </div>
@@ -83,12 +89,17 @@ if ($row['product_catid']) {
                                         <div class="wp-tiet-kiem">
                                             <span>Tiết kiệm: <?php echo number_format($row['product_price']-$row['product_pricesale'], 0, '', '.') ?> đ</span>
                                         </div>
+                                        <?php else: ?>
+                                            <div class="wp-gia-km">
+                                            <span>Giá :<b><?php echo number_format($row['product_price'], 0, '', '.'); ?> đ</b></span>
+                                        </div>
+                                    <?php endif; ?>
                                     </div>
                                     <div class="main-box-img">
                                         <div class="box-s1">
                                             <div class="box-qua">
                                                 <ul class="ul-b list-qua">
-                                                    <?php if($row['product_informations']) echo $row['product_informations']; ?>
+                                                    <?php if($row['product_detail']) echo $row['product_detail']; ?>
                                                 </ul>
                                             </div>
                                             <div class="box-btn">
@@ -109,26 +120,10 @@ if ($row['product_catid']) {
                                             <div class="box-address scroll">
                                                 <div class="box-add1">
                                                     <div class="wp-ft2">
-                                                        <h3 class="h3-title"><i class="fas fa-map-marker-alt"></i><span>HÀ NỘI</span><span class="p-gt"><a href="#">(Giới thiệu về showroom)</a></span></h3>
-                                                        <p class="p-ft"><b>Địa chỉ:</b>374 Khâm Thiên, Đống Đa, Hà Nội</p>
-                                                        <p class="p-ft"><b>Hotline:</b> 0913 14 1368</p>
+                                                        <h3 class="h3-title"><i class="fas fa-map-marker-alt"></i><span><?php echo $city["option_value"]; ?></span><span class="p-gt"><a href="#">(Giới thiệu về showroom)</a></span></h3>
+                                                        <p class="p-ft"><b>Địa chỉ:</b><?php echo $address["option_value"]; ?></p>
+                                                        <p class="p-ft"><b>Hotline:</b> <?php echo $phone["option_value"]; ?></p>
                                                         <p class="p-ft p-map"><a href="https://www.google.com/maps/place/374+Khâm+Thiên,+Thổ+Quan,+Đống+Đa,+Hà+Nội,+Việt+Nam/@21.019416,105.8294143,17z/data=!3m1!4b1!4m5!3m4!1s0x3135ab82de00b9e1:0x69820c73a6ef445e!8m2!3d21.019411!4d105.831603?hl=vi-VN" target="_blank">(Xem chỉ dẫn)</a></p>
-                                                    </div>
-                                                </div>
-                                                <div class="box-add1">
-                                                    <div class="wp-ft2">
-                                                        <h3 class="h3-title"><i class="fas fa-map-marker-alt"></i><span>TP. HỒ CHÍ MINH</span><span class="p-gt"><a href="#">(Giới thiệu về showroom)</a></span></h3>
-                                                        <p class="p-ft"><b>Địa chỉ:</b>358 Hoàng Văn Thụ, P.4, Q Tân Bình</p>
-                                                        <p class="p-ft"><b>Hotline:</b>0888 34 1368</p>
-                                                        <p class="p-ft p-map"><a href="https://www.google.com/maps/place/358+Hoàng+Văn+Thụ,+Phường+4,+Tân+Bình,+Hồ+Chí+Minh,+Việt+Nam/@10.7967163,106.6546763,17z/data=!3m1!4b1!4m5!3m4!1s0x31752934216a497b:0xa5677a9f45820a05!8m2!3d10.796711!4d106.656865?hl=vi-VN" target="_blank">(Xem chỉ dẫn)</a></p>
-                                                    </div>
-                                                </div>
-                                                <div class="box-add1">
-                                                    <div class="wp-ft2">
-                                                        <h3 class="h3-title"><i class="fas fa-map-marker-alt"></i><span>TP. HỒ CHÍ MINH (Đang Sửa Chữa)</span><span class="p-gt"><a href="#">(Giới thiệu về showroom)</a></span></h3>
-                                                        <p class="p-ft"><b>Địa chỉ:</b>Bạch Đằng, P.24, Q Bình Thạnh, HCM</p>
-                                                        <p class="p-ft"><b>Hotline:</b>0888 34 1368</p>
-                                                        <p class="p-ft p-map"><a href="https://www.google.com/maps/place/Bạch+Đằng,+Bình+Thạnh,+Hồ+Chí+Minh,+Việt+Nam/@10.8032602,106.7025894,17z/data=!3m1!4b1!4m5!3m4!1s0x317528b90de0190f:0x7b8be3f539221109!8m2!3d10.8032549!4d106.7047781?hl=vi-VN" target="_blank">(Xem chỉ dẫn)</a></p>
                                                     </div>
                                                 </div>
                                             </div>

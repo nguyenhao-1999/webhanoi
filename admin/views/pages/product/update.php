@@ -103,9 +103,9 @@ $title="Sửa sản phẩm";
             </select>
           </fieldset>
           <fieldset class="form-group">
-                <img src="../public/upload/<?php echo $row['product_img']; ?>" alt="sss" id="uml_img_test" style="width: 150px;height: 150px; border: 1px #eee solid;">
+                <img src="../<?php echo $row['product_img']; ?>" alt="sss" id="uml_img_test" style="width: 150px;height: 150px; border: 1px #eee solid;">
                 <div class="input-group mb-3">
-                  <input type="hidden" id="ckfinder-input-1" name="img" class="form-control" required aria-describedby="basic-addon2">
+                  <input type="hidden" id="ckfinder-input-1" name="img" value="<?php echo $row['product_img']; ?>" class="form-control" required aria-describedby="basic-addon2">
                   <div class="input-group-append">
                     <button type="button" id="ckfinder-popup-1">Chọn hình</button>
                 </div>
@@ -167,5 +167,32 @@ $title="Sửa sản phẩm";
     });
 });
 </script>
+<script>
+  var button1 = document.getElementById( 'ckfinder-popup-1' );
 
+  button1.onclick = function() {
+    selectFileWithCKFinder( 'ckfinder-input-1' );
+  };
+
+  function selectFileWithCKFinder( elementId ) {
+  CKFinder.modal( {
+    chooseFiles: true,
+    width: 800,
+    height: 600,
+    onInit: function( finder ) {
+      finder.on( 'files:choose', function( evt ) {
+        var file = evt.data.files.first();
+        var output = document.getElementById( elementId );
+        $('#uml_img_test').attr('src', file.getUrl() );
+        $('#ckfinder-input-1').val(file.getUrl());
+      } );
+
+      finder.on( 'file:choose:resizedImage', function( evt ) {
+        var output = document.getElementById( elementId );
+        output.value = evt.data.resizedUrl;
+      } );
+    }
+  } );
+}
+</script>
   <?php require_once 'views/footer.php'; ?>
