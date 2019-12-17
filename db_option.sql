@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 17, 2019 lúc 06:18 PM
+-- Thời gian đã tạo: Th12 17, 2019 lúc 10:03 PM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.3.9
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `db_option` (
   `option_id` int(11) NOT NULL,
   `option_name` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
-  `option_value` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `option_value` text COLLATE utf8_unicode_ci NOT NULL,
   `option_updatedat` datetime NOT NULL,
   `option_updatedby` int(11) NOT NULL DEFAULT 1,
   `option_createdat` datetime NOT NULL,
@@ -90,7 +90,16 @@ INSERT INTO `db_option` (`option_id`, `option_name`, `option_value`, `option_upd
 (48, 'cuongthuong', '#', '2019-12-15 03:28:17', 1, '2019-12-15 03:28:17', 1, 1),
 (49, 'customer_reviews', 'Với phương châm làm nghề bằng tất cả “Cái tâm” và “Sự tử tế” - Bếp An Thịnh cam kết đem tới cho Quý khách sản phẩm chất lượng tốt nhất với giá cạnh tranh nhất cùng dịch vụ hậu mãi hoàn hảo. Sự hài lòng của khách hàng là tiêu chí phát triển hàng đầu của chúng tôi!', '2019-12-15 15:27:02', 1, '2019-12-15 15:27:02', 1, 1),
 (50, 'customer_reviews_author', 'Nguyễn Thùy Dung - CEO Bếp Quang Vinh', '2019-12-15 15:27:02', 1, '2019-12-15 15:27:02', 1, 1),
-(51, 'servics', '[{\"title\":\"100% CHÍNH HÃNG\",\"content\":\"An Thịnh là đối tác số 1 của hàng trăm thương hiệu thiết bị nhà bếp hàng đầu thế giới như Bosch,Teka, Fagor, Cata, Munchen, Bauknecht... Cam kết đền 1 tỷ đồng nếu phát hiện hàng giả, hàng nhái.\"},{\"title\":\"100% CHÍNH HÃNG\",\"content\":\"An Thịnh là đối tác số 1 của hàng trăm thương hiệu thiết bị nhà bếp hàng đầu thế giới như Bosch,Teka, Fagor, Cata, Munchen, Bauknecht... Cam kết đền 1 tỷ đồng nếu phát hiện hàng giả, hàng nhái.\"},{\"title\":\"100% CHÍNH HÃNG\",\"content\":\"An Thịnh là đối tác số 1 của hàng trăm thương hiệu thiết bị nhà bếp hàng đầu thế giới như Bosch,Teka, Fagor, Cata, Munchen, Bauknecht... Cam kết đền 1 tỷ đồng nếu phát hiện hàng giả, hàng nhái.\"}]', '2019-12-15 15:27:02', 1, '2019-12-15 15:27:02', 1, 1);
+(51, 'servics', '[{\"title\":\"100% CHÍNH HÃNG\",\"content\":\"An Thịnh là đối tác số 1 của hàng trăm thương hiệu thiết bị nhà bếp hàng đầu thế giới như Bosch,Teka, Fagor, Cata, Munchen, Bauknecht... Cam kết đền 1 tỷ đồng nếu phát hiện hàng giả, hàng nhái.\"},{\"title\":\"100% CHÍNH HÃNG\",\"content\":\"An Thịnh là đối tác số 1 của hàng trăm thương hiệu thiết bị nhà bếp hàng đầu thế giới như Bosch,Teka, Fagor, Cata, Munchen, Bauknecht... Cam kết đền 1 tỷ đồng nếu phát hiện hàng giả, hàng nhái.\"},{\"title\":\"100% CHÍNH HÃNG\",\"content\":\"An Thịnh là đối tác số 1 của hàng trăm thương hiệu thiết bị nhà bếp hàng đầu thế giới như Bosch,Teka, Fagor, Cata, Munchen, Bauknecht... Cam kết đền 1 tỷ đồng nếu phát hiện hàng giả, hàng nhái.\"}]', '2019-12-15 15:27:02', 1, '2019-12-15 15:27:02', 1, 1),
+(52, 'bannerTuvan', 'public/upload/images/bannerTuvan/ads1_03.png', '2019-12-15 16:17:17', 1, '2019-12-15 16:17:17', 1, 1),
+(53, 'city', 'Thành phố hồ chí minh', '2019-12-15 03:28:17', 1, '2019-12-15 03:28:17', 1, 1),
+(54, 'partner', '[10,8]', '2019-12-15 16:33:29', 1, '2019-12-15 16:33:29', 1, 1),
+(55, 'icon', 'icon.png', '2019-12-15 16:33:29', 1, '2019-12-15 16:33:29', 1, 1),
+(56, 'position', '[{\"position\":\"HÀ NỘI\",\"name\":\"Nguyễn văn A\",\"phone\":\"097777152320\",\"image\":\"public\\/images\\/icon-sp1.png\"},{\"position\":\"HÀ NỘI\",\"name\":\"Nguyễn văn A\",\"phone\":\"097777152320\",\"image\":\"public\\/images\\/icon-sp1.png\"},{\"position\":\"HÀ NỘI\",\"name\":\"Nguyễn văn A\",\"phone\":\"097777152320\",\"image\":\"public\\/images\\/icon-sp1.png\"}]', '2019-12-15 19:29:34', 1, '2019-12-15 19:29:34', 1, 1),
+(57, 'topic1', '1', '2019-12-15 19:29:34', 1, '2019-12-15 19:29:34', 1, 1),
+(58, 'topic2', '1', '2019-12-15 19:29:34', 1, '2019-12-15 19:29:34', 1, 1),
+(59, 'videos', '[{\"link_youtube\":\"https:\\/\\/www.youtube.com\\/embed\\/T4ZcLOj94qs\",\"image\":\"public\\/upload\\/files\\/anh%20dai%20dien%20video\\/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png\",\"title\":\"Review chi tiết Hút mùi Arber TM01\\/TM02\\/TM03\",\"view\":\"2\"},{\"link_youtube\":\"https:\\/\\/www.youtube.com\\/embed\\/T4ZcLOj94qs\",\"image\":\"public\\/upload\\/files\\/anh%20dai%20dien%20video\\/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png\",\"title\":\"Review chi tiết Hút mùi Arber TM01\\/TM02\\/TM03\",\"view\":\"2\"},{\"link_youtube\":\"https:\\/\\/www.youtube.com\\/embed\\/T4ZcLOj94qs\",\"image\":\"public\\/upload\\/files\\/anh%20dai%20dien%20video\\/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png\",\"title\":\"Review chi tiết Hút mùi Arber TM01\\/TM02\\/TM03\",\"view\":\"2\"},{\"link_youtube\":\"https:\\/\\/www.youtube.com\\/embed\\/T4ZcLOj94qs\",\"image\":\"public\\/upload\\/files\\/anh%20dai%20dien%20video\\/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png\",\"title\":\"Review chi tiết Hút mùi Arber TM01\\/TM02\\/TM03\",\"view\":\"2\"},{\"link_youtube\":\"https:\\/\\/www.youtube.com\\/embed\\/T4ZcLOj94qs\",\"image\":\"public\\/upload\\/files\\/anh%20dai%20dien%20video\\/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png\",\"title\":\"Review chi tiết Hút mùi Arber TM01\\/TM02\\/TM03\",\"view\":\"2\"}]\r\n', '2019-12-15 19:29:34', 1, '2019-12-15 19:29:34', 1, 1),
+(60, 'actual_products', '22', '2019-12-15 19:29:34', 1, '2019-12-15 19:29:34', 1, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -110,7 +119,7 @@ ALTER TABLE `db_option`
 -- AUTO_INCREMENT cho bảng `db_option`
 --
 ALTER TABLE `db_option`
-  MODIFY `option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
