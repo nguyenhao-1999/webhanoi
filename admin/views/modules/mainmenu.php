@@ -44,6 +44,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="index.php?option=menu">Menu</a>
           <a class="dropdown-item" href="index.php?option=slider">Slider</a>
+          <a class="dropdown-item" href="index.php?option=home">Trang chủ</a>
+          <a class="dropdown-item" href="index.php?option=setting">Cài đặt</a>
         </div>
       </li>
       <li class="nav-item dropdown">

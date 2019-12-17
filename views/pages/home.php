@@ -45,12 +45,15 @@ $position_arr  = json_decode($position["option_value"]);
 
 // lấy ra chủ để của bài viết
 $topic1 = $option->get_field(["option_name" => 'topic1', 'menu_status' => 1]);
+$topic2 = $option->get_field(["option_name" => 'topic2', 'menu_status' => 1]);
 
 $get_posts_by_id1 = $post->get_posts_by_id($topic1["option_value"],  3);
 $get_posts_by_id2 = $post->get_posts_by_id($topic2["option_value"],  4);
 
 // sản phẩm bàn giao thực tế
 $actual_products = $option->get_field(["option_name" => 'actual_products', 'menu_status' => 1]);
+$actual_products_arr = $product->get_products($actual_products["option_value"]);
+//var_dump($actual_products_arr);
 
 require_once('views/header.php');
 ?>
@@ -105,15 +108,6 @@ require_once('views/header.php');
         </div>
     </section>
 
-
-<?php 
-
-/*$video = [['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],['link_youtube' => 'https://www.youtube.com/embed/T4ZcLOj94qs', 'image' => 'public/upload/files/anh%20dai%20dien%20video/h%c3%acnh%20%c4%91%e1%ba%a1i%20di%e1%bb%87n%20tm01%20750x500.png', 'title' => 'Review chi tiết Hút mùi Arber TM01/TM02/TM03', 'view' => '2', ],];
-
-echo json_encode( $video, JSON_UNESCAPED_UNICODE  );*/
-
-
-?>
     <!-- end sec 02 -->
     <section class="sec-03 md-od7">
         <div class="container">
@@ -177,74 +171,41 @@ echo json_encode( $video, JSON_UNESCAPED_UNICODE  );*/
                     </h2>
                 </div>
                 <div id="slider-congtrinh" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="wp-item-congtrinh">
-                            <div class="img-ctrinh">
-                                <a href="san-pham-ban-giao-thuc-te.html">
-                                    <img src="public/ResizeImage/images/may-hut-mui-arber-ab700ka-1-x300x300x4.jpg" alt="Máy hút mùi Arber AB-700KA"></a>
-                            </div>
-                            <div class="text-ctrinh">
-                                <h3 class="h3-title"><a href="#">Máy hút mùi Arber AB-700KA</a></h3>
-                                <p class="p-ctiet"><a href="#">Xem chi tiết <i class="fas fa-chevron-right"></i></a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="wp-item-congtrinh">
-                            <div class="img-ctrinh">
-                                <a href="san-pham-ban-giao-thuc-te.html">
-                                    <img src="public/ResizeImage/images/bep-tu-teka-irs-943-2-x300x300x4.png" alt="Bếp từ Teka IRS 943"></a>
-                            </div>
-                            <div class="text-ctrinh">
-                                <h3 class="h3-title"><a href="#">Bếp từ Teka IRS 943</a></h3>
-                                <p class="p-ctiet"><a href="#">Xem chi tiết <i class="fas fa-chevron-right"></i></a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="wp-item-congtrinh">
-                            <div class="img-ctrinh">
-                                <a href="san-pham-ban-giao-thuc-te.html">
-                                    <img src="public/ResizeImage/images/bep-tu-rommelsbacher-ebc-3410in-3-x300x300x4.png" alt="Bếp từ Rommelsbacher EBC 3410 IN"></a>
-                            </div>
-                            <div class="text-ctrinh">
-                                <h3 class="h3-title"><a href="#">Bếp từ Rommelsbacher EBC 3410 IN</a></h3>
-                                <p class="p-ctiet"><a href="#">Xem chi tiết <i class="fas fa-chevron-right"></i></a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="wp-item-congtrinh">
-                            <div class="img-ctrinh">
-                                <a href="san-pham-ban-giao-thuc-te.html">
-                                    <img src="public/ResizeImage/images/bep-tu-munchen-gm-6232x300x300x4.png" alt="Bếp từ Munchen GM 6232"></a>
-                            </div>
-                            <div class="text-ctrinh">
-                                <h3 class="h3-title"><a href="#">Bếp từ Munchen GM 6232</a></h3>
-                                <p class="p-ctiet"><a href="#">Xem chi tiết <i class="fas fa-chevron-right"></i></a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="wp-item-congtrinh">
-                            <div class="img-ctrinh">
-                                <a href="san-pham-ban-giao-thuc-te.html">
-                                    <img src="public/ResizeImage/images/bep-tu-munchen-gm-292sx300x300x4.png" alt="Bếp từ Munchen GM 292S"></a>
-                            </div>
-                            <div class="text-ctrinh">
-                                <h3 class="h3-title"><a href="#">Bếp từ Munchen GM 292S</a></h3>
-                                <p class="p-ctiet"><a href="#">Xem chi tiết <i class="fas fa-chevron-right"></i></a></p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php foreach ($actual_products_arr as $actual_p_key => $actual_p) {
+                        echo '<div class="item">
+                                <div class="wp-item-congtrinh">
+                                    <div class="img-ctrinh">
+                                        <a href="san-pham-ban-giao-thuc-te.html">
+                                            <img src="'.$actual_p['product_slug'].'" alt="'.$actual_p['product_name'].'"></a>
+                                    </div>
+                                    <div class="text-ctrinh">
+                                        <h3 class="h3-title"><a href="'.$actual_p['product_slug'].'">'.$actual_p['product_name'].'</a></h3>
+                                        <p class="p-ctiet"><a href="'.$actual_p['product_slug'].'">Xem chi tiết <i class="fas fa-chevron-right"></i></a></p>
+                                    </div>
+                                </div>
+                            </div>';
+                    } ?>
                 </div>
             </div>
         </div>
     </section>
     <!-- end sec 04 -->
+
+
+
+
+
+
+
+
+
+
+
+
+    
     <section class="sec-05 md-od9">
         <div class="container">
-            <div class="wp-content-sec">
+<!--             <div class="wp-content-sec">
                 <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="wp-box-sec05">
@@ -313,7 +274,7 @@ echo json_encode( $video, JSON_UNESCAPED_UNICODE  );*/
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
