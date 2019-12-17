@@ -9,10 +9,6 @@ if($row==null)
 }
 else
 {
-	if(file_exists('../public/images/product/'.$row['product_img']))
-	{
-		unlink('../public/images/product/'.$row['product_img']);
-	}
 	$product->product_delete($id);
 	set_flash('thongbao',['type'=>'success','msg'=>'Xóa thành công']);
 	redirect('index.php?option=product&cat=trash');

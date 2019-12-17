@@ -52,7 +52,7 @@ else
                                         <div class="wp-item-danhmuc">
                                             <div class="img-danhmuc img-cover">
                                                 <a href="<?php echo $row['category_slug']; ?>.html">
-                                                    <img src="public/upload/files/<?php echo $row['category_img']; ?>" alt="Bếp từ" />
+                                                    <img src="<?php echo $row['category_img']; ?>" alt="Bếp từ" />
                                                 </a>
                                             </div>
                                             <div class="text-danhmuc">

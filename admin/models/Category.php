@@ -9,30 +9,29 @@ class Category extends Database
 	}
 	function category_namecat($id)
 	{
-		$sql="SELECT * FROM $this->table WHERE category_id='$id' LIMIT 1";
-		return $this->QueryOne($sql);
-	}
-	function category_nametrademark($id)
-	{
-		$sql="SELECT * FROM $this->table WHERE category_id='$id' LIMIT 1";
+		$sql="SELECT * FROM $this->table WHERE category_id='$id' AND category_type='category'LIMIT 1";
 		$row=$this->QueryOne($sql);
+		if($row==null)
+		{
+			return "uncategory";
+		}
 		return $row['category_name'];
 	}
-	function category_list($page='index')
+	function category_list($page='index',$id=0)
 	{
-		$sql="SELECT * FROM $this->table WHERE category_status!='0'ORDER BY category_order ASC";
+		$sql="SELECT * FROM $this->table WHERE category_status!='0' AND category_id!='$id' AND category_type='category' ORDER BY category_order ASC";
 		if($page!='index')
 		{
-			$sql="SELECT * FROM $this->table WHERE category_status='0'ORDER BY category_order ASC";
+			$sql="SELECT * FROM $this->table WHERE category_status='0' AND category_id!='$id' AND category_type='category' ORDER BY category_order ASC";
 		}
 		return $this->QueryAll($sql);
 	}
 	function category_trademark($page='index')
 	{
-		$sql="SELECT * FROM $this->table WHERE category_status!='0'ORDER BY category_order ASC";
+		$sql="SELECT * FROM $this->table WHERE category_status!='0' AND category_parentid!=0 AND category_type='trademark' ORDER BY category_order ASC";
 		if($page!='index')
 		{
-			$sql="SELECT * FROM $this->table WHERE category_status='0'ORDER BY category_order ASC";
+			$sql="SELECT * FROM $this->table WHERE category_status='0' AND category_parentid!=0 AND category_type='trademark' ORDER BY category_order ASC";
 		}
 		return $this->QueryAll($sql);
 	}

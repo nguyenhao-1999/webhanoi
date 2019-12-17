@@ -1,17 +1,12 @@
 <?php 
 $category=loadModel('category');
 $listcategory=$category->category_list('index');
-$listtrademark=$category->category_trademark('index');
 $html_catid='';
 foreach($listcategory as $cat)
 {
   $html_catid.="<option value='".$cat['category_id']."'>".$cat['category_name']."</option>";
 }
-foreach($listtrademark as $cat)
-{
-  $html_trademark.="<option value='".$cat['category_id']."'>".$cat['category_name']."</option>";
-}
-$title="Thêm sản phẩm";
+$title="Quản lý tất cả sản phẩm";
 ?>
 
 <?php require_once 'views/header.php'; ?>
@@ -57,13 +52,6 @@ $title="Thêm sản phẩm";
           </div>
           <div class="col-md-3">
             <fieldset class="form-group">
-              <label for="thuonghieu">Thương hiệu</label>
-              <select name="thuonghieu" class="form-control" required id="thuonghieu">
-                <option value="">[--Chọn thương hiệu--]</option>
-                <?php echo $html_catid; ?>
-              </select>
-            </fieldset>
-            <fieldset class="form-group">
               <label for="loaisp">Loại sản phẩm</label>
               <select name="catid" class="form-control" required id="loaisp">
                 <option value="">[--Chọn loại sản phẩm--]</option>
@@ -86,13 +74,14 @@ $title="Thêm sản phẩm";
 
             </fieldset>
             <fieldset class="form-group">
-                <img src="../public/images/noImg.jpg" alt="sss" id="uml_img_test" style="width: 150px;height: 150px; border: 1px #eee solid;">
+              <label for="img">Hình đại diện</label>
                 <div class="input-group mb-3">
                   <input type="hidden" id="ckfinder-input-1" name="img" class="form-control" required aria-describedby="basic-addon2">
                   <div class="input-group-append">
                     <button type="button" id="ckfinder-popup-1">Chọn hình</button>
                 </div>
               </div>
+              <img src="../public/images/noImg.jpg" alt="Chọn hình"  class="mb-2"id="uml_img_test" style="width: 150px;height: 150px; border: 1px #eee solid;">
               </fieldset>
             <fieldset class="form-group">
               <label for="trangthai">Trạng thái</label>

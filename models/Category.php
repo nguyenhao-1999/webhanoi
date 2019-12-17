@@ -11,11 +11,11 @@ class Category extends Database
 	{
 		if($id!=0)
 		{
-			$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_parentid='$parentid'AND category_trademark='$id' ORDER BY category_order ASC";
+			$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_parentid='$parentid'AND category_trademark='$id'";
 		}
 		else
 		{
-			$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_parentid='$parentid' ORDER BY category_order ASC";
+			$sql="SELECT * FROM $this->table WHERE category_status='1' AND category_parentid='$parentid' ";
 		}
 		return $this->QueryAll($sql);
 	}
