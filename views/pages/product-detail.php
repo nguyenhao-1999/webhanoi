@@ -227,34 +227,11 @@ if ($row['product_catid']) {
                                             <div class="wp-tab-thongso">
                                                 <div class="table-responsive">
                                                     <ul class='specifications'>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Loại sản phẩm: Máy hút mùi tum kính</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Mã sản phẩm: <strong>ABBAKA AB 70 PQ</strong></span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Hãng sản xuất: ABBAKA</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Xuất xứ: Italy</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Chất liệu: Inox</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Công suất hút: 1000m3/h _+60m3/h</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Độ ồn: =<></span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Kích thước: 90cm</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">GW/NW: 29/25KG</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Điện Áp: 240V/60Hz</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Áp lực gió: 160Pa</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Lưới lọc mỡ: Aluminium – 5 lớp</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Ống thoát khí: (150mm)</span></span>
-                                                        </li>
-                                                        <li><span style="font-size:16px"><span style="font-family:times new roman,times,serif">Bảo hành: 3 năm</span></span>
-                                                        </li>
+                                                        <?php $arr_informations = json_decode($row['product_informations']);
+                                                        foreach ($arr_informations as $key => $info) {
+                                                            echo '<li><span style="font-size:16px "><span style="font-family:times new roman,times,serif"><b>'.$info[0].'</b>: '.$info[1].'</span></span></li>';
+                                                        }
+                                                         ?>
                                                     </ul>
                                                 </div>
                                             </div>

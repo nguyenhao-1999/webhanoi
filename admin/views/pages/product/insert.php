@@ -36,6 +36,11 @@ $title="Thêm sản phẩm";
               <textarea name="detail" class="form-control" id="chitietsp" required rows="7"></textarea>
             </fieldset>
             <fieldset class="form-group">
+                <label for="informations">Thông số kỹ thuật</label>
+                <div id="buildyourform"></div>
+                <input type="button" value="Thêm mới" class="add" id="add" />
+            </fieldset>
+            <fieldset class="form-group">
               <label for="mota">Mô tả sản phẩm</label>
               <textarea name="metadesc" class="form-control" id="mota" rows="2"></textarea>
             </fieldset>
@@ -69,9 +74,14 @@ $title="Thêm sản phẩm";
 
             </fieldset>
             <fieldset class="form-group">
-              <label for="hinh">Hình đại diện</label>
-              <input type="file" name="img" class="form-control" required id="hinh">
-            </fieldset>
+                <img src="../public/images/noImg.jpg" alt="sss" id="uml_img_test" style="width: 150px;height: 150px; border: 1px #eee solid;">
+                <div class="input-group mb-3">
+                  <input type="hidden" id="ckfinder-input-1" name="img" class="form-control" required aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button type="button" id="ckfinder-popup-1">Chọn hình</button>
+                </div>
+              </div>
+              </fieldset>
             <fieldset class="form-group">
               <label for="trangthai">Trạng thái</label>
               <select name="status" class="form-control" id="trangthai">
@@ -79,6 +89,9 @@ $title="Thêm sản phẩm";
                 <option value="2"> Chưa xuất bản</option>
               </select>
             </fieldset>
+
+
+
           </div>
         </div>
       </div>
@@ -90,7 +103,88 @@ $title="Thêm sản phẩm";
   $(document).ready( function () {
     $('#myTable').DataTable();
   } );
-  CKEDITOR.replace('chitietsp');
-</script>
+  CKEDITOR.replace( 'chitietsp');
 
+
+// thay đổi hình ảnh ở trang hiện tại
+
+  $(document).ready( function () {
+    $('#add-btn-informations').on('click', function(){
+      $("#infomation").append('<input type="text" value="" name="informations[]" class="form-control">');
+    });
+  });
+
+
+
+
+  $(document).ready(function() {
+    $("#add").click(function() {
+        var lastField = $("#buildyourform div:last");
+        var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
+        var fieldWrapper = $("<div class=\"fieldwrapper row  mb-1\" id=\"field" + intId + "\"/>");
+        fieldWrapper.data("idx", intId);
+        var fName = $("<div class=\"col-md-4\"><input type=\"text\" placeholder=\"Tiêu đề thông số\" class=\"fieldname form-control\" name=\"informations_field1[]\" /></div>");
+        var fType = $("<div class=\"col-md-7\"><input type=\"text\" placeholder=\"Nội dung thông số\" class=\"fieldname form-control\" name=\"informations_field2[]\" /></div>");
+        var removeButton = $("<input type=\"button\" class=\"btn btn-danger remove\" value=\"x\" />");
+        removeButton.click(function() {
+            $(this).parent().remove();
+        });
+        fieldWrapper.append(fName);
+        fieldWrapper.append(fType);
+        fieldWrapper.append(removeButton);
+        $("#buildyourform").append(fieldWrapper);
+    });
+    $("#preview").click(function() {
+        $("#yourform").remove();
+        var fieldSet = $("<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>");
+        $("#buildyourform div").each(function() {
+            var id = "input" + $(this).attr("id").replace("field","");
+            var label = $("<label for=\"" + id + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
+            var input;
+            switch ($(this).find("select.fieldtype").first().val()) {
+                case "checkbox":
+                    input = $("<input type=\"checkbox\" id=\"" + id + "\" name=\"" + id + "\" />");
+                    break;
+                case "textbox":
+                    input = $("<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" />");
+                    break;
+                case "textarea":
+                    input = $("<textarea id=\"" + id + "\" name=\"" + id + "\" ></textarea>");
+                    break;    
+            }
+            fieldSet.append(label);
+            fieldSet.append(input);
+        });
+        $("body").append(fieldSet);
+    });
+});
+</script>
+<script>
+  var button1 = document.getElementById( 'ckfinder-popup-1' );
+
+  button1.onclick = function() {
+    selectFileWithCKFinder( 'ckfinder-input-1' );
+  };
+
+  function selectFileWithCKFinder( elementId ) {
+  CKFinder.modal( {
+    chooseFiles: true,
+    width: 800,
+    height: 600,
+    onInit: function( finder ) {
+      finder.on( 'files:choose', function( evt ) {
+        var file = evt.data.files.first();
+        var output = document.getElementById( elementId );
+        $('#uml_img_test').attr('src', file.getUrl() );
+        $('#ckfinder-input-1').val(file.getUrl());
+      } );
+
+      finder.on( 'file:choose:resizedImage', function( evt ) {
+        var output = document.getElementById( elementId );
+        output.value = evt.data.resizedUrl;
+      } );
+    }
+  } );
+}
+</script>
   <?php require_once 'views/footer.php'; ?>

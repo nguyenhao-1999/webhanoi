@@ -51,6 +51,9 @@ class Link extends Database
                      case 'search':
                         $view='search.php';
                         break;
+                    case 'ckfinder':
+                        require_once($url);
+                        break;
                     default:
                         $view='error404.php';
                         break;
